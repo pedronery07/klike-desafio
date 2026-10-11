@@ -33,3 +33,22 @@ Alimenta a seção "Processo de pensamento" do README.
 ### D6. Tetos no CTR e no engagement (observação)
 - **Vi:** 55 campanhas com CTR exatamente 0,15 e 11 com engagement exatamente 0,10, o que indica clipping na geração dos dados.
 - **Implicação:** os efeitos no topo da distribuição ficam subestimados. Medianas são mais robustas a isso do que médias.
+
+## EDA (`notebooks/01_eda.ipynb`, `src/klike/analysis.py`)
+
+### D7. Medianas com IC bootstrap em vez de médias com teste t
+- **Por quê:** as métricas têm cauda longa e teto artificial (D6), e n é pequeno por segmento. A mediana é robusta, e o bootstrap não exige normalidade. O IC de 90% é mostrado para deixar explícita a incerteza (a engine também mostra o n).
+
+### D8. Métricas normalizadas em vez de volumes
+- **Decidi:** analisar CTR, engajamento, retenção (`avg_watch_time / duração`), taxa de conversão (`conversões / cliques`) e ROAS, não impressões ou conversões absolutas.
+- **Por quê:** volumes refletem orçamento, não a qualidade do criativo.
+
+### D9. Checagem de confounding com regressão em log(métrica)
+- **Vi:** no bruto, campanhas com hook têm ROAS 21% menor.
+- **Decidi:** comparar o lift bruto com o efeito ajustado (regressão com plataforma, objetivo, categoria, formato, densidade de texto, idade e retargeting como controles).
+- **Resultado:** o efeito ajustado do hook no ROAS é ≈ −2%, ou seja, nulo. O efeito bruto era mix: só 18% das campanhas com hook são retargeting contra 25% das sem hook, e retargeting quase dobra o ROAS. Para CTR, engajamento e score, bruto e ajustado concordam em sinal e ordem de grandeza.
+- **Implicação para a engine:** usar efeitos condicionados ao contexto (por plataforma e pelo modelo), nunca médias brutas globais.
+
+### D10. A duração é tratada como hipótese, não como regra
+- **Vi:** |ρ| < 0,15 entre duração e as métricas; as medianas por faixa oscilam bastante com n pequeno.
+- **Decidi:** reportar as faixas com melhor CTR por plataforma (Meta 11–15s, TikTok 16–30s), mas com peso baixo na engine e linguagem de "teste sugerido".
