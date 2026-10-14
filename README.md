@@ -38,7 +38,7 @@ src/klike/              código reutilizável
   data.py               carga e limpeza (correção de inconsistências)
   analysis.py           lift com IC bootstrap e efeito ajustado por regressão
   paths.py              caminhos do projeto
-reports/figures/        figuras usadas na análise
+reports/figures/        figuras da EDA (eda/) e da modelagem (modelagem/)
 tests/                  testes da engine
 pyproject.toml          define o pacote `klike` para que notebooks e scripts importem `src/klike`
 ```
@@ -53,7 +53,7 @@ pyproject.toml          define o pacote `klike` para que notebooks e scripts imp
 - **As boas práticas se somam:** o score mediano vai de 36 (nenhuma) a 81 (hook + rosto + CTA + legenda).
 - **Cuidado com confounding:** no bruto, campanhas com hook têm ROAS 21% menor. Ajustando pelo contexto (principalmente a plataforma), o efeito é ≈ −2%, ou seja, nulo. Por isso a engine vai usar efeitos condicionados ao contexto, não médias globais.
 
-![Lift por plataforma](reports/figures/01_lift_por_plataforma.png)
-![Boas práticas e score](reports/figures/02_escada_boas_praticas.png)
+![Lift por plataforma](reports/figures/eda/01_lift_por_plataforma.png)
+![Boas práticas e score](reports/figures/eda/02_escada_boas_praticas.png)
 
 Detalhes, gráficos e interpretações em `notebooks/01_eda.ipynb`; justificativas em `docs/decisions.md`.
