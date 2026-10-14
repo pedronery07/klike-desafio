@@ -8,13 +8,14 @@ Alimenta a seção "Processo de pensamento" do README.
 ### D1. Impressões infladas em 4 linhas
 - **Vi:** KLK-0148, 0232, 0258 e 0413 têm 12–14M impressões (a próxima maior tem 1,6M), e `clicks/impressions` não bate com o `ctr` registrado.
 - **Decidi:** reconstruir `impressions = clicks / ctr`.
-- **Por quê:** cliques, CTR, spend e CPC são coerentes entre si nessas linhas; só impressões destoa. Corrigir preserva as 4 campanhas (que têm atributos criativos válidos) em vez de descartá-las.
-- **Descartei:** remover as linhas (perde informação boa por causa de um campo) e winsorizar (esconderia um erro de registro como se fosse um outlier legítimo).
+- **Por quê:** cliques, CTR, spend e CPC são coerentes entre si nessas linhas; só impressões destoa. O custo por mil impressões confirma: com 12–14M impressões, o CPM seria de R$ 0,01–0,66, contra mínimo de R$ 1,31 nas outras 496 campanhas (mediana de R$ 27 no TikTok). Com as impressões recalculadas, os CPMs ficam normais (R$ 8–128). Corrigir preserva as 4 campanhas, que têm atributos criativos válidos, em vez de descartá-las.
+- **Descartei:** remover as linhas (perde informação boa por causa de um campo).
 
 ### D2. Spend e CPC inconsistentes em 6 linhas
 - **Vi:** `spend/clicks ≠ cpc`, e em todos os casos um dos dois está inflado em várias vezes. Em 3 linhas o inflado é o spend (KLK-0109, 0224, 0259) e em 3 é o CPC (KLK-0100, 0240, 0416, com CPC entre 20 e 26 contra uma mediana de ~0,8).
 - **Decidi:** o spend correto é o menor entre `spend` e `cpc × clicks`; depois o CPC é recalculado como `spend/clicks`.
-- **Por quê:** onde há receita para checar (KLK-0109 e KLK-0259), `revenue/roas` bate exatamente com o spend menor, o que confirma a regra.
+- **Por quê:** o ROAS funciona como terceira coluna de desempate e confirma a regra em **5 dos 6** casos. Em KLK-0109 e 0259, `revenue/roas` reproduz exatamente `cpc × clicks`, então o spend é que estava errado. Em KLK-0100, 0240 e 0416, `revenue/spend` reproduz exatamente o ROAS registrado, então o spend está certo e o CPC estava errado. O KLK-0224 tem receita zero e não permite a checagem; ali a escolha se apoia no CPC registrado (R$ 1,22) ser plausível para o Meta.
+- **Ressalva:** é uma inferência, não uma certeza. A correção escolhida é a única que torna a linha inteira coerente. As 10 linhas corrigidas (2% da base) ficam marcadas na coluna `data_issue`.
 
 ### D3. CPC e receita faltantes são deriváveis
 - **Vi:** 28 CPCs e 25 receitas faltando, mas `spend`, `clicks` e `roas` estão sempre presentes.
@@ -40,13 +41,13 @@ Alimenta a seção "Processo de pensamento" do README.
 - **Por quê:** as métricas têm cauda longa e teto artificial (D6), e n é pequeno por segmento. A mediana é robusta, e o bootstrap não exige normalidade. O IC de 90% é mostrado para deixar explícita a incerteza (a engine também mostra o n).
 
 ### D8. Métricas normalizadas em vez de volumes
-- **Decidi:** analisar CTR, engajamento, retenção (`avg_watch_time / duração`), taxa de conversão (`conversões / cliques`) e ROAS, não impressões ou conversões absolutas.
+- **Decidi:** analisar CTR, engajamento, retenção (`avg_watch_time / duração`), taxa de conversão (`conversões / cliques`) e ROAS.
 - **Por quê:** volumes refletem orçamento, não a qualidade do criativo.
 
 ### D9. Checagem de confounding com regressão em log(métrica)
-- **Vi:** no bruto, campanhas com hook têm ROAS 21% menor.
-- **Decidi:** comparar o lift bruto com o efeito ajustado (regressão com plataforma, objetivo, categoria, formato, densidade de texto, idade e retargeting como controles).
-- **Resultado:** o efeito ajustado do hook no ROAS é ≈ −2%, ou seja, nulo. O efeito bruto era mix: só 18% das campanhas com hook são retargeting contra 25% das sem hook, e retargeting quase dobra o ROAS. Para CTR, engajamento e score, bruto e ajustado concordam em sinal e ordem de grandeza.
+- **Vi:** no bruto, campanhas com hook têm ROAS 21% menor (mediana).
+- **Decidi:** comparar o lift bruto com o efeito ajustado (regressão com plataforma, objetivo, categoria, formato, densidade de texto, idade e retargeting como controles) e decompor a diferença, adicionando os controles um a um.
+- **Resultado:** o efeito ajustado do hook no ROAS é ≈ −2%, ou seja, nulo. A decomposição mostra o efeito encolhendo de −17% para −2%, com o maior salto vindo da **plataforma**: o LinkedIn tem 54% de campanhas com hook e ROAS mediano de 0,53, o TikTok 44% e 2,96. O retargeting contribui menos (18% das campanhas com hook contra 25% das sem hook, e ele quase dobra o ROAS). Para CTR, engajamento e score, bruto e ajustado concordam em sinal e ordem de grandeza.
 - **Implicação para a engine:** usar efeitos condicionados ao contexto (por plataforma e pelo modelo), nunca médias brutas globais.
 
 ### D10. A duração é tratada como hipótese, não como regra
