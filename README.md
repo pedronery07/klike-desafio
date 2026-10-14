@@ -8,7 +8,7 @@
 |---|---|---|
 | Limpeza dos dados | ✅ | `src/klike/data.py` |
 | 1 · Análise exploratória | ✅ | `notebooks/01_eda.ipynb` |
-| 2 · Modelagem do `klike_score` | ⏳ | `notebooks/02_modeling.ipynb` |
+| 2 · Modelagem do `klike_score` | ✅ | `notebooks/02_modeling.ipynb` |
 | 3 · Recommendations engine | ⏳ | `src/klike/recommender.py`, `cli.py` |
 | 4 · Visão de produto | ⏳ | este README |
 
@@ -37,7 +37,10 @@ notebooks/              01 EDA · 02 modelagem · 03 demo do engine
 src/klike/              código reutilizável
   data.py               carga e limpeza (correção de inconsistências)
   analysis.py           lift com IC bootstrap e efeito ajustado por regressão
+  features.py           feature engineering (categorias fixas, interações por plataforma)
+  model.py              comparação de modelos, treino e persistência (`python -m klike.model`)
   paths.py              caminhos do projeto
+models/                 modelo treinado (gerado localmente, fora do git)
 reports/figures/        figuras da EDA (eda/) e da modelagem (modelagem/)
 tests/                  testes da engine
 pyproject.toml          define o pacote `klike` para que notebooks e scripts importem `src/klike`
@@ -57,3 +60,12 @@ pyproject.toml          define o pacote `klike` para que notebooks e scripts imp
 ![Boas práticas e score](reports/figures/eda/02_escada_boas_praticas.png)
 
 Detalhes, gráficos e interpretações em `notebooks/01_eda.ipynb`; justificativas em `docs/decisions.md`.
+
+## Destaques da modelagem (preliminar)
+
+- **Dois modelos, por causa de vazamento de dados.** O modelo principal (A) usa só o que existe **antes** de veicular: atributos do criativo e contexto. CTR, engajamento e ROAS ficam fora, porque não existem no momento da decisão. Um modelo B com essas métricas serve só de diagnóstico.
+- **Uma regressão linear simples venceu o gradient boosting** (R² 0,71 contra 0,62 na validação cruzada 5-fold × 3), com erro médio de **6,6 pontos** contra 12,6 do baseline. Isso indica que o score é construído de forma aditiva.
+- **Engenharia reversa do score:** como o modelo é linear, cada coeficiente é "quantos pontos o atributo vale". Hook ≈ **+16–19 pts**, rosto ≈ +11–12, CTA ≈ +8, legenda ≈ +4–10, texto high ≈ −7–8. O formato depende da plataforma: horizontal **soma** ~5 pts no LinkedIn e **tira** ~4 no Meta.
+- **O score avalia o vídeo em si:** 86–95% do valor de hook, rosto, CTA e legenda permanece mesmo controlando pelo CTR e pela retenção. O score parece ser "checklist de boas práticas + performance + ruído" (~6 pts de erro que nenhum modelo reduz).
+
+![Pontos por atributo](reports/figures/modelagem/04_pontos_por_atributo.png)

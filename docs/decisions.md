@@ -53,3 +53,28 @@ Alimenta a seção "Processo de pensamento" do README.
 ### D10. A duração é tratada como hipótese, não como regra
 - **Vi:** |ρ| < 0,15 entre duração e as métricas; as medianas por faixa oscilam bastante com n pequeno.
 - **Decidi:** reportar as faixas com melhor CTR por plataforma (Meta 11–15s, TikTok 16–30s), mas com peso baixo na engine e linguagem de "teste sugerido".
+
+## Modelagem (`notebooks/02_modeling.ipynb`, `src/klike/features.py`, `src/klike/model.py`)
+
+### D11. Dois modelos: pré-lançamento (A) e completo (B)
+- **Vi:** o dataset mistura informação disponível **antes** de veicular (criativo, contexto) com informação que só existe **depois** (CTR, engajamento, ROAS).
+- **Decidi:** o modelo principal (A) usa só criativo + contexto. O modelo B inclui as métricas de performance e serve apenas de diagnóstico.
+- **Por quê:** o Klike existe para apoiar decisões antes de investir, e a engine recomenda mudanças em criativos. Usar CTR para prever o score seria vazamento de dados: no momento da decisão, ele não existe.
+
+### D12. Regressão linear (Ridge) em vez de gradient boosting
+- **Vi:** na validação cruzada (5-fold × 3), o linear tem R² 0,71 contra 0,62 do gradient boosting no modelo A; no modelo B, os dois empatam (0,82 × 0,80).
+- **Decidi:** usar o linear como modelo principal, sem padronizar as features.
+- **Por quê:** é melhor nos dados, estável com 500 linhas e interpretável. Sem padronização, cada coeficiente é "pontos de score por atributo", o que vira a engenharia reversa do score e a quantificação das recomendações.
+- **Descartei:** o gradient boosting como modelo principal. Ele perderia a interpretabilidade sem ganho de desempenho.
+
+### D13. Interações com a plataforma; features descartadas
+- **Decidi:** incluir interações plataforma × (formato, texto, hook, rosto, legenda), porque a EDA mostrou efeitos que mudam por plataforma. Legenda faltante vira "sem legenda" + flag, e a duração entra em log.
+- **Descartei** (não melhoraram a validação cruzada): desvio da duração em relação à mediana da plataforma e rosto × público jovem.
+
+### D14. Validação cruzada repetida em vez de um único corte treino/teste
+- **Por quê:** com 500 linhas, um único corte depende muito da sorte de quais campanhas caem no teste. 15 rodadas dão uma média estável e um desvio-padrão, que mostra quanto o resultado varia.
+
+### D15. A engine usa o efeito total (modelo A)
+- **Vi:** comparando A e B, 86–95% do valor de hook, rosto, CTA e legenda é direto; o texto "high" tem 36% da penalidade via performance (pior CTR).
+- **Decidi:** estimar o ganho de cada recomendação pelo modelo A.
+- **Por quê:** ao adicionar um hook, o anunciante ganha tanto o ponto direto quanto o que vem da melhora de CTR e retenção. O efeito total é o que importa para a decisão.

@@ -194,3 +194,30 @@ Um conjunto de muitas árvores de decisão pequenas, em que cada nova árvore co
 - **SHAP:** decompõe cada previsão em contribuições por feature. Ex.: "este vídeo tem score previsto de 72 = 60 (média) + 9 (hook) + 5 (rosto) − 2 (texto high)…". Serve para explicar previsões individuais, o que é útil para justificar as recomendações.
 
 **Cuidado.** Importância mede o quanto o **modelo usa** a feature, não causalidade.
+
+---
+
+## 17. Regressão linear e regularização (Ridge)
+
+**Regressão linear.** Modela o score como uma soma: `score = base + β₁·hook + β₂·rosto + …`. Cada coeficiente β é quanto o score muda quando aquela feature aumenta 1 unidade, mantendo as outras constantes. Com features 0/1 (tem ou não tem hook), β é diretamente "quantos pontos o hook vale".
+
+**Regularização (Ridge).** Com poucas linhas e muitas features, a regressão comum pode exagerar coeficientes para se ajustar ao ruído (overfitting). O Ridge adiciona uma penalidade ao tamanho dos coeficientes, o que os "puxa" levemente para zero. A força da penalidade (α) é escolhida por validação cruzada.
+
+**No projeto.** O modelo A é um Ridge sem padronização das features, para os coeficientes ficarem em pontos de score. Ele venceu o gradient boosting (R² 0,71 contra 0,62), o que sugere que o score é aditivo.
+
+> **Resumo:** "Um modelo linear simples bastou porque o score se comporta como uma soma de pontos por boa prática. Isso deixa cada recomendação quantificável e explicável."
+
+---
+
+## 18. Efeito total × efeito direto (mediação)
+
+**O que é.** Um atributo pode afetar o resultado por dois caminhos: diretamente, e **por meio** de uma variável intermediária (o *mediador*). O hook pode subir o score por si só e também por melhorar o CTR, que por sua vez sobe o score.
+
+- **Efeito total:** a soma dos dois caminhos. É o que se mede num modelo **sem** o mediador.
+- **Efeito direto:** só o primeiro caminho. É o que se mede num modelo **com** o mediador.
+
+**No projeto.** Modelo A (sem métricas) = efeito total; modelo B (com CTR, retenção etc.) = efeito direto. Para hook, rosto, CTA e legenda, 86–95% do efeito é direto. Para texto "high", 36% da penalidade passa pela performance (pior CTR).
+
+**Qual usar para recomendar?** O **total**: quem adiciona um hook ganha os dois caminhos.
+
+> **Resumo:** "Comparar um modelo com e sem as métricas de performance mostra quanto do valor de cada atributo passa pelo resultado da campanha. Para recomendar, uso o efeito total."
