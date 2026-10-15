@@ -6,3 +6,6 @@ __pycache__/
 models/*.joblib
 *.docx
 *.egg-info/
+
+# Chave de API do agente (ver .env.example)
+.env
