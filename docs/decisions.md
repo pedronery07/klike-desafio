@@ -78,3 +78,21 @@ Alimenta a seção "Processo de pensamento" do README.
 - **Vi:** comparando A e B, 86–95% do valor de hook, rosto, CTA e legenda é direto; o texto "high" tem 36% da penalidade via performance (pior CTR).
 - **Decidi:** estimar o ganho de cada recomendação pelo modelo A.
 - **Por quê:** ao adicionar um hook, o anunciante ganha tanto o ponto direto quanto o que vem da melhora de CTR e retenção. O efeito total é o que importa para a decisão.
+
+## Recommendations engine (`src/klike/recommender.py`, `cli.py`, `notebooks/03_recommendations_demo.ipynb`)
+
+### D16. Duas medidas por recomendação: score previsto e evidência de negócio
+- **Decidi:** cada recomendação mostra (1) o ganho no klike_score pelo contrafactual do modelo A e (2) o lift mediano da métrica ligada ao objetivo (CTR para traffic/conversions/app_install; engajamento para awareness/engagement), na mesma plataforma, com IC 90% e n.
+- **Por quê:** o score é a "nota" do Klike, mas o anunciante paga por cliques e engajamento. Quando o IC cruza o zero, a engine diz que a diferença não é clara, em vez de prometer um ganho de CTR que a base não sustenta.
+- **Descartei:** evidência no nível plataforma × categoria. Com ~30 campanhas por célula, os ICs ficam largos demais (ex.: −44% a +232%). A categoria entra pelo modelo. No formato, não há fallback para a base inteira, porque o efeito muda de sinal entre plataformas.
+
+### D17. Prioridade = ganho ÷ esforço
+- **Decidi:** esforço em 3 níveis (baixo = CTA, legenda, texto; médio = hook, formato, áudio, duração; alto = rosto, que exige regravar) e ordenar por ganho ÷ esforço. O ganho em pontos continua visível em cada item.
+- **Por quê:** "priorizar por impacto" sem custo leva sempre a "regrave o vídeo com uma pessoa". Um time de marketing começa pelo que dá mais retorno por hora de trabalho.
+- **Limite:** os pesos de esforço são julgamento meu, não vêm dos dados; num produto real, viriam do time de criação.
+
+### D18. Regras de segurança da engine
+- Não recomenda o que a campanha já tem; não sugere horizontal no TikTok (não existe na base); só sugere ações com ganho ≥ 0,5 pt.
+- Duração é sempre "hipótese a testar" e vai para o fim da lista (D10).
+- Um criativo que já cumpre as boas práticas recebe menos de 3 recomendações, com aviso explícito, em vez de sugestões inventadas para completar a cota.
+- O plano combinado soma os efeitos (modelo linear); na prática pode haver retorno decrescente, o que a base não permite estimar.
