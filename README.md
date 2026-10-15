@@ -2,7 +2,7 @@
 
 Análise de 500 campanhas de vídeo (Meta, TikTok, LinkedIn), um modelo que prevê o `klike_score` antes do lançamento e uma engine que recomenda o que mudar no criativo.
 
-> 🚧 Falta a Parte 4 (visão de produto) e a revisão final.
+> 🚧 Em revisão final.
 
 ## Resumo de descobertas
 
@@ -79,7 +79,50 @@ Cada decisão está em [`docs/decisions.md`](docs/decisions.md) no formato "o qu
 
 ## Parte 4 · Visão de produto
 
-*(em construção)*
+### Que features extrair do vídeo
+
+O dataset reduz o criativo a sim/não ("tem hook?", "tem rosto?"). O ganho mais imediato é **trocar esses booleanos por medidas contínuas**, porque o modelo já mostrou que são esses atributos que pesam:
+
+| Hoje (booleano) | Feature extraída do vídeo | Como |
+|---|---|---|
+| `has_hook` | força da abertura: cortes, movimento e mudança de cena nos 3s iniciais; se há rosto, texto ou produto no 1º frame; tempo até a primeira fala | detecção de cenas, fluxo óptico, frames amostrados |
+| `has_face` | % do tempo com rosto, tamanho na tela, olhar para a câmera, expressão | detector facial por frame |
+| `text_density` | % da área com texto, contraste e legibilidade, texto fora das zonas seguras de cada plataforma | OCR |
+| `has_cta` | momento em que o CTA aparece (só no fim? falado e escrito?) | OCR + transcrição |
+| `music_voice_ratio` | separação real música × voz, volume, silêncio no início | separação de fontes de áudio |
+| — | ritmo (cortes por segundo), aparição da marca/logo, cor e brilho, velocidade da fala, palavras-chave | ASR, detecção de logo |
+| — | embedding do vídeo inteiro, para buscar "criativos parecidos que funcionaram" | modelo multimodal (ex.: CLIP por frame) |
+
+### Como colocar em produção
+
+```mermaid
+flowchart LR
+    U[Upload do vídeo] --> Q[Fila]
+    Q --> X[Workers de extração<br/>frames, OCR, ASR, áudio · GPU]
+    X --> FS[(Feature store<br/>versionada por extrator)]
+    FS --> S[API de score<br/>modelo versionado]
+    S --> R[Engine de recomendações]
+    R --> UI[Interface do anunciante]
+    ADS[APIs Meta / TikTok / LinkedIn] -->|performance real| L[(Base de resultados)]
+    L --> T[Retreino + monitoramento de drift]
+    FS --> T
+    T --> S
+```
+
+- **Assíncrono e com cache.** A extração é o custo dominante. O vídeo entra numa fila, e o resultado fica salvo pelo hash do arquivo: reenviar o mesmo vídeo não custa nada, e editar só o CTA reprocessa pouco. O score em si (modelo linear) custa milissegundos.
+- **Escala.** Amostrar frames (ex.: 2 por segundo, mais denso nos 3s iniciais) em vez de processar o vídeo inteiro; modelos leves primeiro e os pesados só quando necessário; os workers escalam pelo tamanho da fila.
+- **Fechar o ciclo.** As APIs de anúncios trazem a performance real de cada criativo depois de veiculado. Isso vira dado de treino e permite medir se o score prevê resultado.
+- **Monitorar.** O que funciona muda com o tempo (formatos e tendências de cada plataforma). Comparar a distribuição das features e o erro do modelo mês a mês, e retreinar quando piorar.
+- **Medir a engine, não só o modelo.** Um grupo de controle que não recebe recomendações, para medir se quem as segue melhora CTR e conversão. É o que transforma as associações daqui em evidência causal.
+
+### O que eu faria com mais tempo
+
+1. **Validar causalidade.** Testes A/B por recomendação. Antes deles, comparar pares de campanhas quase idênticas que diferem só num atributo.
+2. **Estimar efeitos em grupos pequenos sem perder confiança.** Um modelo hierárquico (bayesiano) aproveitaria plataforma × categoria, hoje descartada por n pequeno (D16): cada célula "empresta força" da média da plataforma.
+3. **Incerteza no score previsto** (ex.: conformal prediction): "62 ± 8" em vez de "62".
+4. **Retorno decrescente no plano combinado**, com dados suficientes para estimar interações entre ações.
+5. **Esforço medido, não chutado:** usar o tempo real de produção de cada mudança, vindo do time de criação (D17).
+6. **Prever o resultado de negócio, não só o score.** Com dados de mais anunciantes, modelar CTR e conversão diretamente e checar quanto o `klike_score` antecipa esses resultados.
 
 ## Estrutura
 
