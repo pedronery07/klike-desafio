@@ -4,7 +4,7 @@ Análise de 500 campanhas de vídeo (Meta, TikTok, LinkedIn), um modelo que prev
 
 ## Resumo de descobertas
 
-- **Hook nos 3 primeiros segundos é a alavanca mais forte:** vale +16 a +19 pontos de score e +50–70% de CTR, nas três plataformas.
+- **Hook nos 3 primeiros segundos é a alavanca mais forte:** vale +16 a +19 pontos de score e +50–70% de CTR no geral, com efeito positivo em cada plataforma.
 - **O que funciona depende da plataforma.** Rosto gera clique no TikTok (+75% CTR) e interação no Meta (+54% engajamento); vertical é o melhor formato no TikTok e o pior no LinkedIn.
 - **O score parece um checklist de boas práticas + performance + ruído.** Uma regressão linear explica 71% dele só com atributos do criativo e contexto, e venceu o gradient boosting. Por ser linear, cada coeficiente é "quantos pontos o atributo vale".
 - **Cuidado com conclusões brutas:** campanhas com hook têm ROAS 21% menor, mas a diferença some (−2%) ao controlar pela plataforma. Por isso a engine compara campanhas dentro da mesma plataforma.
@@ -76,7 +76,7 @@ Cada decisão está em [`docs/decisions.md`](docs/decisions.md) no formato "o qu
 **Extra · Agente revisor e simulador** · `src/klike/agent.py`, `app.py`, [`notebooks/04_agent_comparison.ipynb`](notebooks/04_agent_comparison.ipynb)
 - A engine continua sendo o núcleo. O LLM entra como **revisor com papel limitado**: lê a saída da engine, consulta os dados com 3 ferramentas só de leitura e pode reordenar, comentar, sugerir a execução criativa ("qual hook gravar") e dar alertas. Não pode criar nem remover ações, mudar a evidência ou calcular números (D19).
 - **Os guardrails são código, não prompt:** schema, ações idênticas às da engine, evidência copiada, hipóteses no fim e todo número rastreável até a engine ou uma ferramenta. Se falhar, ele tem uma chance de corrigir; senão, a revisão é descartada (D20).
-- **Medi em vez de supor.** No confronto com 18 campanhas, a 1ª versão teve 5 rejeições, por falsos positivos meus e problemas de formato; com uma iteração, foi para 1 (D21). O agente concordou com a engine em 7 de 7 casos em que a 1ª ação tinha evidência forte e trocou em 6 de 10 em que não tinha. Também mostrou que, em awareness, a engine olha a métrica errada: o hook não muda o engajamento, mas aumenta a retenção em +34%.
+- **Medi em vez de supor.** No confronto com 18 campanhas, a 1ª versão teve 5 rejeições, por falsos positivos meus e problemas de formato; com uma iteração, foi para 1 (D21). O agente concordou com a engine em 7 de 7 casos em que a 1ª ação tinha evidência forte e trocou em 6 de 10 em que não tinha. Também mostrou um ponto fraco da engine: em awareness, ela mede o hook pelo engajamento, onde o efeito no TikTok não é claro; o agente consultou a retenção, que o hook aumenta em +34% nas três plataformas.
 - O simulador recalcula score e recomendações a cada mudança, porque o modelo linear custa microssegundos; o agente aparece do cache ou ao vivo, com limite por sessão (D22).
 
 | Simulador: score, contribuição de cada atributo e recomendações da engine | Revisão do agente para a mesma campanha: põe primeiro a única ação com evidência forte |
@@ -137,6 +137,7 @@ flowchart LR
 4. **Retorno decrescente no plano combinado**, com dados suficientes para estimar interações entre ações.
 5. **Esforço medido, não chutado:** usar o tempo real de produção de cada mudança, vindo do time de criação (D17).
 6. **Prever o resultado de negócio, não só o score.** Com dados de mais anunciantes, modelar CTR e conversão diretamente e checar quanto o `klike_score` antecipa esses resultados.
+7. **Levar para a engine o que o agente achou**, como regra determinística: medir awareness pela retenção e pesar a força da evidência na prioridade. Deixei de fora de propósito, para não invalidar o confronto já medido (D21).
 
 ## Estrutura
 
@@ -149,7 +150,7 @@ src/klike/             data.py (limpeza) · analysis.py (lift + IC) · features.
 cli.py                 interface de linha de comando da engine
 app.py                 simulador de criativos (Streamlit)
 scripts/               run_agent_comparison.py (gera as revisões do confronto; precisa de chave)
-reports/figures/       figuras da EDA (eda/) e da modelagem (modelagem/)
+reports/figures/       figuras da EDA (eda/), da modelagem (modelagem/) e prints do simulador (app/)
 reports/agent/cache/   revisões salvas do agente (leitura sem chave de API)
 tests/                 testes da engine
 models/                modelo treinado (gerado na primeira execução, fora do git)

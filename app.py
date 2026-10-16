@@ -176,7 +176,7 @@ def show_review(res: dict) -> None:
         "Agente": [titles[k] + ("" if k == engine_order[i] else "  ⬅ mudou")
                    for i, k in enumerate(rv["ordem_sugerida"])],
     })
-    st.dataframe(order, hide_index=True, width="stretch")
+    st.table(order.set_index("#"))
     verdict = "Manteve a ordem da engine." if rv["mantem_ordem_da_engine"] else "Reordenou."
     st.markdown(f"**{verdict}** {rv['justificativa_ordem']}")
     by_key = {a["key"]: a for a in rv["acoes"]}
