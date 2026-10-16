@@ -1,0 +1,171 @@
+{
+  "campaign_id": "KLK-0337",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0337",
+    "platform": "LinkedIn",
+    "category": "Lead Gen",
+    "objective": "engagement",
+    "score_predicted": 65.0,
+    "score_actual": 59.5,
+    "real_menos_previsto": -5.5,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 8.7,
+        "score_after": 73.6,
+        "effort": "baixo",
+        "priority": 8.67,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no LinkedIn",
+          "lift": 0.1337,
+          "ci_low": -0.4171,
+          "ci_high": 0.8951,
+          "n_treat": 29,
+          "n_ctrl": 27
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 4.4,
+        "score_after": 69.3,
+        "effort": "baixo",
+        "priority": 4.35,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no LinkedIn",
+          "lift": 0.7903,
+          "ci_low": 0.2853,
+          "ci_high": 1.8485,
+          "n_treat": 42,
+          "n_ctrl": 28
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "format_horizontal",
+        "titulo": "Exportar em formato horizontal",
+        "score_gain": 4.5,
+        "score_after": 69.4,
+        "effort": "médio",
+        "priority": 2.24,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no LinkedIn",
+          "lift": 0.1492,
+          "ci_low": -0.3269,
+          "ci_high": 2.0139,
+          "n_treat": 41,
+          "n_ctrl": 26
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "subtitle",
+        "format_horizontal"
+      ],
+      "score_before": 65.0,
+      "score_after": 82.5,
+      "score_gain": 17.5
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "subtitle",
+      "text",
+      "format_horizontal"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "A acao de adicionar legendas possui evidência forte e menor esforço, devendo liderar a prioridade para elevar o score e o engajamento.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Aumenta o score em 8,7 pts, ajudando a corrigir a baixa densidade atual de texto na tela.",
+        "execucao_criativa": "Insira legenda centralizada com destaque para a frase: Descubra como escalar sua captação de leads B2B."
+      },
+      {
+        "key": "subtitle",
+        "evidencia": "forte",
+        "comentario": "Gera ganho de 4,4 pts no score com forte evidência de impacto positivo no engajamento no LinkedIn.",
+        "execucao_criativa": "Adicione legendas automáticas sincronizadas na parte inferior do vídeo para os espectadores sem som."
+      },
+      {
+        "key": "format_horizontal",
+        "evidencia": "nao_clara",
+        "comentario": "Contribui com 4,5 pts adicionais para o score, embora a evidência para esta métrica seja não clara.",
+        "execucao_criativa": "Reexporte o arquivo de vídeo final no formato 16:9 próprio para o feed do LinkedIn."
+      }
+    ],
+    "alertas": [
+      "A taxa de engajamento real da campanha está em 0,0018, muito abaixo da mediana da plataforma que é 0,0172.",
+      "O score real de 59,5 está abaixo do previsto de 65,0."
+    ],
+    "resumo_para_o_anunciante": "A campanha apresenta engajamento muito abaixo da mediana da plataforma e score real menor que o previsto. O plano combinado de otimizações pode elevar o score em 17,5 pts, priorizando o uso de legendas e ajuste de texto."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"subtitle\",\n  \"text\",\n  \"format_horizontal\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"A acao de adicionar legendas possui evidência forte e menor esforço, devendo liderar a prioridade para elevar o score e o engajamento.\",\n \"acoes\": [\n  {\n   \"key\": \"text\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Aumenta o score em 8,7 pts, ajudando a corrigir a baixa densidade atual de texto na tela.\",\n   \"execucao_criativa\": \"Insira legenda centralizada com destaque para a frase: Descubra como escalar sua captação de leads B2B.\"\n  },\n  {\n   \"key\": \"subtitle\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Gera ganho de 4,4 pts no score com forte evidência de impacto positivo no engajamento no LinkedIn.\",\n   \"execucao_criativa\": \"Adicione legendas automáticas sincronizadas na parte inferior do vídeo para os espectadores sem som.\"\n  },\n  {\n   \"key\": \"format_horizontal\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Contribui com 4,5 pts adicionais para o score, embora a evidência para esta métrica seja não clara.\",\n   \"execucao_criativa\": \"Reexporte o arquivo de vídeo final no formato 16:9 próprio para o feed do LinkedIn.\"\n  }\n ],\n \"alertas\": [\n  \"A taxa de engajamento real da campanha está em 0,0018, muito abaixo da mediana da plataforma que é 0,0172.\",\n  \"O score real de 59,5 está abaixo do previsto de 65,0.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha apresenta engajamento muito abaixo da mediana da plataforma e score real menor que o previsto. O plano combinado de otimizações pode elevar o score em 17,5 pts, priorizando o uso de legendas e ajuste de texto.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0337"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_subtitle",
+        "plataforma": "LinkedIn",
+        "metrica": "ctr"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "metrica": "conversion_rate",
+        "atributo": "has_subtitle"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "atributo": "has_subtitle",
+        "metrica": "watch_ratio"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "atributo": "has_subtitle",
+        "metrica": "roas"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_hook",
+        "metrica": "ctr",
+        "plataforma": "LinkedIn"
+      }
+    }
+  ],
+  "tokens": 20523,
+  "latencia_s": 51.6
+}

@@ -1,0 +1,146 @@
+{
+  "campaign_id": "KLK-0314",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0314",
+    "platform": "LinkedIn",
+    "category": "Lead Gen",
+    "objective": "engagement",
+    "score_predicted": 54.6,
+    "score_actual": 58.2,
+    "real_menos_previsto": 3.6,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Reduzir o texto na tela (densidade média)",
+        "score_gain": 16.3,
+        "score_after": 70.9,
+        "effort": "baixo",
+        "priority": 16.33,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no LinkedIn",
+          "lift": 0.3732,
+          "ci_low": -0.32,
+          "ci_high": 0.8943,
+          "n_treat": 29,
+          "n_ctrl": 22
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 62.6,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no LinkedIn",
+          "lift": 0.0488,
+          "ci_low": -0.3094,
+          "ci_high": 0.6194,
+          "n_treat": 57,
+          "n_ctrl": 21
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 4.4,
+        "score_after": 58.9,
+        "effort": "baixo",
+        "priority": 4.35,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no LinkedIn",
+          "lift": 0.7903,
+          "ci_low": 0.2853,
+          "ci_high": 1.8485,
+          "n_treat": 42,
+          "n_ctrl": 28
+        },
+        "evidencia": "forte"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "cta",
+        "subtitle"
+      ],
+      "score_before": 54.6,
+      "score_after": 83.3,
+      "score_gain": 28.7
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "subtitle",
+      "text",
+      "cta"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "A ação de adicionar legendas foi priorizada por apresentar evidência forte de impacto na engajabilidade, seguida pela redução de texto e inserção de CTA, que possuem evidências não claras mas trazem ganhos expressivos no score.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Reduzir a densidade de texto para densidade média traz um ganho de 16,3 pts no score, embora a diferença na engagement_rate não seja clara.",
+        "execucao_criativa": "Substitua parágrafos longos por tópicos curtos destacando apenas o [benefício] principal do [produto]."
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "Incluir um CTA explícito gera um ganho de 8,0 pts no score, e a consulta de CTR mostrou que o lift para essa métrica não é claro.",
+        "execucao_criativa": "Insira uma chamada final convidando o público a comentar ou acessar a página do [produto]."
+      },
+      {
+        "key": "subtitle",
+        "evidencia": "forte",
+        "comentario": "Adicionar legendas tem evidência forte e garante um ganho de 4,4 pts no score, ajudando a elevar a engagement_rate.",
+        "execucao_criativa": "Legende a fala principal enfatizando o nome do [produto] e a chamada para o objetivo de engajamento."
+      }
+    ],
+    "alertas": [
+      "O CTR da campanha está em 0,0591, abaixo da mediana da plataforma que é 0,067."
+    ],
+    "resumo_para_o_anunciante": "A campanha no LinkedIn possui um klike_score real de 58,2, muito próximo da mediana da plataforma. Aplicando as melhorias de legendagem, enxugamento de texto e inclusão de CTA, o score projetado pode subir para 83,3 pts."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"subtitle\", \"text\", \"cta\"], \"mantem_ordem_da_engine\": false, \"justificativa_ordem\": \"A ação de adicionar legendas foi priorizada por apresentar evidência forte de impacto na engajabilidade, seguida pela redução de texto e inserção de CTA, que possuem evidências não claras mas trazem ganhos expressivos no score.\", \"acoes\": [{\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Reduzir a densidade de texto para densidade média traz um ganho de 16,3 pts no score, embora a diferença na engagement_rate não seja clara.\", \"execucao_criativa\": \"Substitua parágrafos longos por tópicos curtos destacando apenas o [benefício] principal do [produto].\"}, {\"key\": \"cta\", \"evidencia\": \"nao_clara\", \"comentario\": \"Incluir um CTA explícito gera um ganho de 8,0 pts no score, e a consulta de CTR mostrou que o lift para essa métrica não é claro.\", \"execucao_criativa\": \"Insira uma chamada final convidando o público a comentar ou acessar a página do [produto].\"}, {\"key\": \"subtitle\", \"evidencia\": \"forte\", \"comentario\": \"Adicionar legendas tem evidência forte e garante um ganho de 4,4 pts no score, ajudando a elevar a engagement_rate.\", \"execucao_criativa\": \"Legende a fala principal enfatizando o nome do [produto] e a chamada para o objetivo de engajamento.\"}], \"alertas\": [\"O CTR da campanha está em 0,0591, abaixo da mediana da plataforma que é 0,067.\"], \"resumo_para_o_anunciante\": \"A campanha no LinkedIn possui um klike_score real de 58,2, muito próximo da mediana da plataforma. Aplicando as melhorias de legendagem, enxugamento de texto e inclusão de CTA, o score projetado pode subir para 83,3 pts.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0314"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "ctr",
+        "atributo": "has_cta",
+        "plataforma": "LinkedIn"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "ctr",
+        "atributo": "has_subtitle",
+        "plataforma": "LinkedIn"
+      }
+    }
+  ],
+  "tokens": 5685,
+  "latencia_s": 18.0
+}

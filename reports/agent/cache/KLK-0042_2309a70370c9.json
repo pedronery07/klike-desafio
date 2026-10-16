@@ -1,0 +1,214 @@
+{
+  "campaign_id": "KLK-0042",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0042",
+    "platform": "Meta",
+    "category": "App Install",
+    "objective": "app_install",
+    "score_predicted": 50.1,
+    "score_actual": 51.0,
+    "real_menos_previsto": 0.9,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.1,
+        "score_after": 66.2,
+        "effort": "médio",
+        "priority": 8.04,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.5747,
+          "ci_low": 0.2224,
+          "ci_high": 0.795,
+          "n_treat": 128,
+          "n_ctrl": 113
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 58.2,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": -0.0453,
+          "ci_low": -0.1826,
+          "ci_high": 0.3983,
+          "n_treat": 174,
+          "n_ctrl": 67
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.2,
+        "score_after": 61.3,
+        "effort": "alto",
+        "priority": 3.72,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0576,
+          "ci_low": -0.1594,
+          "ci_high": 0.3897,
+          "n_treat": 123,
+          "n_ctrl": 118
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_quadrado",
+        "titulo": "Exportar em formato quadrado",
+        "score_gain": 0.8,
+        "score_after": 50.9,
+        "effort": "médio",
+        "priority": 0.39,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.1515,
+          "ci_low": -0.2194,
+          "ci_high": 0.4601,
+          "n_treat": 68,
+          "n_ctrl": 106
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": 0.3,
+        "score_after": 50.4,
+        "effort": "médio",
+        "priority": 0.15,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "cta",
+        "face",
+        "format_quadrado"
+      ],
+      "score_before": 50.1,
+      "score_after": 86.2,
+      "score_gain": 36.1
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "cta",
+      "face",
+      "format_quadrado",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "A ordem da engine foi mantida porque coloca a ação de evidência forte no topo, seguida pelas de evidência nao_clara com bom ganho em pontos e esforço compatível, deixando a hipótese por último conforme as regras.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Esta ação traz o maior ganho de 16,1 pts no score, o que é essencial para elevar a campanha acima da mediana da plataforma. A análise de lift mostrou que o hook aumenta o watch_ratio no Meta.",
+        "execucao_criativa": "Corte direto para a tela do app [produto] mostrando a notificação de ganho em 3 segundos."
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "O ganho previsto é de 8,0 pts e o esforço é baixo, embora a evidência seja nao_clara para a conversão.",
+        "execucao_criativa": "Insira um botão fixo no final com o texto Baixe agora o [produto]."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Gera um acréscimo de 11,2 pts no score, mas com evidência nao_clara na conversão.",
+        "execucao_criativa": "Mostre uma pessoa segurando o smartphone e reagindo ao uso do [produto]."
+      },
+      {
+        "key": "format_quadrado",
+        "evidencia": "nao_clara",
+        "comentario": "Proporciona um ganho modesto de 0,8 pts no score para adequação de formato.",
+        "execucao_criativa": "Redimensione o vídeo existente para a proporção 1:1."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Por se tratar de uma hipótese com ganho de 0,3 pts, deve ser testada apenas após as melhorias principais.",
+        "execucao_criativa": "Edite o vídeo para ter entre 11 e 15 segundos de duração."
+      }
+    ],
+    "alertas": [
+      "O CTR real de 0,0352 está consideravelmente abaixo da mediana da plataforma de 0,0646.",
+      "O klike_score real de 51,0 está abaixo da mediana da plataforma de 60,5."
+    ],
+    "resumo_para_o_anunciante": "A campanha possui um klike_score real de 51,0, abaixo da mediana da plataforma de 60,5, e apresenta um CTR de 0,0352 abaixo da referência. A implementação das melhorias propostas, lideradas pela adição de um hook, tem o potencial de elevar o score total para 86,2 pts."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n  \"ordem_sugerida\": [\n    \"hook\",\n    \"cta\",\n    \"face\",\n    \"format_quadrado\",\n    \"duration\"\n  ],\n  \"mantem_ordem_da_engine\": true,\n  \"justificativa_ordem\": \"A ordem da engine foi mantida porque coloca a ação de evidência forte no topo, seguida pelas de evidência nao_clara com bom ganho em pontos e esforço compatível, deixando a hipótese por último conforme as regras.\",\n  \"acoes\": [\n    {\n      \"key\": \"hook\",\n      \"evidencia\": \"forte\",\n      \"comentario\": \"Esta ação traz o maior ganho de 16,1 pts no score, o que é essencial para elevar a campanha acima da mediana da plataforma. A análise de lift mostrou que o hook aumenta o watch_ratio no Meta.\",\n      \"execucao_criativa\": \"Corte direto para a tela do app [produto] mostrando a notificação de ganho em 3 segundos.\"\n    },\n    {\n      \"key\": \"cta\",\n      \"evidencia\": \"nao_clara\",\n      \"comentario\": \"O ganho previsto é de 8,0 pts e o esforço é baixo, embora a evidência seja nao_clara para a conversão.\",\n      \"execucao_criativa\": \"Insira um botão fixo no final com o texto Baixe agora o [produto].\"\n    },\n    {\n      \"key\": \"face\",\n      \"evidencia\": \"nao_clara\",\n      \"comentario\": \"Gera um acréscimo de 11,2 pts no score, mas com evidência nao_clara na conversão.\",\n      \"execucao_criativa\": \"Mostre uma pessoa segurando o smartphone e reagindo ao uso do [produto].\"\n    },\n    {\n      \"key\": \"format_quadrado\",\n      \"evidencia\": \"nao_clara\",\n      \"comentario\": \"Proporciona um ganho modesto de 0,8 pts no score para adequação de formato.\",\n      \"execucao_criativa\": \"Redimensione o vídeo existente para a proporção 1:1.\"\n    },\n    {\n      \"key\": \"duration\",\n      \"evidencia\": \"hipotese\",\n      \"comentario\": \"Por se tratar de uma hipótese com ganho de 0,3 pts, deve ser testada apenas após as melhorias principais.\",\n      \"execucao_criativa\": \"Edite o vídeo para ter entre 11 e 15 segundos de duração.\"\n    }\n  ],\n  \"alertas\": [\n    \"O CTR real de 0,0352 está consideravelmente abaixo da mediana da plataforma de 0,0646.\",\n    \"O klike_score real de 51,0 está abaixo da mediana da plataforma de 60,5.\"\n  ],\n  \"resumo_para_o_anunciante\": \"A campanha possui um klike_score real de 51,0, abaixo da mediana da plataforma de 60,5, e apresenta um CTR de 0,0352 abaixo da referência. A implementação das melhorias propostas, lideradas pela adição de um hook, tem o potencial de elevar o score total para 86,2 pts.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0042"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "Meta",
+        "atributo": "has_hook",
+        "metrica": "conversion_rate"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "atributo": "has_cta",
+        "plataforma": "Meta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_face",
+        "plataforma": "Meta",
+        "metrica": "conversion_rate"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "Meta",
+        "metrica": "watch_ratio",
+        "atributo": "has_hook"
+      }
+    }
+  ],
+  "tokens": 23860,
+  "latencia_s": 50.0
+}

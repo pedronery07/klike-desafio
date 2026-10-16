@@ -1,0 +1,190 @@
+{
+  "campaign_id": "KLK-0048",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0048",
+    "platform": "TikTok",
+    "category": "Branding",
+    "objective": "awareness",
+    "score_predicted": 49.2,
+    "score_actual": 39.7,
+    "real_menos_previsto": -9.5,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Reduzir o texto na tela (densidade média)",
+        "score_gain": 12.9,
+        "score_after": 62.0,
+        "effort": "baixo",
+        "priority": 12.87,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": -0.1096,
+          "ci_low": -0.336,
+          "ci_high": 0.8926,
+          "n_treat": 88,
+          "n_ctrl": 35
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 66.1,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": 0.2262,
+          "ci_low": -0.0135,
+          "ci_high": 1.0052,
+          "n_treat": 82,
+          "n_ctrl": 84
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_vertical",
+        "titulo": "Exportar em formato vertical",
+        "score_gain": 3.2,
+        "score_after": 52.3,
+        "effort": "médio",
+        "priority": 1.58,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": 0.2259,
+          "ci_low": -0.171,
+          "ci_high": 1.3615,
+          "n_treat": 142,
+          "n_ctrl": 24
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "voice",
+        "titulo": "Dar mais espaço à voz no áudio",
+        "score_gain": 1.4,
+        "score_after": 50.5,
+        "effort": "médio",
+        "priority": 0.68,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": -0.2101,
+          "ci_low": -0.4539,
+          "ci_high": 0.0203,
+          "n_treat": 107,
+          "n_ctrl": 24
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 16–30s",
+        "score_gain": -0.0,
+        "score_after": 49.1,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.751,
+          "ci_low": 0.1165,
+          "ci_high": 1.1791,
+          "n_treat": 46,
+          "n_ctrl": 115
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "hook",
+        "format_vertical",
+        "voice"
+      ],
+      "score_before": 49.2,
+      "score_after": 83.5,
+      "score_gain": 34.3
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "format_vertical",
+      "voice",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "A ordem foi reordenada para priorizar o ganho no score e o objetivo de awareness, colocando o hook na frente por ter maior ganho potencial e impacto positivo confirmado na watch_ratio no TikTok, enquanto a hipotese foi mantida no fim.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Reduzir o excesso de texto nesta campanha com densidade alta eleva o score em 12,9 pts, ajudando a destravar a performance de engajamento no TikTok.",
+        "execucao_criativa": "Remova blocos longos de texto da tela e mantenha apenas frases curtas e essenciais sobre [benefício]."
+      },
+      {
+        "key": "hook",
+        "evidencia": "nao_clara",
+        "comentario": "Esta campanha de awareness carece de um hook nos primeiros segundos, adicionando 16,9 pts ao score e mostrando um lift positivo na watch_ratio no TikTok de 0,3393.",
+        "execucao_criativa": "Abra o vídeo com uma pergunta direta ao público: 'Você já tentou [ação]?' antes de mostrar o [produto]."
+      },
+      {
+        "key": "format_vertical",
+        "evidencia": "nao_clara",
+        "comentario": "Ajustar o formato atual quadrado para o formato vertical garante um ganho de 3,2 pts no score, adaptando-se melhor ao consumo no TikTok.",
+        "execucao_criativa": "Requadre a imagem principal para o formato vertical preenchendo toda a tela do celular com o [produto]."
+      },
+      {
+        "key": "voice",
+        "evidencia": "nao_clara",
+        "comentario": "Dar mais espaço à voz no áudio traz um acréscimo modesto de 1,4 pts ao score e melhora a clareza da mensagem de awareness.",
+        "execucao_criativa": "Aumente o volume da locução em relação à trilha sonora para destacar a explicação sobre [benefício]."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Testar uma versão de 16–30s é uma hipotese sem ganho direto imediato no score, mas que pode ser explorada para otimizar o tempo de exibição.",
+        "execucao_criativa": "Estenda a demonstração do [produto] incluindo mais um detalhe sobre [benefício] sem acelerar o ritmo."
+      }
+    ],
+    "alertas": [
+      "O klike_score real da campanha (39,7) está muito abaixo da mediana da plataforma (62,0) e do previsto (49,2).",
+      "A watch_ratio (0,38) e o CTR (0,0296) estão bem abaixo das medianas da plataforma (0,4967 e 0,0562, respectivamente)."
+    ],
+    "resumo_para_o_anunciante": "A campanha KLK-0048 apresenta uma performance atual bem abaixo da mediana do TikTok e um score real de 39,7. As principais recomendações incluem adicionar um hook forte e reduzir o texto na tela para recuperar o engajamento e a retenção do público."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"text\", \"format_vertical\", \"voice\", \"duration\"], \"mantem_ordem_da_engine\": false, \"justificativa_ordem\": \"A ordem foi reordenada para priorizar o ganho no score e o objetivo de awareness, colocando o hook na frente por ter maior ganho potencial e impacto positivo confirmado na watch_ratio no TikTok, enquanto a hipotese foi mantida no fim.\", \"acoes\": [{\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Reduzir o excesso de texto nesta campanha com densidade alta eleva o score em 12,9 pts, ajudando a destravar a performance de engajamento no TikTok.\", \"execucao_criativa\": \"Remova blocos longos de texto da tela e mantenha apenas frases curtas e essenciais sobre [benefício].\"}, {\"key\": \"hook\", \"evidencia\": \"nao_clara\", \"comentario\": \"Esta campanha de awareness carece de um hook nos primeiros segundos, adicionando 16,9 pts ao score e mostrando um lift positivo na watch_ratio no TikTok de 0,3393.\", \"execucao_criativa\": \"Abra o vídeo com uma pergunta direta ao público: 'Você já tentou [ação]?' antes de mostrar o [produto].\"}, {\"key\": \"format_vertical\", \"evidencia\": \"nao_clara\", \"comentario\": \"Ajustar o formato atual quadrado para o formato vertical garante um ganho de 3,2 pts no score, adaptando-se melhor ao consumo no TikTok.\", \"execucao_criativa\": \"Requadre a imagem principal para o formato vertical preenchendo toda a tela do celular com o [produto].\"}, {\"key\": \"voice\", \"evidencia\": \"nao_clara\", \"comentario\": \"Dar mais espaço à voz no áudio traz um acréscimo modesto de 1,4 pts ao score e melhora a clareza da mensagem de awareness.\", \"execucao_criativa\": \"Aumente o volume da locução em relação à trilha sonora para destacar a explicação sobre [benefício].\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Testar uma versão de 16–30s é uma hipotese sem ganho direto imediato no score, mas que pode ser explorada para otimizar o tempo de exibição.\", \"execucao_criativa\": \"Estenda a demonstração do [produto] incluindo mais um detalhe sobre [benefício] sem acelerar o ritmo.\"}], \"alertas\": [\"O klike_score real da campanha (39,7) está muito abaixo da mediana da plataforma (62,0) e do previsto (49,2).\", \"A watch_ratio (0,38) e o CTR (0,0296) estão bem abaixo das medianas da plataforma (0,4967 e 0,0562, respectivamente).\"], \"resumo_para_o_anunciante\": \"A campanha KLK-0048 apresenta uma performance atual bem abaixo da mediana do TikTok e um score real de 39,7. As principais recomendações incluem adicionar um hook forte e reduzir o texto na tela para recuperar o engajamento e a retenção do público.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0048"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "watch_ratio",
+        "plataforma": "TikTok",
+        "atributo": "has_hook"
+      }
+    }
+  ],
+  "tokens": 6549,
+  "latencia_s": 12.0
+}

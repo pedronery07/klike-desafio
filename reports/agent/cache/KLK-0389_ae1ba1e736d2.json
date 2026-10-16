@@ -1,0 +1,186 @@
+{
+  "campaign_id": "KLK-0389",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0389",
+    "platform": "TikTok",
+    "category": "E-commerce",
+    "objective": "traffic",
+    "score_predicted": 53.7,
+    "score_actual": 51.5,
+    "real_menos_previsto": -2.2,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 70.6,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.7931,
+          "ci_low": 0.3447,
+          "ci_high": 1.341,
+          "n_treat": 83,
+          "n_ctrl": 93
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 61.7,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.1465,
+          "ci_low": -0.1754,
+          "ci_high": 0.6934,
+          "n_treat": 112,
+          "n_ctrl": 64
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 12.4,
+        "score_after": 66.1,
+        "effort": "alto",
+        "priority": 4.13,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.7453,
+          "ci_low": 0.3881,
+          "ci_high": 1.1277,
+          "n_treat": 98,
+          "n_ctrl": 78
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 16–30s",
+        "score_gain": -0.0,
+        "score_after": 53.7,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.751,
+          "ci_low": 0.1165,
+          "ci_high": 1.1791,
+          "n_treat": 46,
+          "n_ctrl": 115
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "cta",
+        "face"
+      ],
+      "score_before": 53.7,
+      "score_after": 91.0,
+      "score_gain": 37.4
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "cta",
+      "face",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantemos a ordem original da engine por ja estar alinhada com as prioridades e a relacao de esforço e ganho esperada para esta campanha.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "O ganho de 16,9 pts e fundamental para reverter o CTR de 0,0323 que esta abaixo da mediana da plataforma de 0,0562. A analise complementar na metrica de conversao apontou diferenca nao e clara, confirmando que o foco principal deve ser a atracao.",
+        "execucao_criativa": "Para de rolar o feed se voce quer conhecer o [produto] que vai transformar o seu dia a dia."
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "Adicionar um CTA proporciona um ganho de 8,0 pts no score e ajuda a direcionar o trafego. A avaliacao mostrou diferenca nao e clara na taxa de conversao, exigindo acompanhamento proximo.",
+        "execucao_criativa": "Clique no botao abaixo para garantir o seu [produto] agora mesmo."
+      },
+      {
+        "key": "face",
+        "evidencia": "forte",
+        "comentario": "Mostrar um rosto humano traz um ganho de 12,4 pts no score. O teste em conversao indicou diferenca nao e clara, mas a presenca humana e essencial para gerar conexao no TikTok.",
+        "execucao_criativa": "Grave um criador segurando e demonstrando os beneficios do [produto] diretamente para a camera."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Trata-se de uma hipotese para testar no futuro, pois o ganho estimado no score nao altera a pontuacao atual. Deve ser avaliada com cautela.",
+        "execucao_criativa": "Teste uma versao mais longa com 16 a 30 segundos mostrando mais detalhes do uso."
+      }
+    ],
+    "alertas": [
+      "O CTR atual de 0,0323 esta consideravelmente abaixo da mediana da plataforma de 0,0562.",
+      "O klike_score real de 51,5 esta abaixo do score mediano da plataforma de 62."
+    ],
+    "resumo_para_o_anunciante": "A campanha apresenta um score real de 51,5 abaixo da mediana da plataforma e um CTR de 0,0323 que precisa de atencao urgente. A implementacao do hook nos primeiros segundos e do CTA explicativo permitira recuperar a performance e elevar o score."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [
+        "mantem_ordem_da_engine não corresponde à ordem sugerida"
+      ],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"cta\",\n  \"face\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"Ajustamos a ordem para colocar o hook em primeiro devido ao CTR abaixo da mediana da plataforma, seguido pelo CTA e pelo rosto humano, mantendo a acao de duracao no fim por ser hipotese.\",\n \"acoes\": [\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"O ganho de 16,9 pts e fundamental para reverter o CTR de 0,0323 que esta abaixo da mediana da plataforma de 0,0562. A analise complementar na metrica de conversao apontou diferenca nao e clara, confirmando que o foco principal deve ser a atracao.\",\n   \"execucao_criativa\": \"Para de rolar o feed se voce quer conhecer o [produto] que vai transformar o seu dia a dia.\"\n  },\n  {\n   \"key\": \"cta\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Adicionar um CTA proporciona um ganho de 8,0 pts no score e ajuda a direcionar o trafego. A avaliacao mostrou diferenca nao e clara na taxa de conversao, exigindo acompanhamento proximo.\",\n   \"execucao_criativa\": \"Clique no botao abaixo para garantir o seu [produto] agora mesmo.\"\n  },\n  {\n   \"key\": \"face\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Mostrar um rosto humano traz um ganho de 12,4 pts no score. O teste em conversao indicou diferenca nao e clara, mas a presenca humana e essencial para gerar conexao no TikTok.\",\n   \"execucao_criativa\": \"Grave um criador segurando e demonstrando os beneficios do [produto] diretamente para a camera.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Trata-se de uma hipotese para testar no futuro, pois o ganho estimado no score nao altera a pontuacao atual. Deve ser avaliada com cautela.\",\n   \"execucao_criativa\": \"Teste uma versao mais longa com 16 a 30 segundos mostrando mais detalhes do uso.\"\n  }\n ],\n \"alertas\": [\n  \"O CTR atual de 0,0323 esta consideravelmente abaixo da mediana da plataforma de 0,0562.\",\n  \"O klike_score real de 51,5 esta abaixo do score mediano da plataforma de 62.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha apresenta um score real de 51,5 abaixo da mediana da plataforma e um CTR de 0,0323 que precisa de atencao urgente. A implementacao do hook nos primeiros segundos e do CTA explicativo permitira recuperar a performance e elevar o score.\"\n}"
+    },
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"cta\",\n  \"face\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": true,\n \"justificativa_ordem\": \"Mantemos a ordem original da engine por ja estar alinhada com as prioridades e a relacao de esforço e ganho esperada para esta campanha.\",\n \"acoes\": [\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"O ganho de 16,9 pts e fundamental para reverter o CTR de 0,0323 que esta abaixo da mediana da plataforma de 0,0562. A analise complementar na metrica de conversao apontou diferenca nao e clara, confirmando que o foco principal deve ser a atracao.\",\n   \"execucao_criativa\": \"Para de rolar o feed se voce quer conhecer o [produto] que vai transformar o seu dia a dia.\"\n  },\n  {\n   \"key\": \"cta\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Adicionar um CTA proporciona um ganho de 8,0 pts no score e ajuda a direcionar o trafego. A avaliacao mostrou diferenca nao e clara na taxa de conversao, exigindo acompanhamento proximo.\",\n   \"execucao_criativa\": \"Clique no botao abaixo para garantir o seu [produto] agora mesmo.\"\n  },\n  {\n   \"key\": \"face\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Mostrar um rosto humano traz um ganho de 12,4 pts no score. O teste em conversao indicou diferenca nao e clara, mas a presenca humana e essencial para gerar conexao no TikTok.\",\n   \"execucao_criativa\": \"Grave um criador segurando e demonstrando os beneficios do [produto] diretamente para a camera.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Trata-se de uma hipotese para testar no futuro, pois o ganho estimado no score nao altera a pontuacao atual. Deve ser avaliada com cautela.\",\n   \"execucao_criativa\": \"Teste uma versao mais longa com 16 a 30 segundos mostrando mais detalhes do uso.\"\n  }\n ],\n \"alertas\": [\n  \"O CTR atual de 0,0323 esta consideravelmente abaixo da mediana da plataforma de 0,0562.\",\n  \"O klike_score real de 51,5 esta abaixo do score mediano da plataforma de 62.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha apresenta um score real de 51,5 abaixo da mediana da plataforma e um CTR de 0,0323 que precisa de atencao urgente. A implementacao do hook nos primeiros segundos e do CTA explicativo permitira recuperar a performance e elevar o score.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0389"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "TikTok",
+        "atributo": "has_hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "metrica": "conversion_rate",
+        "atributo": "has_cta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "TikTok",
+        "atributo": "has_face"
+      }
+    }
+  ],
+  "tokens": 14268,
+  "latencia_s": 28.6
+}

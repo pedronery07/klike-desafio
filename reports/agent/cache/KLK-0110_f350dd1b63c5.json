@@ -1,0 +1,140 @@
+{
+  "campaign_id": "KLK-0110",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0110",
+    "platform": "Meta",
+    "category": "Branding",
+    "objective": "engagement",
+    "score_predicted": 58.1,
+    "score_actual": 60.0,
+    "real_menos_previsto": 1.9,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 7.4,
+        "score_after": 65.4,
+        "effort": "baixo",
+        "priority": 7.38,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no Meta",
+          "lift": 0.2303,
+          "ci_low": -0.0931,
+          "ci_high": 0.5547,
+          "n_treat": 96,
+          "n_ctrl": 97
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.2,
+        "score_after": 69.2,
+        "effort": "alto",
+        "priority": 3.72,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no Meta",
+          "lift": 0.5414,
+          "ci_low": 0.3011,
+          "ci_high": 0.9701,
+          "n_treat": 110,
+          "n_ctrl": 114
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "format_quadrado",
+        "titulo": "Exportar em formato quadrado",
+        "score_gain": 4.9,
+        "score_after": 62.9,
+        "effort": "médio",
+        "priority": 2.44,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no Meta",
+          "lift": 0.1724,
+          "ci_low": -0.1145,
+          "ci_high": 0.619,
+          "n_treat": 59,
+          "n_ctrl": 63
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": -0.1,
+        "score_after": 57.9,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "face",
+        "format_quadrado"
+      ],
+      "score_before": 58.1,
+      "score_after": 81.5,
+      "score_gain": 23.4
+    }
+  },
+  "revisao": null,
+  "aprovado": false,
+  "tentativas": [
+    {
+      "violacoes": [
+        "JSON inválido ou fora do schema: Expecting ',' delimiter: line 6 column 13 (char 76)"
+      ],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"face\",\n  \"text\",\n  \"format_quadrado\",\n  \"duration\"\n"
+    },
+    {
+      "violacoes": [
+        "acao duration: execucao_criativa não pode conter números"
+      ],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"face\",\n  \"text\",\n  \"format_quadrado\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"Ajustamos a ordem priorizando a evidência mais forte da engine, que é a inclusão de um rosto humano, essencial para uma campanha de engajamento no Meta que está com taxa de engajamento abaixo da mediana. Em seguida, colocamos o aumento de densidade de texto e o formato quadrado, deixando a hipótese de duração por último conforme a regra obrigatória.\",\n \"acoes\": [\n  {\n   \"key\": \"text\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Aumentar a densidade de texto para média ajuda a contextualizar a mensagem da marca, elevando o score em 7,4 pts, embora o lift na taxa de engajamento tenha tido um intervalo com zero.\",\n   \"execucao_criativa\": \"Insira frases curtas na tela destacando os principais diferenciais e benefícios de [produto] ao longo do vídeo.\"\n  },\n  {\n   \"key\": \"face\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Mostrar um rosto humano possui evidência forte de impacto na taxa de engajamento no Meta e garante o maior ganho de score na campanha, somando 11,2 pts.\",\n   \"execucao_criativa\": \"Abra o vídeo com uma pessoa sorrindo e falando diretamente para a câmera, apresentando [produto] de forma natural e expressiva.\"\n  },\n  {\n   \"key\": \"format_quadrado\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"A exportação em formato quadrado traz um ganho de 4,9 pts no score e adapta melhor o criativo para os posicionamentos de feed no Meta.\",\n   \"execucao_criativa\": \"Reajustar o enquadramento do vídeo principal para a proporção quadrada, garantindo que [produto] e os elementos visuais fiquem centralizados.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Testar uma versão mais longa é uma hipótese que precisa de validação por teste A/B, mantida no fim da lista conforme as diretrizes.\",\n   \"execucao_criativa\": \"Estender o ritmo do vídeo para durar entre 11 e 15 segundos, adicionando mais detalhes sobre [benefício] antes do encerramento.\"\n  }\n ],\n \"alertas\": [\n  \"A taxa de engajamento real está em 0,0067, muito abaixo da mediana da plataforma de 0,018.\",\n  \"O CTR real de 0,0285 e a taxa de conversão de 0,0028 também estão abaixo das medianas da plataforma, de 0,0646 e 0,0293 respectivamente.\"\n ],\n \"resumo_para_o_anunciante\": \"Esta campanha de branding no Meta apresenta métricas de engajamento e CTR abaixo da mediana da plataforma. A principal alavanca para reverter esse cenário é a inserção de um rosto humano, respaldada por evidência forte. Complementar com mais densidade de texto e ajuste para formato quadrado potencializa o score e o engajamento geral.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0110"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "ctr",
+        "atributo": "has_face",
+        "plataforma": "Meta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_subtitle",
+        "plataforma": "Meta",
+        "metrica": "engagement_rate"
+      }
+    }
+  ],
+  "tokens": 15201,
+  "latencia_s": 111.8
+}

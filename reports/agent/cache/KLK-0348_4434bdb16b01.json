@@ -1,0 +1,178 @@
+{
+  "campaign_id": "KLK-0348",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0348",
+    "platform": "Meta",
+    "category": "Lead Gen",
+    "objective": "engagement",
+    "score_predicted": 65.1,
+    "score_actual": 38.4,
+    "real_menos_previsto": -26.7,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 7.4,
+        "score_after": 72.5,
+        "effort": "baixo",
+        "priority": 7.38,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no Meta",
+          "lift": 0.2303,
+          "ci_low": -0.0931,
+          "ci_high": 0.5547,
+          "n_treat": 96,
+          "n_ctrl": 97
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 7.3,
+        "score_after": 72.4,
+        "effort": "baixo",
+        "priority": 7.34,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no Meta",
+          "lift": -0.0194,
+          "ci_low": -0.2733,
+          "ci_high": 0.1744,
+          "n_treat": 119,
+          "n_ctrl": 86
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_quadrado",
+        "titulo": "Exportar em formato quadrado",
+        "score_gain": 4.9,
+        "score_after": 70.0,
+        "effort": "médio",
+        "priority": 2.44,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no Meta",
+          "lift": 0.1724,
+          "ci_low": -0.1145,
+          "ci_high": 0.619,
+          "n_treat": 59,
+          "n_ctrl": 63
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": 0.3,
+        "score_after": 65.4,
+        "effort": "médio",
+        "priority": 0.14,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "subtitle",
+        "format_quadrado"
+      ],
+      "score_before": 65.1,
+      "score_after": 84.7,
+      "score_gain": 19.6
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "text",
+      "subtitle",
+      "format_quadrado",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantivemos a ordem da engine porque as ações de esforço baixo com maior ganho potencial no score aparecem primeiro, enquanto a ação classificada como hipótese foi corretamente posicionada no final.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Aumentar a densidade do texto na tela busca elevar o klike_score em 7,4 pts, ajudando a qualificar este criativo no Meta.",
+        "execucao_criativa": "Adicione texto na tela destacando que [produto] resolve [benefício] de forma simples e rápida."
+      },
+      {
+        "key": "subtitle",
+        "evidencia": "nao_clara",
+        "comentario": "Adicionar legendas traz um ganho de 7,3 pts no score. O lift em conversion_rate indicou que a diferença não é clara, mas legendas continuam importantes para retenção.",
+        "execucao_criativa": "Insira legendas automáticas legíveis na parte inferior do vídeo destacando a fala principal."
+      },
+      {
+        "key": "format_quadrado",
+        "evidencia": "nao_clara",
+        "comentario": "Exportar em formato quadrado adiciona 4,9 pts ao score, adaptando melhor o criativo para o posicionamento no feed do Meta.",
+        "execucao_criativa": "Reajuste o enquadramento do vídeo para a proporção 1:1 mantendo os elementos centrais visíveis."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Testar uma versão de 11 a 15 segundos é uma hipótese que adiciona 0,3 pts ao score e precisa de teste para validação.",
+        "execucao_criativa": "Corte a edição do vídeo para manter apenas os momentos essenciais dentro de 11 a 15 segundos."
+      }
+    ],
+    "alertas": [
+      "O klike_score real de 38,4 está muito abaixo do score previsto de 65,1 e da mediana da plataforma de 60,5.",
+      "O engajamento de 0,0094 e o CTR de 0,0055 estão substancialmente abaixo das medianas da plataforma de 0,018 e 0,0646 respectivamente."
+    ],
+    "resumo_para_o_anunciante": "A campanha apresenta um desempenho atual muito abaixo da mediana da plataforma Meta e do score previsto. A aplicação das recomendações de densidade de texto, legendas e formato quadrado ajudará a elevar o score e recuperar a performance de engajamento."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [
+        "acao text: afirma efeito em métrica de negócio, mas a evidência é 'nao_clara'"
+      ],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"text\",\n  \"subtitle\",\n  \"format_quadrado\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": true,\n \"justificativa_ordem\": \"Mantivemos a ordem da engine porque as ações de esforço baixo com maior ganho potencial no score aparecem primeiro, enquanto a ação classificada como hipótese foi corretamente posicionada no final.\",\n \"acoes\": [\n  {\n   \"key\": \"text\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Aumentar a densidade do texto na tela busca elevar o klike_score em 7,4 pts, ajudando a melhorar o engajamento desta campanha no Meta.\",\n   \"execucao_criativa\": \"Adicione texto na tela destacando que [produto] resolve [benefício] de forma simples e rápida.\"\n  },\n  {\n   \"key\": \"subtitle\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Adicionar legendas traz um ganho de 7,3 pts no score. O lift em conversion_rate indicou que a diferença não é clara, mas legendas continuam importantes para retenção.\",\n   \"execucao_criativa\": \"Insira legendas automáticas legíveis na parte inferior do vídeo destacando a fala principal.\"\n  },\n  {\n   \"key\": \"format_quadrado\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Exportar em formato quadrado adiciona 4,9 pts ao score, adaptando melhor o criativo para o posicionamento no feed do Meta.\",\n   \"execucao_criativa\": \"Reajuste o enquadramento do vídeo para a proporção 1:1 mantendo os elementos centrais visíveis.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Testar uma versão de 11 a 15 segundos é uma hipótese que adiciona 0,3 pts ao score e precisa de teste para validação.\",\n   \"execucao_criativa\": \"Corte a edição do vídeo para manter apenas os momentos essenciais dentro de 11 a 15 segundos.\"\n  }\n ],\n \"alertas\": [\n  \"O klike_score real de 38,4 está muito abaixo do score previsto de 65,1 e da mediana da plataforma de 60,5.\",\n  \"O engajamento de 0,0094 e o CTR de 0,0055 estão substancialmente abaixo das medianas da plataforma de 0,018 e 0,0646 respectivamente.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha apresenta um desempenho atual muito abaixo da mediana da plataforma Meta e do score previsto. A aplicação das recomendações de densidade de texto, legendas e formato quadrado ajudará a elevar o score e recuperar a performance de engajamento.\"\n}"
+    },
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"text\",\n  \"subtitle\",\n  \"format_quadrado\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": true,\n \"justificativa_ordem\": \"Mantivemos a ordem da engine porque as ações de esforço baixo com maior ganho potencial no score aparecem primeiro, enquanto a ação classificada como hipótese foi corretamente posicionada no final.\",\n \"acoes\": [\n  {\n   \"key\": \"text\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Aumentar a densidade do texto na tela busca elevar o klike_score em 7,4 pts, ajudando a qualificar este criativo no Meta.\",\n   \"execucao_criativa\": \"Adicione texto na tela destacando que [produto] resolve [benefício] de forma simples e rápida.\"\n  },\n  {\n   \"key\": \"subtitle\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Adicionar legendas traz um ganho de 7,3 pts no score. O lift em conversion_rate indicou que a diferença não é clara, mas legendas continuam importantes para retenção.\",\n   \"execucao_criativa\": \"Insira legendas automáticas legíveis na parte inferior do vídeo destacando a fala principal.\"\n  },\n  {\n   \"key\": \"format_quadrado\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Exportar em formato quadrado adiciona 4,9 pts ao score, adaptando melhor o criativo para o posicionamento no feed do Meta.\",\n   \"execucao_criativa\": \"Reajuste o enquadramento do vídeo para a proporção 1:1 mantendo os elementos centrais visíveis.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Testar uma versão de 11 a 15 segundos é uma hipótese que adiciona 0,3 pts ao score e precisa de teste para validação.\",\n   \"execucao_criativa\": \"Corte a edição do vídeo para manter apenas os momentos essenciais dentro de 11 a 15 segundos.\"\n  }\n ],\n \"alertas\": [\n  \"O klike_score real de 38,4 está muito abaixo do score previsto de 65,1 e da mediana da plataforma de 60,5.\",\n  \"O engajamento de 0,0094 e o CTR de 0,0055 estão substancialmente abaixo das medianas da plataforma de 0,018 e 0,0646 respectivamente.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha apresenta um desempenho atual muito abaixo da mediana da plataforma Meta e do score previsto. A aplicação das recomendações de densidade de texto, legendas e formato quadrado ajudará a elevar o score e recuperar a performance de engajamento.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0348"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_subtitle",
+        "metrica": "conversion_rate",
+        "plataforma": "Meta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "ctr",
+        "atributo": "has_subtitle",
+        "plataforma": "Meta"
+      }
+    }
+  ],
+  "tokens": 19625,
+  "latencia_s": 39.5
+}

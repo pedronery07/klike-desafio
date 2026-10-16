@@ -1,0 +1,162 @@
+{
+  "campaign_id": "KLK-0084",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0084",
+    "platform": "Meta",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 60.0,
+    "score_actual": 56.3,
+    "real_menos_previsto": -3.7,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.1,
+        "score_after": 76.1,
+        "effort": "médio",
+        "priority": 8.04,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.5747,
+          "ci_low": 0.2224,
+          "ci_high": 0.795,
+          "n_treat": 128,
+          "n_ctrl": 113
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.2,
+        "score_after": 71.2,
+        "effort": "alto",
+        "priority": 3.72,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0576,
+          "ci_low": -0.1594,
+          "ci_high": 0.3897,
+          "n_treat": 123,
+          "n_ctrl": 118
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": 0.4,
+        "score_after": 60.3,
+        "effort": "médio",
+        "priority": 0.18,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "face"
+      ],
+      "score_before": 60.0,
+      "score_after": 87.2,
+      "score_gain": 27.2
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "face",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "A ordem da engine foi mantida pois prioriza a acao com evidencia forte para elevar o klike_score e corrige o principal gargalo da campanha, deixando a hipotese por ultimo.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Esta acao adiciona 16,1 pts ao score e ataca diretamente o CTR atual da campanha que esta abaixo da mediana da plataforma. O lift_metrica mostrou que o ganho no engajamento confirma a forca do hook no Meta.",
+        "execucao_criativa": "Mostre a tela do [produto] nos primeiros segundos revelando como o [beneficio] resolve o problema do usuario."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "O ganho previsto e de 11,2 pts para o score. A analise de conversion_rate apontou que a diferenca nao e clara para esta metrica, exigindo cautela e testes.",
+        "execucao_criativa": "Grave um especialista da equipe explicando o [beneficio] olhando diretamente para a camera."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Trata-se de uma hipotese com ganho menor de 0,4 pts no score. O teste deve ser feito apenas apos validar as acoes principais.",
+        "execucao_criativa": "Corte a edicao para manter o video com 11 a 15 segundos focando apenas na funcionalidade principal."
+      }
+    ],
+    "alertas": [
+      "O CTR real esta em 0,0259 enquanto a mediana da plataforma e 0,0646.",
+      "O klike_score real esta em 56,3 pontos, abaixo da previsao de 60,0."
+    ],
+    "resumo_para_o_anunciante": "A campanha apresenta um klike_score real abaixo do previsto e um CTR inferior a mediana da plataforma Meta. A implementacao de um hook nos primeiros segundos trara o maior impacto no score e na performance. A inclusao de um rosto humano e o ajuste deduracao complementam o plano de otimizacao."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"face\", \"duration\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"A ordem da engine foi mantida pois prioriza a acao com evidencia forte para elevar o klike_score e corrige o principal gargalo da campanha, deixando a hipotese por ultimo.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Esta acao adiciona 16,1 pts ao score e ataca diretamente o CTR atual da campanha que esta abaixo da mediana da plataforma. O lift_metrica mostrou que o ganho no engajamento confirma a forca do hook no Meta.\", \"execucao_criativa\": \"Mostre a tela do [produto] nos primeiros segundos revelando como o [beneficio] resolve o problema do usuario.\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"O ganho previsto e de 11,2 pts para o score. A analise de conversion_rate apontou que a diferenca nao e clara para esta metrica, exigindo cautela e testes.\", \"execucao_criativa\": \"Grave um especialista da equipe explicando o [beneficio] olhando diretamente para a camera.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Trata-se de uma hipotese com ganho menor de 0,4 pts no score. O teste deve ser feito apenas apos validar as acoes principais.\", \"execucao_criativa\": \"Corte a edicao para manter o video com 11 a 15 segundos focando apenas na funcionalidade principal.\"}], \"alertas\": [\"O CTR real esta em 0,0259 enquanto a mediana da plataforma e 0,0646.\", \"O klike_score real esta em 56,3 pontos, abaixo da previsao de 60,0.\"], \"resumo_para_o_anunciante\": \"A campanha apresenta um klike_score real abaixo do previsto e um CTR inferior a mediana da plataforma Meta. A implementacao de um hook nos primeiros segundos trara o maior impacto no score e na performance. A inclusao de um rosto humano e o ajuste deduracao complementam o plano de otimizacao.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0084"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "Meta",
+        "metrica": "conversion_rate",
+        "atributo": "has_hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_face",
+        "plataforma": "Meta",
+        "metrica": "conversion_rate"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "engagement_rate",
+        "atributo": "has_hook",
+        "plataforma": "Meta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "engagement_rate",
+        "plataforma": "Meta",
+        "atributo": "has_face"
+      }
+    }
+  ],
+  "tokens": 21013,
+  "latencia_s": 41.1
+}

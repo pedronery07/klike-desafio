@@ -1,0 +1,153 @@
+{
+  "campaign_id": "KLK-0084",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0084",
+    "platform": "Meta",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 60.0,
+    "score_actual": 56.3,
+    "real_menos_previsto": -3.7,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.1,
+        "score_after": 76.1,
+        "effort": "médio",
+        "priority": 8.04,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.5747,
+          "ci_low": 0.2224,
+          "ci_high": 0.795,
+          "n_treat": 128,
+          "n_ctrl": 113
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.2,
+        "score_after": 71.2,
+        "effort": "alto",
+        "priority": 3.72,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0576,
+          "ci_low": -0.1594,
+          "ci_high": 0.3897,
+          "n_treat": 123,
+          "n_ctrl": 118
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": 0.4,
+        "score_after": 60.3,
+        "effort": "médio",
+        "priority": 0.18,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "face"
+      ],
+      "score_before": 60.0,
+      "score_after": 87.2,
+      "score_gain": 27.2
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "face",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantivemos a ordem da engine porque a prioridade é liderada pelo hook, que apresenta evidência forte, seguido pelo rosto humano e pela duração, que é uma hipótese e fica no fim.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Como o CTR está em 0,0259 contra a mediana de 0,0646 da plataforma, o hook é essencial para destravar o alcance, oferecendo um ganho de 16,1 pts. Na métrica conversion_rate, a diferença não é clara com lift de 0,0252.",
+        "execucao_criativa": "Corte seco para a tela do [produto] mostrando o relatório de [benefício] nos primeiros momentos, com a frase: 'Cansado de perder vendas por falta de visibilidade?'"
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "O ganho previsto é de 11,2 pts para aproximar o criativo da mediana da plataforma. A análise em conversion_rate indicou que a diferença não é clara com lift de 0,0756, sendo necessário testar.",
+        "execucao_criativa": "Aparecer em close gravando a tela do computador, apontando para o gráfico de conversões e explicando o processo de forma natural."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Trata-se de uma hipótese com ganho estimado de 0,4 pts para ajustar o formato atual. Como a evidência é hipotética, o impacto real precisa ser validado em novos testes.",
+        "execucao_criativa": "Resumir a demonstração do [produto] focando em apenas um [benefício] central, cortando pausas para uma versão mais curta."
+      }
+    ],
+    "alertas": [
+      "O CTR real está em 0,0259, bem abaixo da mediana da plataforma de 0,0646.",
+      "A conversion_rate real está em 0,0238, abaixo da mediana da plataforma de 0,0293.",
+      "O klike_score real de 56,3 está abaixo da mediana da plataforma de 60,5."
+    ],
+    "resumo_para_o_anunciante": "A campanha no Meta está com o klike_score real abaixo da mediana da plataforma e sofre com um CTR de 0,0259. A principal prioridade é adicionar um hook forte para elevar o score em 16,1 pts e corrigir a atração inicial. Complementar com um rosto humano ajudará a buscar o ganho de 11,2 pts no score."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [
+        "acao duration: execucao_criativa não pode conter números"
+      ],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"face\", \"duration\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantivemos a ordem da engine porque a prioridade é liderada pelo hook, que apresenta evidência forte, seguido pelo rosto humano e pela duração, que é uma hipótese e fica no fim.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Como o CTR está em 0,0259 contra a mediana de 0,0646 da plataforma, o hook é essencial para destravar o alcance, oferecendo um ganho de 16,1 pts. Na métrica conversion_rate, a diferença não é clara com lift de 0,0252.\", \"execucao_criativa\": \"Corte seco para a tela do [produto] mostrando o relatório de [benefício] nos primeiros três segundos, com a frase: 'Cansado de perder vendas por falta de visibilidade?'\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"O ganho previsto é de 11,2 pts para aproximar o criativo da mediana da plataforma. A análise em conversion_rate indicou que a diferença não é clara com lift de 0,0756, sendo necessário testar.\", \"execucao_criativa\": \"Aparecer em close gravando a tela do computador, apontando para o gráfico de conversões e explicando o processo de forma natural.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Trata-se de uma hipótese com ganho estimado de 0,4 pts para ajustar o formato atual de 35 segundos. Como a evidência é hipotética, o impacto real precisa ser validado em novos testes.\", \"execucao_criativa\": \"Resumir a demonstração do [produto] focando em apenas um [benefício] central, cortando pausas para encaixar no intervalo de 11 a 15 segundos.\"}], \"alertas\": [\"O CTR real está em 0,0259, bem abaixo da mediana da plataforma de 0,0646.\", \"A conversion_rate real está em 0,0238, abaixo da mediana da plataforma de 0,0293.\", \"O klike_score real de 56,3 está abaixo da mediana da plataforma de 60,5.\"], \"resumo_para_o_anunciante\": \"A campanha no Meta está com o klike_score real abaixo da mediana da plataforma e sofre com um CTR de 0,0259. A principal prioridade é adicionar um hook forte para elevar o score em 16,1 pts e corrigir a atração inicial. Complementar com um rosto humano ajudará a buscar o ganho de 11,2 pts no score.\"}"
+    },
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"face\", \"duration\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantivemos a ordem da engine porque a prioridade é liderada pelo hook, que apresenta evidência forte, seguido pelo rosto humano e pela duração, que é uma hipótese e fica no fim.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Como o CTR está em 0,0259 contra a mediana de 0,0646 da plataforma, o hook é essencial para destravar o alcance, oferecendo um ganho de 16,1 pts. Na métrica conversion_rate, a diferença não é clara com lift de 0,0252.\", \"execucao_criativa\": \"Corte seco para a tela do [produto] mostrando o relatório de [benefício] nos primeiros momentos, com a frase: 'Cansado de perder vendas por falta de visibilidade?'\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"O ganho previsto é de 11,2 pts para aproximar o criativo da mediana da plataforma. A análise em conversion_rate indicou que a diferença não é clara com lift de 0,0756, sendo necessário testar.\", \"execucao_criativa\": \"Aparecer em close gravando a tela do computador, apontando para o gráfico de conversões e explicando o processo de forma natural.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Trata-se de uma hipótese com ganho estimado de 0,4 pts para ajustar o formato atual. Como a evidência é hipotética, o impacto real precisa ser validado em novos testes.\", \"execucao_criativa\": \"Resumir a demonstração do [produto] focando em apenas um [benefício] central, cortando pausas para uma versão mais curta.\"}], \"alertas\": [\"O CTR real está em 0,0259, bem abaixo da mediana da plataforma de 0,0646.\", \"A conversion_rate real está em 0,0238, abaixo da mediana da plataforma de 0,0293.\", \"O klike_score real de 56,3 está abaixo da mediana da plataforma de 60,5.\"], \"resumo_para_o_anunciante\": \"A campanha no Meta está com o klike_score real abaixo da mediana da plataforma e sofre com um CTR de 0,0259. A principal prioridade é adicionar um hook forte para elevar o score em 16,1 pts e corrigir a atração inicial. Complementar com um rosto humano ajudará a buscar o ganho de 11,2 pts no score.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0084"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "atributo": "has_hook",
+        "plataforma": "Meta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "atributo": "has_face",
+        "plataforma": "Meta"
+      }
+    }
+  ],
+  "tokens": 10048,
+  "latencia_s": 20.1
+}

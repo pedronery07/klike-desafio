@@ -1,0 +1,206 @@
+{
+  "campaign_id": "KLK-0220",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0220",
+    "platform": "TikTok",
+    "category": "Branding",
+    "objective": "awareness",
+    "score_predicted": 48.0,
+    "score_actual": 48.8,
+    "real_menos_previsto": 0.8,
+    "recomendacoes": [
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 10.5,
+        "score_after": 58.5,
+        "effort": "baixo",
+        "priority": 10.53,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": -0.1636,
+          "ci_low": -0.3175,
+          "ci_high": 0.0971,
+          "n_treat": 83,
+          "n_ctrl": 68
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 64.9,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": 0.2262,
+          "ci_low": -0.0135,
+          "ci_high": 1.0052,
+          "n_treat": 82,
+          "n_ctrl": 84
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 56.0,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": 0.0954,
+          "ci_low": -0.2328,
+          "ci_high": 0.6724,
+          "n_treat": 105,
+          "n_ctrl": 61
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "voice",
+        "titulo": "Dar mais espaço à voz no áudio",
+        "score_gain": 1.7,
+        "score_after": 49.6,
+        "effort": "médio",
+        "priority": 0.84,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": -0.2101,
+          "ci_low": -0.4539,
+          "ci_high": 0.0203,
+          "n_treat": 107,
+          "n_ctrl": 24
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 16–30s",
+        "score_gain": -0.1,
+        "score_after": 47.9,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.751,
+          "ci_low": 0.1165,
+          "ci_high": 1.1791,
+          "n_treat": 46,
+          "n_ctrl": 115
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "subtitle",
+        "hook",
+        "cta",
+        "voice"
+      ],
+      "score_before": 48.0,
+      "score_after": 85.2,
+      "score_gain": 37.2
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "subtitle",
+      "cta",
+      "voice",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "A ordem foi ajustada priorizando o hook por ter demonstrado aumento no watch_ratio e possuir o maior ganho de score, seguido pelas demais ações e mantendo a duração por hipótese no final.",
+    "acoes": [
+      {
+        "key": "subtitle",
+        "evidencia": "nao_clara",
+        "comentario": "Adicionar legendas traz um ganho de 10,5 pts no score para esta campanha de awareness no TikTok, embora a análise de watch_ratio tenha mostrado que a diferença não é clara.",
+        "execucao_criativa": "Insira legendas dinâmicas em destaque na parte central do vídeo para acompanhar a fala sobre [benefício]."
+      },
+      {
+        "key": "hook",
+        "evidencia": "nao_clara",
+        "comentario": "O hook nos 3 primeiros segundos gera um ganho de 16,9 pts no score, e a verificação de watch_ratio confirmou que o atributo aumenta essa métrica no TikTok.",
+        "execucao_criativa": "Comece o vídeo mostrando o principal problema de [produto] logo no primeiro segundo."
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "Incluir um CTA explícito contribui com 8,0 pts no score, embora o teste de watch_ratio tenha indicado que a diferença não é clara para este objetivo.",
+        "execucao_criativa": "Finalize o vídeo exibindo a chamada para conhecer mais sobre [produto]."
+      },
+      {
+        "key": "voice",
+        "evidencia": "nao_clara",
+        "comentario": "Dar mais espaço à voz no áudio eleva o score em 1,7 pts, ajudando a ajustar a proporção atual da campanha para o padrão da plataforma.",
+        "execucao_criativa": "Reduza o volume da trilha musical e deixe a locução sobre [benefício] em primeiro plano."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Testar uma versão de 16–30s possui evidência do tipo hipotese e o ganho previsto é nulo para o score, devendo ser avaliada apenas após teste.",
+        "execucao_criativa": "Grave uma variação estendida do criativo com duração de 16 a 30 segundos abordando [produto]."
+      }
+    ],
+    "alertas": [
+      "O klike_score real da campanha (48,8) está muito abaixo da mediana da plataforma (62).",
+      "O watch_ratio atual de 0,6077 está acima da mediana da plataforma (0,4967), mas o CTR de 0,0349 e a conversion_rate de 0,0066 estão abaixo das medianas de 0,0562 e 0,0308."
+    ],
+    "resumo_para_o_anunciante": "A campanha atual apresenta um score real de 48,8, ficando abaixo da mediana da plataforma de 62. A aplicação conjunta das melhorias recomendadas pode elevar o score para 85,2, com destaque para a inclusão de um hook nos primeiros segundos para impulsionar o engajamento."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"subtitle\",\n  \"cta\",\n  \"voice\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"A ordem foi ajustada priorizando o hook por ter demonstrado aumento no watch_ratio e possuir o maior ganho de score, seguido pelas demais ações e mantendo a duração por hipótese no final.\",\n \"acoes\": [\n  {\n   \"key\": \"subtitle\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Adicionar legendas traz um ganho de 10,5 pts no score para esta campanha de awareness no TikTok, embora a análise de watch_ratio tenha mostrado que a diferença não é clara.\",\n   \"execucao_criativa\": \"Insira legendas dinâmicas em destaque na parte central do vídeo para acompanhar a fala sobre [benefício].\"\n  },\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"O hook nos 3 primeiros segundos gera um ganho de 16,9 pts no score, e a verificação de watch_ratio confirmou que o atributo aumenta essa métrica no TikTok.\",\n   \"execucao_criativa\": \"Comece o vídeo mostrando o principal problema de [produto] logo no primeiro segundo.\"\n  },\n  {\n   \"key\": \"cta\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Incluir um CTA explícito contribui com 8,0 pts no score, embora o teste de watch_ratio tenha indicado que a diferença não é clara para este objetivo.\",\n   \"execucao_criativa\": \"Finalize o vídeo exibindo a chamada para conhecer mais sobre [produto].\"\n  },\n  {\n   \"key\": \"voice\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Dar mais espaço à voz no áudio eleva o score em 1,7 pts, ajudando a ajustar a proporção atual da campanha para o padrão da plataforma.\",\n   \"execucao_criativa\": \"Reduza o volume da trilha musical e deixe a locução sobre [benefício] em primeiro plano.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Testar uma versão de 16–30s possui evidência do tipo hipotese e o ganho previsto é nulo para o score, devendo ser avaliada apenas após teste.\",\n   \"execucao_criativa\": \"Grave uma variação estendida do criativo com duração de 16 a 30 segundos abordando [produto].\"\n  }\n ],\n \"alertas\": [\n  \"O klike_score real da campanha (48,8) está muito abaixo da mediana da plataforma (62).\",\n  \"O watch_ratio atual de 0,6077 está acima da mediana da plataforma (0,4967), mas o CTR de 0,0349 e a conversion_rate de 0,0066 estão abaixo das medianas de 0,0562 e 0,0308.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha atual apresenta um score real de 48,8, ficando abaixo da mediana da plataforma de 62. A aplicação conjunta das melhorias recomendadas pode elevar o score para 85,2, com destaque para a inclusão de um hook nos primeiros segundos para impulsionar o engajamento.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0220"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_hook",
+        "metrica": "watch_ratio",
+        "plataforma": "TikTok"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "metrica": "watch_ratio",
+        "atributo": "has_subtitle"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "metrica": "watch_ratio",
+        "atributo": "has_cta"
+      }
+    }
+  ],
+  "tokens": 10844,
+  "latencia_s": 49.5
+}

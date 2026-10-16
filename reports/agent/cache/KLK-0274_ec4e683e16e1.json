@@ -1,0 +1,153 @@
+{
+  "campaign_id": "KLK-0274",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0274",
+    "platform": "LinkedIn",
+    "category": "SaaS",
+    "objective": "traffic",
+    "score_predicted": 48.6,
+    "score_actual": 43.9,
+    "real_menos_previsto": -4.7,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Reduzir o texto na tela (densidade média)",
+        "score_gain": 16.3,
+        "score_after": 64.9,
+        "effort": "baixo",
+        "priority": 16.33,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.1393,
+          "ci_low": -0.1409,
+          "ci_high": 1.1111,
+          "n_treat": 31,
+          "n_ctrl": 22
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 56.6,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.2151,
+          "ci_low": -0.2696,
+          "ci_high": 0.8517,
+          "n_treat": 61,
+          "n_ctrl": 22
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.6,
+        "score_after": 60.1,
+        "effort": "alto",
+        "priority": 3.85,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.6167,
+          "ci_low": -0.0219,
+          "ci_high": 1.3246,
+          "n_treat": 48,
+          "n_ctrl": 35
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "cta",
+        "face"
+      ],
+      "score_before": 48.6,
+      "score_after": 84.5,
+      "score_gain": 35.9
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "text",
+      "cta",
+      "face"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantivemos a ordem da engine pois a acao de texto possui o maior ganho no score e ataca diretamente a densidade alta detectada nos atributos da campanha, seguida pelo cta de baixo esforço e pela face de alto esforço.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Reduzir o texto na tela para densidade média traz um ganho de 16,3 pts no score, ajudando a estruturar melhor o criativo que está com o score real abaixo da mediana da plataforma. Como a evidência é não clara, a alteração deve ser tratada como ganho no score e testada na prática.",
+        "execucao_criativa": "Substitua o parágrafo longo por uma única frase limpa sobre [benefício] no centro do criativo."
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "Incluir um CTA explícito garante um ganho de 8,0 pts no score com baixo esforço, orientando o tráfego gerado pela campanha. O lift de engajamento mostrou diferença não clara, mas a inclusão é recomendada para o objetivo de traffic.",
+        "execucao_criativa": "Adicione o botão ou texto final com a chamada: \"Saiba mais sobre [produto] agora\"."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Mostrar um rosto humano eleva o score em 11,6 pts, embora exija alto esforço de produção para este formato no LinkedIn. O lift na métrica de engajamento apresentou intervalo cruzando o zero.",
+        "execucao_criativa": "Insira o rosto de um profissional especialista falando diretamente para a câmera sobre [produto] no início do vídeo."
+      }
+    ],
+    "alertas": [
+      "O klike_score real de 43,9 está consideravelmente abaixo da mediana da plataforma que é 57,2.",
+      "O CTR atual de 0,037 está abaixo da mediana da plataforma de 0,067."
+    ],
+    "resumo_para_o_anunciante": "A campanha apresenta um klike_score real de 43,9, abaixo da mediana da plataforma, puxada por alta densidade de texto e ausência de elementos essenciais. O plano proposto eleva o score em 35,9 pts ao otimizar o texto, adicionar um CTA explícito e inserir um rosto humano."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [
+        "acao text: afirma efeito em métrica de negócio, mas a evidência é 'nao_clara'"
+      ],
+      "texto_bruto": "{\"ordem_sugerida\": [\"text\", \"cta\", \"face\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantivemos a ordem da engine pois a acao de texto possui o maior ganho no score e ataca diretamente a densidade alta detectada nos atributos da campanha, seguida pelo cta de baixo esforço e pela face de alto esforço.\", \"acoes\": [{\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Reduzir o texto na tela para densidade média traz um ganho de 16,3 pts no score, ajudando a elevar o CTR que está abaixo da mediana da plataforma. O lift medido na métrica secundária de engajamento apresentou intervalo com zero, indicando que a mudança deve ser validada.\", \"execucao_criativa\": \"Substitua o parágrafo longo por uma única frase limpa sobre [benefício] no centro do criativo.\"}, {\"key\": \"cta\", \"evidencia\": \"nao_clara\", \"comentario\": \"Incluir um CTA explícito garante um ganho de 8,0 pts no score com baixo esforço, orientando o tráfego gerado pela campanha. O lift de engajamento mostrou diferença não clara, mas a inclusão é recomendada para o objetivo de traffic.\", \"execucao_criativa\": \"Adicione o botão ou texto final com a chamada: \\\"Saiba mais sobre [produto] agora\\\".\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano eleva o score em 11,6 pts, embora exija alto esforço de produção para este formato no LinkedIn. O lift na métrica de engajamento apresentou intervalo cruzando o zero.\", \"execucao_criativa\": \"Insira o rosto de um profissional especialista falando diretamente para a câmera sobre [produto] no início do vídeo.\"}], \"alertas\": [\"O klike_score real de 43,9 está consideravelmente abaixo da mediana da plataforma que é 57,2.\", \"O CTR atual de 0,037 está abaixo da mediana da plataforma de 0,067.\"], \"resumo_para_o_anunciante\": \"A campanha apresenta um klike_score real de 43,9, abaixo da mediana da plataforma, puxada por alta densidade de texto e ausência de elementos essenciais. O plano proposto eleva o score em 35,9 pts ao otimizar o texto, adicionar um CTA explícito e inserir um rosto humano.\"}"
+    },
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"text\", \"cta\", \"face\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantivemos a ordem da engine pois a acao de texto possui o maior ganho no score e ataca diretamente a densidade alta detectada nos atributos da campanha, seguida pelo cta de baixo esforço e pela face de alto esforço.\", \"acoes\": [{\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Reduzir o texto na tela para densidade média traz um ganho de 16,3 pts no score, ajudando a estruturar melhor o criativo que está com o score real abaixo da mediana da plataforma. Como a evidência é não clara, a alteração deve ser tratada como ganho no score e testada na prática.\", \"execucao_criativa\": \"Substitua o parágrafo longo por uma única frase limpa sobre [benefício] no centro do criativo.\"}, {\"key\": \"cta\", \"evidencia\": \"nao_clara\", \"comentario\": \"Incluir um CTA explícito garante um ganho de 8,0 pts no score com baixo esforço, orientando o tráfego gerado pela campanha. O lift de engajamento mostrou diferença não clara, mas a inclusão é recomendada para o objetivo de traffic.\", \"execucao_criativa\": \"Adicione o botão ou texto final com a chamada: \\\"Saiba mais sobre [produto] agora\\\".\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano eleva o score em 11,6 pts, embora exija alto esforço de produção para este formato no LinkedIn. O lift na métrica de engajamento apresentou intervalo cruzando o zero.\", \"execucao_criativa\": \"Insira o rosto de um profissional especialista falando diretamente para a câmera sobre [produto] no início do vídeo.\"}], \"alertas\": [\"O klike_score real de 43,9 está consideravelmente abaixo da mediana da plataforma que é 57,2.\", \"O CTR atual de 0,037 está abaixo da mediana da plataforma de 0,067.\"], \"resumo_para_o_anunciante\": \"A campanha apresenta um klike_score real de 43,9, abaixo da mediana da plataforma, puxada por alta densidade de texto e ausência de elementos essenciais. O plano proposto eleva o score em 35,9 pts ao otimizar o texto, adicionar um CTA explícito e inserir um rosto humano.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0274"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "engagement_rate",
+        "atributo": "has_cta",
+        "plataforma": "LinkedIn"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "engagement_rate",
+        "atributo": "has_face",
+        "plataforma": "LinkedIn"
+      }
+    }
+  ],
+  "tokens": 9869,
+  "latencia_s": 18.3
+}

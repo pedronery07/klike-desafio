@@ -1,0 +1,154 @@
+{
+  "campaign_id": "KLK-0200",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0200",
+    "platform": "TikTok",
+    "category": "SaaS",
+    "objective": "traffic",
+    "score_predicted": 66.5,
+    "score_actual": 69.2,
+    "real_menos_previsto": 2.7,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 83.4,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.7931,
+          "ci_low": 0.3447,
+          "ci_high": 1.341,
+          "n_treat": 83,
+          "n_ctrl": 93
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 5.2,
+        "score_after": 71.7,
+        "effort": "baixo",
+        "priority": 5.2,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": -0.052,
+          "ci_low": -0.3158,
+          "ci_high": 0.3838,
+          "n_treat": 94,
+          "n_ctrl": 45
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "voice",
+        "titulo": "Dar mais espaço à voz no áudio",
+        "score_gain": 0.9,
+        "score_after": 67.4,
+        "effort": "médio",
+        "priority": 0.45,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.3502,
+          "ci_low": -0.3967,
+          "ci_high": 1.0912,
+          "n_treat": 115,
+          "n_ctrl": 24
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "text",
+        "voice"
+      ],
+      "score_before": 66.5,
+      "score_after": 89.5,
+      "score_gain": 23.0
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "voice"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantemos a ordem da engine pois a acao de hook possui a maior evidencia e o maior ganho de 16,9 pts, enquanto as demais acoes possuem evidencia nao clara e ganho menor.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Adicionar um hook traz o maior ganho de 16,9 pts para o score, elevando o criativo no TikTok. A analise de watch_ratio confirmou que a acao aumenta a metrica na plataforma.",
+        "execucao_criativa": "Cansado de perder horas organizando tarefas no [produto]? Descubra como automatizar tudo em segundos."
+      },
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Como a evidencia e nao clara para a acao de texto, o ganho de 5,2 pts no score e uma hipotese que precisa de teste e validacao no TikTok.",
+        "execucao_criativa": "Texto na tela: Mais produtividade para equipes de SaaS."
+      },
+      {
+        "key": "voice",
+        "evidencia": "nao_clara",
+        "comentario": "A acao de dar mais espaco a voz apresenta evidencia nao clara no TikTok, gerando um ganho de 0,9 pts no score que deve ser testado.",
+        "execucao_criativa": "Locucao em destaque explicando passo a passo como o [beneficio] funciona na pratica."
+      }
+    ],
+    "alertas": [
+      "O watch_ratio de 0,2733 esta abaixo da mediana da plataforma de 0,4967, indicando baixa retencao no video."
+    ],
+    "resumo_para_o_anunciante": "O criativo atual ja apresenta um klike_score real de 69,2, mas pode melhorar bastante com a inclusao de um hook nos primeiros segundos. A estrategia prioriza o ganho de score no TikTok para corrigir o ponto fraco de retencao."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"text\", \"voice\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantemos a ordem da engine pois a acao de hook possui a maior evidencia e o maior ganho de 16,9 pts, enquanto as demais acoes possuem evidencia nao clara e ganho menor.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Adicionar um hook traz o maior ganho de 16,9 pts para o score, elevando o criativo no TikTok. A analise de watch_ratio confirmou que a acao aumenta a metrica na plataforma.\", \"execucao_criativa\": \"Cansado de perder horas organizando tarefas no [produto]? Descubra como automatizar tudo em segundos.\"}, {\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Como a evidencia e nao clara para a acao de texto, o ganho de 5,2 pts no score e uma hipotese que precisa de teste e validacao no TikTok.\", \"execucao_criativa\": \"Texto na tela: Mais produtividade para equipes de SaaS.\"}, {\"key\": \"voice\", \"evidencia\": \"nao_clara\", \"comentario\": \"A acao de dar mais espaco a voz apresenta evidencia nao clara no TikTok, gerando um ganho de 0,9 pts no score que deve ser testado.\", \"execucao_criativa\": \"Locucao em destaque explicando passo a passo como o [beneficio] funciona na pratica.\"}], \"alertas\": [\"O watch_ratio de 0,2733 esta abaixo da mediana da plataforma de 0,4967, indicando baixa retencao no video.\"], \"resumo_para_o_anunciante\": \"O criativo atual ja apresenta um klike_score real de 69,2, mas pode melhorar bastante com a inclusao de um hook nos primeiros segundos. A estrategia prioriza o ganho de score no TikTok para corrigir o ponto fraco de retencao.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0200"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_hook",
+        "plataforma": "TikTok",
+        "metrica": "conversion_rate"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "atributo": "has_hook",
+        "metrica": "watch_ratio"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_subtitle",
+        "plataforma": "TikTok",
+        "metrica": "conversion_rate"
+      }
+    }
+  ],
+  "tokens": 17601,
+  "latencia_s": 66.9
+}

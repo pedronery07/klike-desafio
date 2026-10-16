@@ -1,0 +1,173 @@
+{
+  "campaign_id": "KLK-0262",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0262",
+    "platform": "LinkedIn",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 47.6,
+    "score_actual": 46.7,
+    "real_menos_previsto": -0.9,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 19.4,
+        "score_after": 66.9,
+        "effort": "médio",
+        "priority": 9.68,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 1.1893,
+          "ci_low": 0.2851,
+          "ci_high": 2.3868,
+          "n_treat": 45,
+          "n_ctrl": 38
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 8.7,
+        "score_after": 56.2,
+        "effort": "baixo",
+        "priority": 8.67,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.03,
+          "ci_low": -0.2897,
+          "ci_high": 0.9012,
+          "n_treat": 31,
+          "n_ctrl": 30
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.6,
+        "score_after": 59.1,
+        "effort": "alto",
+        "priority": 3.85,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.6167,
+          "ci_low": -0.0219,
+          "ci_high": 1.3246,
+          "n_treat": 48,
+          "n_ctrl": 35
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_horizontal",
+        "titulo": "Exportar em formato horizontal",
+        "score_gain": 4.7,
+        "score_after": 52.3,
+        "effort": "médio",
+        "priority": 2.35,
+        "evidence": {
+          "metric": "ctr",
+          "context": null,
+          "lift": null,
+          "ci_low": null,
+          "ci_high": null,
+          "n_treat": null,
+          "n_ctrl": null
+        },
+        "evidencia": "sem_dados"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "text",
+        "face",
+        "format_horizontal"
+      ],
+      "score_before": 47.6,
+      "score_after": 91.9,
+      "score_gain": 44.3
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "face",
+      "format_horizontal"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantemos a ordem sugerida pela engine porque o hook apresenta evidência forte e o maior ganho no score, alinhando-se bem com a prioridade exigida, enquanto as demais ações seguem na sequência conforme prioridade e esforço.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "O hook nos primeiros segundos é essencial para esta campanha de conversão no LinkedIn, garantindo o maior ganho de 19,4 pts no score. O lift de conversão mostrou diferença não é clara, mas o ganho em CTR é forte.",
+        "execucao_criativa": "Corte direto para a dor do [produto] nos primeiros segundos com uma pergunta focada em [benefício]."
+      },
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Aumentar a densidade do texto ajuda a contextualizar a proposta de SaaS para o público de idade 45+, elevando o score em 8,7 pts, embora a evidência seja não clara.",
+        "execucao_criativa": "Adicione legendas curtas destacando a facilidade de uso do [produto]."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Mostrar um rosto humano traz o ganho de 11,6 pts no score, gerando maior identificação profissional no LinkedIn, apesar da evidência de conversão ser não clara.",
+        "execucao_criativa": "Insira um especialista falando diretamente para a câmera sobre o [benefício]."
+      },
+      {
+        "key": "format_horizontal",
+        "evidencia": "sem_dados",
+        "comentario": "Ajustar para o formato horizontal traz um ganho de 4,7 pts no score para adequação ao feed do LinkedIn, mas atualmente não possui dados suficientes.",
+        "execucao_criativa": "Exportar o vídeo final em proporção horizontal adequada para desktop no LinkedIn."
+      }
+    ],
+    "alertas": [
+      "O klike_score real da campanha é 46,7, abaixo da mediana da plataforma que é 57,2.",
+      "O watch_ratio está em 0,1519, consideravelmente abaixo da mediana da plataforma de 0,5034."
+    ],
+    "resumo_para_o_anunciante": "A campanha atual apresenta um klike_score real de 46,7, abaixo da mediana da plataforma de 57,2, com grande deficiência no watch_ratio de 0,1519. A aplicação prioritária de um hook forte nos primeiros segundos e ajustes de texto e formato podem elevar o score potencial para 91,9 pts."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"text\",\n  \"face\",\n  \"format_horizontal\"\n ],\n \"mantem_ordem_da_engine\": true,\n \"justificativa_ordem\": \"Mantemos a ordem sugerida pela engine porque o hook apresenta evidência forte e o maior ganho no score, alinhando-se bem com a prioridade exigida, enquanto as demais ações seguem na sequência conforme prioridade e esforço.\",\n \"acoes\": [\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"O hook nos primeiros segundos é essencial para esta campanha de conversão no LinkedIn, garantindo o maior ganho de 19,4 pts no score. O lift de conversão mostrou diferença não é clara, mas o ganho em CTR é forte.\",\n   \"execucao_criativa\": \"Corte direto para a dor do [produto] nos primeiros segundos com uma pergunta focada em [benefício].\"\n  },\n  {\n   \"key\": \"text\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Aumentar a densidade do texto ajuda a contextualizar a proposta de SaaS para o público de idade 45+, elevando o score em 8,7 pts, embora a evidência seja não clara.\",\n   \"execucao_criativa\": \"Adicione legendas curtas destacando a facilidade de uso do [produto].\"\n  },\n  {\n   \"key\": \"face\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Mostrar um rosto humano traz o ganho de 11,6 pts no score, gerando maior identificação profissional no LinkedIn, apesar da evidência de conversão ser não clara.\",\n   \"execucao_criativa\": \"Insira um especialista falando diretamente para a câmera sobre o [benefício].\"\n  },\n  {\n   \"key\": \"format_horizontal\",\n   \"evidencia\": \"sem_dados\",\n   \"comentario\": \"Ajustar para o formato horizontal traz um ganho de 4,7 pts no score para adequação ao feed do LinkedIn, mas atualmente não possui dados suficientes.\",\n   \"execucao_criativa\": \"Exportar o vídeo final em proporção horizontal adequada para desktop no LinkedIn.\"\n  }\n ],\n \"alertas\": [\n  \"O klike_score real da campanha é 46,7, abaixo da mediana da plataforma que é 57,2.\",\n  \"O watch_ratio está em 0,1519, consideravelmente abaixo da mediana da plataforma de 0,5034.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha atual apresenta um klike_score real de 46,7, abaixo da mediana da plataforma de 57,2, com grande deficiência no watch_ratio de 0,1519. A aplicação prioritária de um hook forte nos primeiros segundos e ajustes de texto e formato podem elevar o score potencial para 91,9 pts.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0262"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "LinkedIn",
+        "atributo": "has_hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_face",
+        "plataforma": "LinkedIn",
+        "metrica": "conversion_rate"
+      }
+    }
+  ],
+  "tokens": 9743,
+  "latencia_s": 67.9
+}

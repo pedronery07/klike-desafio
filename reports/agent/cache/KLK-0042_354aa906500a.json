@@ -1,0 +1,184 @@
+{
+  "campaign_id": "KLK-0042",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0042",
+    "platform": "Meta",
+    "category": "App Install",
+    "objective": "app_install",
+    "score_predicted": 50.1,
+    "score_actual": 51.0,
+    "real_menos_previsto": 0.9,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.1,
+        "score_after": 66.2,
+        "effort": "médio",
+        "priority": 8.04,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.5747,
+          "ci_low": 0.2224,
+          "ci_high": 0.795,
+          "n_treat": 128,
+          "n_ctrl": 113
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 58.2,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": -0.0453,
+          "ci_low": -0.1826,
+          "ci_high": 0.3983,
+          "n_treat": 174,
+          "n_ctrl": 67
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.2,
+        "score_after": 61.3,
+        "effort": "alto",
+        "priority": 3.72,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0576,
+          "ci_low": -0.1594,
+          "ci_high": 0.3897,
+          "n_treat": 123,
+          "n_ctrl": 118
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_quadrado",
+        "titulo": "Exportar em formato quadrado",
+        "score_gain": 0.8,
+        "score_after": 50.9,
+        "effort": "médio",
+        "priority": 0.39,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.1515,
+          "ci_low": -0.2194,
+          "ci_high": 0.4601,
+          "n_treat": 68,
+          "n_ctrl": 106
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": 0.3,
+        "score_after": 50.4,
+        "effort": "médio",
+        "priority": 0.15,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "cta",
+        "face",
+        "format_quadrado"
+      ],
+      "score_before": 50.1,
+      "score_after": 86.2,
+      "score_gain": 36.1
+    }
+  },
+  "revisao": null,
+  "aprovado": false,
+  "tentativas": [
+    {
+      "violacoes": [
+        "JSON inválido ou fora do schema: Expecting value: line 1 column 1 (char 0)"
+      ],
+      "texto_bruto": ""
+    },
+    {
+      "violacoes": [
+        "mantem_ordem_da_engine não corresponde à ordem sugerida",
+        "acao format_quadrado: execucao_criativa não pode conter números"
+      ],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"cta\", \"face\", \"format_quadrado\", \"duration\"], \"mantem_ordem_da_engine\": false, \"justificativa_ordem\": \"A ordem foi ajustada para colocar a única ação com evidência forte no início e empurrar a ação classificada como hipótese para o fim, conforme as regras de priorização.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Adicionar um hook nos 3 primeiros segundos traz um ganho de 16,1 pts no score e ajuda a corrigir o CTR abaixo da mediana da plataforma.\", \"execucao_criativa\": \"Pare de perder tempo buscando [produto], baixe agora o aplicativo e garanta [benefício] no seu celular.\"}, {\"key\": \"cta\", \"evidencia\": \"nao_clara\", \"comentario\": \"Incluir um CTA explícito garante 8,0 pts no score, embora a diferença na conversão não seja clara para esta campanha de instalação de aplicativo.\", \"execucao_criativa\": \"Toque no botão abaixo para baixar o aplicativo gratuitamente.\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano adiciona 11,2 pts no score, apesar de o impacto na conversão não ser claro.\", \"execucao_criativa\": \"Aparecer em close na tela mostrando a interface do aplicativo e sorrindo.\"}, {\"key\": \"format_quadrado\", \"evidencia\": \"nao_clara\", \"comentario\": \"Exportar em formato quadrado eleva o score em 0,8 pt, com evidência não clara no CTR.\", \"execucao_criativa\": \"Ajustar o enquadramento do vídeo para a proporção 1:1 mantendo o foco no produto.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Testar uma versão de 11–15s traz um ganho discreto de 0,3 pt no score e deve ser tratada como hipótese.\", \"execucao_criativa\": \"Cortar os excessos do vídeo para reter a atenção do público em até quinze segundos.\"}], \"alertas\": [\"O CTR atual de 0,0352 está bem abaixo da mediana da plataforma de 0,0646.\", \"O klike_score real de 51,0 está abaixo da mediana da plataforma de 60,5 pts.\"], \"resumo_para_o_anunciante\": \"Esta campanha no Meta apresenta bom desempenho em conversão, mas sofre com um CTR abaixo da mediana da plataforma. A adoção de um hook forte nos primeiros segundos e de um CTA claro ajudará a destravar o potencial de crescimento do criativo.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0042"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "atributo": "has_hook",
+        "plataforma": "Meta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "Meta",
+        "atributo": "has_cta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "Meta",
+        "atributo": "has_face",
+        "metrica": "conversion_rate"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_hook",
+        "metrica": "watch_ratio",
+        "plataforma": "Meta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_cta",
+        "plataforma": "Meta",
+        "metrica": "conversion_rate"
+      }
+    }
+  ],
+  "tokens": 23322,
+  "latencia_s": 82.0
+}

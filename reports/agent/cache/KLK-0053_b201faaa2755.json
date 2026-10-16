@@ -1,0 +1,139 @@
+{
+  "campaign_id": "KLK-0053",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0053",
+    "platform": "LinkedIn",
+    "category": "App Install",
+    "objective": "traffic",
+    "score_predicted": 48.0,
+    "score_actual": 50.8,
+    "real_menos_previsto": 2.8,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 19.4,
+        "score_after": 67.4,
+        "effort": "médio",
+        "priority": 9.68,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 1.1893,
+          "ci_low": 0.2851,
+          "ci_high": 2.3868,
+          "n_treat": 45,
+          "n_ctrl": 38
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 8.7,
+        "score_after": 56.7,
+        "effort": "baixo",
+        "priority": 8.67,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.03,
+          "ci_low": -0.2897,
+          "ci_high": 0.9012,
+          "n_treat": 31,
+          "n_ctrl": 30
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_horizontal",
+        "titulo": "Exportar em formato horizontal",
+        "score_gain": 4.5,
+        "score_after": 52.5,
+        "effort": "médio",
+        "priority": 2.24,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": -0.0337,
+          "ci_low": -0.3163,
+          "ci_high": 0.6677,
+          "n_treat": 44,
+          "n_ctrl": 28
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "text",
+        "format_horizontal"
+      ],
+      "score_before": 48.0,
+      "score_after": 80.5,
+      "score_gain": 32.5
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "format_horizontal"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "A ordem da engine foi mantida porque a acao de hook traz o maior ganho no score e possui forte evidencia para CTR no LinkedIn, seguida pelas acoes de menor esforço e evidencia nao clara.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Esta acao adiciona 19,4 pts ao score e conta com evidencia forte para CTR no LinkedIn, embora a metrica de conversao mostre que a diferença nao e clara com lift de -0,1042.",
+        "execucao_criativa": "Cansado de perder tempo buscando [beneficio]? Conheca o [produto] em uma so tela."
+      },
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "O ganho previsto e de 8,7 pts com baixo esforço para elevar a densidade de texto da campanha atual, que esta com densidade low.",
+        "execucao_criativa": "Baixe agora e ganhe [beneficio] diretamente no seu celular."
+      },
+      {
+        "key": "format_horizontal",
+        "evidencia": "nao_clara",
+        "comentario": "Gera um incremento de 4,5 pts no score da campanha para se adequar melhor ao formato horizontal no LinkedIn.",
+        "execucao_criativa": "Acesse o link e experimente o [produto] com interface otimizada para desktop."
+      }
+    ],
+    "alertas": [
+      "O CTR real da campanha esta em 0,0206, valor consideravelmente abaixo da mediana da plataforma que e 0,067.",
+      "O klike_score real de 50,8 esta abaixo da mediana da plataforma que e 57,2."
+    ],
+    "resumo_para_o_anunciante": "A campanha apresenta um klike_score real de 50,8 e um CTR de 0,0206 abaixo da mediana da plataforma. A implementaçao prioritaria de um hook nos primeiros segundos pode elevar o score em 19,4 pts e melhorar a performance geral."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"text\", \"format_horizontal\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"A ordem da engine foi mantida porque a acao de hook traz o maior ganho no score e possui forte evidencia para CTR no LinkedIn, seguida pelas acoes de menor esforço e evidencia nao clara.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Esta acao adiciona 19,4 pts ao score e conta com evidencia forte para CTR no LinkedIn, embora a metrica de conversao mostre que a diferença nao e clara com lift de -0,1042.\", \"execucao_criativa\": \"Cansado de perder tempo buscando [beneficio]? Conheca o [produto] em uma so tela.\"}, {\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"O ganho previsto e de 8,7 pts com baixo esforço para elevar a densidade de texto da campanha atual, que esta com densidade low.\", \"execucao_criativa\": \"Baixe agora e ganhe [beneficio] diretamente no seu celular.\"}, {\"key\": \"format_horizontal\", \"evidencia\": \"nao_clara\", \"comentario\": \"Gera um incremento de 4,5 pts no score da campanha para se adequar melhor ao formato horizontal no LinkedIn.\", \"execucao_criativa\": \"Acesse o link e experimente o [produto] com interface otimizada para desktop.\"}], \"alertas\": [\"O CTR real da campanha esta em 0,0206, valor consideravelmente abaixo da mediana da plataforma que e 0,067.\", \"O klike_score real de 50,8 esta abaixo da mediana da plataforma que e 57,2.\"], \"resumo_para_o_anunciante\": \"A campanha apresenta um klike_score real de 50,8 e um CTR de 0,0206 abaixo da mediana da plataforma. A implementaçao prioritaria de um hook nos primeiros segundos pode elevar o score em 19,4 pts e melhorar a performance geral.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0053"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_hook",
+        "metrica": "conversion_rate",
+        "plataforma": "LinkedIn"
+      }
+    }
+  ],
+  "tokens": 5536,
+  "latencia_s": 97.3
+}

@@ -1,0 +1,182 @@
+{
+  "campaign_id": "KLK-0365",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0365",
+    "platform": "LinkedIn",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 46.4,
+    "score_actual": 44.1,
+    "real_menos_previsto": -2.3,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 19.4,
+        "score_after": 65.7,
+        "effort": "médio",
+        "priority": 9.68,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 1.1893,
+          "ci_low": 0.2851,
+          "ci_high": 2.3868,
+          "n_treat": 45,
+          "n_ctrl": 38
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 4.4,
+        "score_after": 50.7,
+        "effort": "baixo",
+        "priority": 4.35,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.0119,
+          "ci_low": -0.4418,
+          "ci_high": 0.3919,
+          "n_treat": 45,
+          "n_ctrl": 29
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.6,
+        "score_after": 57.9,
+        "effort": "alto",
+        "priority": 3.85,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.6167,
+          "ci_low": -0.0219,
+          "ci_high": 1.3246,
+          "n_treat": 48,
+          "n_ctrl": 35
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_horizontal",
+        "titulo": "Exportar em formato horizontal",
+        "score_gain": 4.5,
+        "score_after": 50.8,
+        "effort": "médio",
+        "priority": 2.24,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": -0.0337,
+          "ci_low": -0.3163,
+          "ci_high": 0.6677,
+          "n_treat": 44,
+          "n_ctrl": 28
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "subtitle",
+        "face",
+        "format_horizontal"
+      ],
+      "score_before": 46.4,
+      "score_after": 86.1,
+      "score_gain": 39.8
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "face",
+      "subtitle",
+      "format_horizontal"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "A ordem foi ajustada colocando o hook em primeiro devido à forte evidência no CTR, seguido pelo rosto humano, que tem alta prioridade pelo ganho de 11,6 pts, e por fim legenda e formato horizontal, cujas evidências na taxa de conversão não são claras.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Esta ação garante o maior ganho de 19,4 pts e combate o CTR de 0,0408, que está abaixo da mediana da plataforma de 0,067. A análise de conversão mostrou que a diferença não é clara, mas o impacto no engajamento inicial é essencial para puxar o público corporativo.",
+        "execucao_criativa": "Corte direto nos primeiros segundos mostrando o problema que seu [produto] resolve para gestores."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Oferece um ganho de 11,6 pts no score, ajudando a aproximar a campanha do klike_score mediano de 57,2. Embora a métrica de conversão não tenha mostrado diferença clara, conexões humanas no LinkedIn elevam a confiança B2B.",
+        "execucao_criativa": "Apareça em plano médio explicando os benefícios da solução diretamente para a câmera."
+      },
+      {
+        "key": "subtitle",
+        "evidencia": "nao_clara",
+        "comentario": "Gera um ganho modesto de 4,4 pts com esforço baixo. O lift na taxa de conversão indicou que a diferença não é clara, mas legendas são fundamentais para visualizações sem som na rede.",
+        "execucao_criativa": "Adicione legendas dinâmicas em destaque para ressaltar termos-chave do seu discurso."
+      },
+      {
+        "key": "format_horizontal",
+        "evidencia": "nao_clara",
+        "comentario": "Contribui com um ganho de 4,5 pts para melhorar a qualidade geral. A evidência na taxa de conversão não é clara, mas adequar o formato ao feed do LinkedIn otimiza o espaço visual.",
+        "execucao_criativa": "Garanta a exportação na proporção correta para exibição limpa no feed desktop e mobile."
+      }
+    ],
+    "alertas": [
+      "O klike_score real de 44,1 está bem abaixo da mediana da plataforma de 57,2.",
+      "A taxa de conversão de 0,0135 está muito abaixo da mediana da plataforma de 0,032.",
+      "O CTR de 0,0408 e o engagement_rate de 0,0016 estão abaixo das medianas de 0,067 e 0,0172."
+    ],
+    "resumo_para_o_anunciante": "A campanha de conversão SaaS no LinkedIn apresenta um klike_score real de 44,1, ficando abaixo da mediana da plataforma de 57,2. A implementação de um hook forte nos primeiros segundos e de um rosto humano ajudará a recuperar as métricas de engajamento e conversão."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"face\",\n  \"subtitle\",\n  \"format_horizontal\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"A ordem foi ajustada colocando o hook em primeiro devido à forte evidência no CTR, seguido pelo rosto humano, que tem alta prioridade pelo ganho de 11,6 pts, e por fim legenda e formato horizontal, cujas evidências na taxa de conversão não são claras.\",\n \"acoes\": [\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Esta ação garante o maior ganho de 19,4 pts e combate o CTR de 0,0408, que está abaixo da mediana da plataforma de 0,067. A análise de conversão mostrou que a diferença não é clara, mas o impacto no engajamento inicial é essencial para puxar o público corporativo.\",\n   \"execucao_criativa\": \"Corte direto nos primeiros segundos mostrando o problema que seu [produto] resolve para gestores.\"\n  },\n  {\n   \"key\": \"face\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Oferece um ganho de 11,6 pts no score, ajudando a aproximar a campanha do klike_score mediano de 57,2. Embora a métrica de conversão não tenha mostrado diferença clara, conexões humanas no LinkedIn elevam a confiança B2B.\",\n   \"execucao_criativa\": \"Apareça em plano médio explicando os benefícios da solução diretamente para a câmera.\"\n  },\n  {\n   \"key\": \"subtitle\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Gera um ganho modesto de 4,4 pts com esforço baixo. O lift na taxa de conversão indicou que a diferença não é clara, mas legendas são fundamentais para visualizações sem som na rede.\",\n   \"execucao_criativa\": \"Adicione legendas dinâmicas em destaque para ressaltar termos-chave do seu discurso.\"\n  },\n  {\n   \"key\": \"format_horizontal\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Contribui com um ganho de 4,5 pts para melhorar a qualidade geral. A evidência na taxa de conversão não é clara, mas adequar o formato ao feed do LinkedIn otimiza o espaço visual.\",\n   \"execucao_criativa\": \"Garanta a exportação na proporção correta para exibição limpa no feed desktop e mobile.\"\n  }\n ],\n \"alertas\": [\n  \"O klike_score real de 44,1 está bem abaixo da mediana da plataforma de 57,2.\",\n  \"A taxa de conversão de 0,0135 está muito abaixo da mediana da plataforma de 0,032.\",\n  \"O CTR de 0,0408 e o engagement_rate de 0,0016 estão abaixo das medianas de 0,067 e 0,0172.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha de conversão SaaS no LinkedIn apresenta um klike_score real de 44,1, ficando abaixo da mediana da plataforma de 57,2. A implementação de um hook forte nos primeiros segundos e de um rosto humano ajudará a recuperar as métricas de engajamento e conversão.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0365"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "metrica": "conversion_rate",
+        "atributo": "has_hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "metrica": "conversion_rate",
+        "atributo": "has_subtitle"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "atributo": "has_face",
+        "metrica": "conversion_rate"
+      }
+    }
+  ],
+  "tokens": 6557,
+  "latencia_s": 23.2
+}

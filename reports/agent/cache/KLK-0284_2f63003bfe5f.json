@@ -1,0 +1,204 @@
+{
+  "campaign_id": "KLK-0284",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0284",
+    "platform": "Meta",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 50.8,
+    "score_actual": 45.5,
+    "real_menos_previsto": -5.3,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.1,
+        "score_after": 66.9,
+        "effort": "médio",
+        "priority": 8.04,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.5747,
+          "ci_low": 0.2224,
+          "ci_high": 0.795,
+          "n_treat": 128,
+          "n_ctrl": 113
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 7.4,
+        "score_after": 58.2,
+        "effort": "baixo",
+        "priority": 7.38,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0435,
+          "ci_low": -0.2031,
+          "ci_high": 0.2973,
+          "n_treat": 105,
+          "n_ctrl": 104
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 7.3,
+        "score_after": 58.2,
+        "effort": "baixo",
+        "priority": 7.34,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.1345,
+          "ci_low": -0.0883,
+          "ci_high": 0.4747,
+          "n_treat": 128,
+          "n_ctrl": 92
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.2,
+        "score_after": 62.0,
+        "effort": "alto",
+        "priority": 3.72,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0576,
+          "ci_low": -0.1594,
+          "ci_high": 0.3897,
+          "n_treat": 123,
+          "n_ctrl": 118
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": 0.3,
+        "score_after": 51.1,
+        "effort": "médio",
+        "priority": 0.14,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "text",
+        "subtitle",
+        "face"
+      ],
+      "score_before": 50.8,
+      "score_after": 92.8,
+      "score_gain": 42.0
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "subtitle",
+      "face",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantemos a ordem da engine pois o hook possui a única evidência forte de impacto na plataforma, enquanto as demais ações com evidência não clara seguem por prioridade e a hipótese permanece no fim.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "O hook nos primeiros segundos é essencial para corrigir a baixa taxa de cliques desta campanha de conversão no Meta, garantindo o maior ganho de 16,1 pts.",
+        "execucao_criativa": "Cansado de perder horas tentando integrar o [produto] com suas planilhas? Descubra como automatizar tudo em segundos."
+      },
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Aumentar a densidade do texto para o nível médio ajuda a reter a atenção do público SaaS no Meta, somando 7,4 pts ao score.",
+        "execucao_criativa": "Insira texto na tela destacando a economia de tempo e o ganho de produtividade com o uso da ferramenta."
+      },
+      {
+        "key": "subtitle",
+        "evidencia": "nao_clara",
+        "comentario": "A inclusão de legendas garante acessibilidade para usuários que assistem a vídeos sem som no feed, rendendo um ganho de 7,3 pts.",
+        "execucao_criativa": "Adicione legendas automáticas em destaque na parte central do vídeo com as principais falas do locutor."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Mostrar um rosto humano gera conexão imediata com o público-alvo, contribuindo com um ganho de 11,2 pts no score da campanha.",
+        "execucao_criativa": "Inclua o fundador ou um especialista da empresa explicando os benefícios do [produto] olhando diretamente para a câmera."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Testar uma versão mais curta é uma hipótese a ser validada para otimizar a distribuição, gerando um ganho de 0,3 pt.",
+        "execucao_criativa": "Corte os trechos repetitivos e condense a demonstração do [benefício] para um formato ágil e direto."
+      }
+    ],
+    "alertas": [
+      "O klike_score real da campanha (45,5) está consideravelmente abaixo da mediana da plataforma (60,5).",
+      "O CTR atual (0,0472) está abaixo da mediana da plataforma (0,0646), indicando necessidade urgente de otimização no início do vídeo."
+    ],
+    "resumo_para_o_anunciante": "A campanha atual apresenta um klike_score real de 45,5, ficando abaixo da mediana da plataforma de 60,5, com um CTR de 0,0472 também inferior à referência. A priorização de um hook forte nos primeiros segundos e ajustes textuais e visuais podem elevar o score em até 42,0 pts."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [
+        "acao duration: execucao_criativa não pode conter números"
+      ],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"text\", \"subtitle\", \"face\", \"duration\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantemos a ordem da engine pois o hook possui a única evidência forte de impacto na plataforma, enquanto as demais ações com evidência não clara seguem por prioridade e a hipótese permanece no fim.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"O hook nos primeiros segundos é essencial para corrigir a baixa taxa de cliques desta campanha de conversão no Meta, garantindo o maior ganho de 16,1 pts.\", \"execucao_criativa\": \"Cansado de perder horas tentando integrar o [produto] com suas planilhas? Descubra como automatizar tudo em segundos.\"}, {\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Aumentar a densidade do texto para o nível médio ajuda a reter a atenção do público SaaS no Meta, somando 7,4 pts ao score.\", \"execucao_criativa\": \"Insira texto na tela destacando a economia de tempo e o ganho de produtividade com o uso da ferramenta.\"}, {\"key\": \"subtitle\", \"evidencia\": \"nao_clara\", \"comentario\": \"A inclusão de legendas garante acessibilidade para usuários que assistem a vídeos sem som no feed, rendendo um ganho de 7,3 pts.\", \"execucao_criativa\": \"Adicione legendas automáticas em destaque na parte central do vídeo com as principais falas do locutor.\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano gera conexão imediata com o público-alvo, contribuindo com um ganho de 11,2 pts no score da campanha.\", \"execucao_criativa\": \"Inclua o fundador ou um especialista da empresa explicando os benefícios do [produto] olhando diretamente para a câmera.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Testar uma versão mais curta de 11-15s é uma hipótese a ser validada para otimizar a distribuição, gerando um ganho de 0,3 pt.\", \"execucao_criativa\": \"Corte os trechos repetitivos e condense a demonstração do [benefício] para um formato ágil de até 15 segundos.\"}], \"alertas\": [\"O klike_score real da campanha (45,5) está consideravelmente abaixo da mediana da plataforma (60,5).\", \"O CTR atual (0,0472) está abaixo da mediana da plataforma (0,0646), indicando necessidade urgente de otimização no início do vídeo.\"], \"resumo_para_o_anunciante\": \"A campanha atual apresenta um klike_score real de 45,5, ficando abaixo da mediana da plataforma de 60,5, com um CTR de 0,0472 também inferior à referência. A priorização de um hook forte nos primeiros segundos e ajustes textuais e visuais podem elevar o score em até 42,0 pts.\"}"
+    },
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"text\", \"subtitle\", \"face\", \"duration\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantemos a ordem da engine pois o hook possui a única evidência forte de impacto na plataforma, enquanto as demais ações com evidência não clara seguem por prioridade e a hipótese permanece no fim.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"O hook nos primeiros segundos é essencial para corrigir a baixa taxa de cliques desta campanha de conversão no Meta, garantindo o maior ganho de 16,1 pts.\", \"execucao_criativa\": \"Cansado de perder horas tentando integrar o [produto] com suas planilhas? Descubra como automatizar tudo em segundos.\"}, {\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Aumentar a densidade do texto para o nível médio ajuda a reter a atenção do público SaaS no Meta, somando 7,4 pts ao score.\", \"execucao_criativa\": \"Insira texto na tela destacando a economia de tempo e o ganho de produtividade com o uso da ferramenta.\"}, {\"key\": \"subtitle\", \"evidencia\": \"nao_clara\", \"comentario\": \"A inclusão de legendas garante acessibilidade para usuários que assistem a vídeos sem som no feed, rendendo um ganho de 7,3 pts.\", \"execucao_criativa\": \"Adicione legendas automáticas em destaque na parte central do vídeo com as principais falas do locutor.\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano gera conexão imediata com o público-alvo, contribuindo com um ganho de 11,2 pts no score da campanha.\", \"execucao_criativa\": \"Inclua o fundador ou um especialista da empresa explicando os benefícios do [produto] olhando diretamente para a câmera.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Testar uma versão mais curta é uma hipótese a ser validada para otimizar a distribuição, gerando um ganho de 0,3 pt.\", \"execucao_criativa\": \"Corte os trechos repetitivos e condense a demonstração do [benefício] para um formato ágil e direto.\"}], \"alertas\": [\"O klike_score real da campanha (45,5) está consideravelmente abaixo da mediana da plataforma (60,5).\", \"O CTR atual (0,0472) está abaixo da mediana da plataforma (0,0646), indicando necessidade urgente de otimização no início do vídeo.\"], \"resumo_para_o_anunciante\": \"A campanha atual apresenta um klike_score real de 45,5, ficando abaixo da mediana da plataforma de 60,5, com um CTR de 0,0472 também inferior à referência. A priorização de um hook forte nos primeiros segundos e ajustes textuais e visuais podem elevar o score em até 42,0 pts.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0284"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "Meta",
+        "atributo": "has_hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "Meta",
+        "atributo": "has_subtitle"
+      }
+    }
+  ],
+  "tokens": 11353,
+  "latencia_s": 30.0
+}

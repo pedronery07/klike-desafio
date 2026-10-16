@@ -1,0 +1,179 @@
+{
+  "campaign_id": "KLK-0402",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0402",
+    "platform": "LinkedIn",
+    "category": "E-commerce",
+    "objective": "traffic",
+    "score_predicted": 47.6,
+    "score_actual": 47.0,
+    "real_menos_previsto": -0.6,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 19.4,
+        "score_after": 67.0,
+        "effort": "médio",
+        "priority": 9.68,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 1.1893,
+          "ci_low": 0.2851,
+          "ci_high": 2.3868,
+          "n_treat": 45,
+          "n_ctrl": 38
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 4.4,
+        "score_after": 52.0,
+        "effort": "baixo",
+        "priority": 4.35,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.0119,
+          "ci_low": -0.4418,
+          "ci_high": 0.3919,
+          "n_treat": 45,
+          "n_ctrl": 29
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.6,
+        "score_after": 59.2,
+        "effort": "alto",
+        "priority": 3.85,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.6167,
+          "ci_low": -0.0219,
+          "ci_high": 1.3246,
+          "n_treat": 48,
+          "n_ctrl": 35
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "subtitle",
+        "face"
+      ],
+      "score_before": 47.6,
+      "score_after": 82.9,
+      "score_gain": 35.3
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "subtitle",
+      "face"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantivemos a ordem da engine porque o hook apresenta evidência forte com o maior ganho no score, enquanto as demais ações possuem evidência não clara e esforço maior ou igual.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "O hook nos 3 primeiros segundos eleva o klike_score em 19,4 pts, combatendo o engajamento abaixo da mediana no LinkedIn.",
+        "execucao_criativa": "Nos primeiros segundos, exiba um profissional frustrado lidando com processos manuais e diga: Cansado de perder horas gerenciando planilhas para o seu [produto]?"
+      },
+      {
+        "key": "subtitle",
+        "evidencia": "nao_clara",
+        "comentario": "A adição de legendas traz um ganho modesto de 4,4 pts no score com baixo esforço, embora a ferramenta indique diferença não clara no CTR.",
+        "execucao_criativa": "Insira legendas dinâmicas em negrito destacando os benefícios do [benefício] ao longo do vídeo de 14 segundos."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Mostrar um rosto humano contribui com 11,6 pts no score, mas exige alto esforço e apresenta evidência não clara de impacto no CTR.",
+        "execucao_criativa": "Grave um especialista da área olhando diretamente para a câmera e explicando a facilidade de uso do [produto]."
+      }
+    ],
+    "alertas": [
+      "O klike_score real da campanha é 47,0, ficando abaixo da mediana da plataforma que é 57,2.",
+      "A taxa de conversão real é 0,0051, consideravelmente abaixo da mediana da plataforma de 0,032."
+    ],
+    "resumo_para_o_anunciante": "A campanha no LinkedIn está com performance geral e conversão abaixo da mediana da plataforma. A prioridade máxima é implementar um hook forte nos primeiros segundos para capturar a atenção do público de tráfego, complementado por legendas e rosto humano para otimizar o score."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"subtitle\",\n  \"face\"\n ],\n \"mantem_ordem_da_engine\": true,\n \"justificativa_ordem\": \"Mantivemos a ordem da engine porque o hook apresenta evidência forte com o maior ganho no score, enquanto as demais ações possuem evidência não clara e esforço maior ou igual.\",\n \"acoes\": [\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"O hook nos 3 primeiros segundos eleva o klike_score em 19,4 pts, combatendo o engajamento abaixo da mediana no LinkedIn.\",\n   \"execucao_criativa\": \"Nos primeiros segundos, exiba um profissional frustrado lidando com processos manuais e diga: Cansado de perder horas gerenciando planilhas para o seu [produto]?\"\n  },\n  {\n   \"key\": \"subtitle\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"A adição de legendas traz um ganho modesto de 4,4 pts no score com baixo esforço, embora a ferramenta indique diferença não clara no CTR.\",\n   \"execucao_criativa\": \"Insira legendas dinâmicas em negrito destacando os benefícios do [benefício] ao longo do vídeo de 14 segundos.\"\n  },\n  {\n   \"key\": \"face\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Mostrar um rosto humano contribui com 11,6 pts no score, mas exige alto esforço e apresenta evidência não clara de impacto no CTR.\",\n   \"execucao_criativa\": \"Grave um especialista da área olhando diretamente para a câmera e explicando a facilidade de uso do [produto].\"\n  }\n ],\n \"alertas\": [\n  \"O klike_score real da campanha é 47,0, ficando abaixo da mediana da plataforma que é 57,2.\",\n  \"A taxa de conversão real é 0,0051, consideravelmente abaixo da mediana da plataforma de 0,032.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha no LinkedIn está com performance geral e conversão abaixo da mediana da plataforma. A prioridade máxima é implementar um hook forte nos primeiros segundos para capturar a atenção do público de tráfego, complementado por legendas e rosto humano para otimizar o score.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0402"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "metrica": "conversion_rate",
+        "atributo": "hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "LinkedIn",
+        "atributo": "subtitle"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "metrica": "conversion_rate",
+        "atributo": "face"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "atributo": "has_hook",
+        "metrica": "ctr"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_subtitle",
+        "plataforma": "LinkedIn",
+        "metrica": "ctr"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "ctr",
+        "atributo": "has_face",
+        "plataforma": "LinkedIn"
+      }
+    }
+  ],
+  "tokens": 12516,
+  "latencia_s": 66.6
+}

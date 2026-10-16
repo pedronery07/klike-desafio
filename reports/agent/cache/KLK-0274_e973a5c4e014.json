@@ -1,0 +1,147 @@
+{
+  "campaign_id": "KLK-0274",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0274",
+    "platform": "LinkedIn",
+    "category": "SaaS",
+    "objective": "traffic",
+    "score_predicted": 48.6,
+    "score_actual": 43.9,
+    "real_menos_previsto": -4.7,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Reduzir o texto na tela (densidade média)",
+        "score_gain": 16.3,
+        "score_after": 64.9,
+        "effort": "baixo",
+        "priority": 16.33,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.1393,
+          "ci_low": -0.1409,
+          "ci_high": 1.1111,
+          "n_treat": 31,
+          "n_ctrl": 22
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 56.6,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.2151,
+          "ci_low": -0.2696,
+          "ci_high": 0.8517,
+          "n_treat": 61,
+          "n_ctrl": 22
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.6,
+        "score_after": 60.1,
+        "effort": "alto",
+        "priority": 3.85,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.6167,
+          "ci_low": -0.0219,
+          "ci_high": 1.3246,
+          "n_treat": 48,
+          "n_ctrl": 35
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "cta",
+        "face"
+      ],
+      "score_before": 48.6,
+      "score_after": 84.5,
+      "score_gain": 35.9
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "text",
+      "cta",
+      "face"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantemos a ordem da engine poisprioriza o menor esforço e ataca primeiro a densidade de texto alta, que prejudica a leitura no LinkedIn.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Reduzir o texto garante um ganho de 16,3 pts no score e ajuda a alinhar a campanha com o CTR mediano da plataforma.",
+        "execucao_criativa": "Remova os paragrafos longos e deixe apenas a frase principal sobre o [benefício] do [produto] na tela."
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "Adicionar um CTA proporciona um ganho de 8,0 pts no score, apesar do teste de lift no watch_ratio ter mostrado uma diferença não clara.",
+        "execucao_criativa": "Insira um botao final com o texto Saiba mais."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Mostrar um rosto humano traz um ganho de 11,6 pts no score, com a analise em watch_ratio indicando diferença não clara.",
+        "execucao_criativa": "Adicione um especialista apresentando o [produto] em video de formato horizontal."
+      }
+    ],
+    "alertas": [
+      "O CTR real da campanha está em 0,037, bem abaixo da mediana da plataforma que é de 0,067.",
+      "O klike_score real de 43,9 está abaixo do previsto de 48,6 e distante da mediana da plataforma de 57,2."
+    ],
+    "resumo_para_o_anunciante": "A campanha no LinkedIn apresenta performance abaixo da mediana da plataforma, especialmente em CTR e score real. Aplicar as recomendacoes de reduzir texto, incluir CTA e mostrar um rosto humano ajuda a recuperar essa diferença e elevar o potencial de tráfego."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"text\", \"cta\", \"face\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantemos a ordem da engine poisprioriza o menor esforço e ataca primeiro a densidade de texto alta, que prejudica a leitura no LinkedIn.\", \"acoes\": [{\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Reduzir o texto garante um ganho de 16,3 pts no score e ajuda a alinhar a campanha com o CTR mediano da plataforma.\", \"execucao_criativa\": \"Remova os paragrafos longos e deixe apenas a frase principal sobre o [benefício] do [produto] na tela.\"}, {\"key\": \"cta\", \"evidencia\": \"nao_clara\", \"comentario\": \"Adicionar um CTA proporciona um ganho de 8,0 pts no score, apesar do teste de lift no watch_ratio ter mostrado uma diferença não clara.\", \"execucao_criativa\": \"Insira um botao final com o texto Saiba mais.\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano traz um ganho de 11,6 pts no score, com a analise em watch_ratio indicando diferença não clara.\", \"execucao_criativa\": \"Adicione um especialista apresentando o [produto] em video de formato horizontal.\"}], \"alertas\": [\"O CTR real da campanha está em 0,037, bem abaixo da mediana da plataforma que é de 0,067.\", \"O klike_score real de 43,9 está abaixo do previsto de 48,6 e distante da mediana da plataforma de 57,2.\"], \"resumo_para_o_anunciante\": \"A campanha no LinkedIn apresenta performance abaixo da mediana da plataforma, especialmente em CTR e score real. Aplicar as recomendacoes de reduzir texto, incluir CTA e mostrar um rosto humano ajuda a recuperar essa diferença e elevar o potencial de tráfego.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0274"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "watch_ratio",
+        "plataforma": "LinkedIn",
+        "atributo": "has_cta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "watch_ratio",
+        "plataforma": "LinkedIn",
+        "atributo": "has_face"
+      }
+    }
+  ],
+  "tokens": 8884,
+  "latencia_s": 26.4
+}

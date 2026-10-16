@@ -1,0 +1,139 @@
+{
+  "campaign_id": "KLK-0200",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0200",
+    "platform": "TikTok",
+    "category": "SaaS",
+    "objective": "traffic",
+    "score_predicted": 66.5,
+    "score_actual": 69.2,
+    "real_menos_previsto": 2.7,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 83.4,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.7931,
+          "ci_low": 0.3447,
+          "ci_high": 1.341,
+          "n_treat": 83,
+          "n_ctrl": 93
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 5.2,
+        "score_after": 71.7,
+        "effort": "baixo",
+        "priority": 5.2,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": -0.052,
+          "ci_low": -0.3158,
+          "ci_high": 0.3838,
+          "n_treat": 94,
+          "n_ctrl": 45
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "voice",
+        "titulo": "Dar mais espaço à voz no áudio",
+        "score_gain": 0.9,
+        "score_after": 67.4,
+        "effort": "médio",
+        "priority": 0.45,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.3502,
+          "ci_low": -0.3967,
+          "ci_high": 1.0912,
+          "n_treat": 115,
+          "n_ctrl": 24
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "text",
+        "voice"
+      ],
+      "score_before": 66.5,
+      "score_after": 89.5,
+      "score_gain": 23.0
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "voice"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "A ordem da engine foi mantida porque o hook apresenta a evidência mais forte no CTR e o maior ganho no score, enquanto texto e voz possuem evidências não claras e ficam para o final da priorização.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Esta campanha de tráfego no TikTok não possui hook, perdendo o principal motor de CTR com lift de 0,7931 e um ganho de 16,9 pts no score.",
+        "execucao_criativa": "Corte direto para a tela do [produto] mostrando como resolver [dor_do_usuario] em segundos, sem introduções longas."
+      },
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "O texto na tela atual está em densidade low e aumentá-lo traz um ganho menor de 5,2 pts, sendo necessário testar para confirmar o impacto.",
+        "execucao_criativa": "Insira legendas curtas destacando a frase: 'Economize tempo com o [benefício] do [produto].'"
+      },
+      {
+        "key": "voice",
+        "evidencia": "nao_clara",
+        "comentario": "A proporção atual de voz é de 0,62 e dar mais espaço à voz traz um ganho de apenas 0,9 pts, com evidência não clara no CTR.",
+        "execucao_criativa": "Grave uma locução em tom conversacional explicando passo a passo como o [produto] funciona no dia a dia."
+      }
+    ],
+    "alertas": [
+      "A conversion_rate da campanha está em 0,0217, abaixo da mediana da plataforma de 0,0308.",
+      "O watch_ratio da campanha está em 0,2733, consideravelmente abaixo da mediana da plataforma de 0,4967."
+    ],
+    "resumo_para_o_anunciante": "A campanha apresenta bom desempenho em CTR e ROAS, mas sofre com um watch_ratio e conversão abaixo da mediana do TikTok por falta de um hook inicial. A adição do hook e ajustes na densidade de texto e voz podem elevar o klike_score e destravar o potencial de tráfego."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"text\",\n  \"voice\"\n ],\n \"mantem_ordem_da_engine\": true,\n \"justificativa_ordem\": \"A ordem da engine foi mantida porque o hook apresenta a evidência mais forte no CTR e o maior ganho no score, enquanto texto e voz possuem evidências não claras e ficam para o final da priorização.\",\n \"acoes\": [\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Esta campanha de tráfego no TikTok não possui hook, perdendo o principal motor de CTR com lift de 0,7931 e um ganho de 16,9 pts no score.\",\n   \"execucao_criativa\": \"Corte direto para a tela do [produto] mostrando como resolver [dor_do_usuario] em segundos, sem introduções longas.\"\n  },\n  {\n   \"key\": \"text\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"O texto na tela atual está em densidade low e aumentá-lo traz um ganho menor de 5,2 pts, sendo necessário testar para confirmar o impacto.\",\n   \"execucao_criativa\": \"Insira legendas curtas destacando a frase: 'Economize tempo com o [benefício] do [produto].'\"\n  },\n  {\n   \"key\": \"voice\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"A proporção atual de voz é de 0,62 e dar mais espaço à voz traz um ganho de apenas 0,9 pts, com evidência não clara no CTR.\",\n   \"execucao_criativa\": \"Grave uma locução em tom conversacional explicando passo a passo como o [produto] funciona no dia a dia.\"\n  }\n ],\n \"alertas\": [\n  \"A conversion_rate da campanha está em 0,0217, abaixo da mediana da plataforma de 0,0308.\",\n  \"O watch_ratio da campanha está em 0,2733, consideravelmente abaixo da mediana da plataforma de 0,4967.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha apresenta bom desempenho em CTR e ROAS, mas sofre com um watch_ratio e conversão abaixo da mediana do TikTok por falta de um hook inicial. A adição do hook e ajustes na densidade de texto e voz podem elevar o klike_score e destravar o potencial de tráfego.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0200"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "atributo": "has_hook",
+        "metrica": "conversion_rate"
+      }
+    }
+  ],
+  "tokens": 5652,
+  "latencia_s": 9.4
+}

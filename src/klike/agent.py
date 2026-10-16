@@ -31,7 +31,7 @@ from klike.agent_tools import TOOLS
 from klike.paths import ROOT
 from klike.recommender import evidence_class, recommend
 
-PROMPT_VERSION = "v4"
+PROMPT_VERSION = "v5"
 CACHE_DIR = ROOT / "reports" / "agent" / "cache"
 MAX_TOOL_ROUNDS = 6
 MAX_CORRECTIONS = 1
@@ -93,8 +93,9 @@ ficam sempre no fim. Você pode reordenar as demais considerando o objetivo da c
 evidência e o esforço real; explique em `justificativa_ordem`. `mantem_ordem_da_engine` deve ser true \
 só se a ordem for idêntica à da engine.
 5. `execucao_criativa`: um exemplo concreto do que gravar ou escrever, adaptado à plataforma, à \
-categoria e ao público (ex.: a primeira frase do hook, o texto do CTA). Não use números, estatísticas \
-ou promessas de resultado; para dados do anunciante, use marcadores como [produto] ou [benefício].
+categoria e ao público (ex.: a primeira frase do hook, o texto do CTA). Não use porcentagens, valores \
+em R$, estatísticas ou promessas de resultado; números só se vierem da própria ação (ex.: "11 a 15 \
+segundos", "1:1"). Para dados do anunciante, use marcadores como [produto] ou [benefício].
 6. `comentario`: 1 a 2 frases sobre por que a ação importa PARA ESTA campanha (objetivo, plataforma, \
 ponto fraco), citando o ganho em pontos. Se você chamou lift_metrica para essa ação, diga o que ela \
 mostrou (inclusive quando a diferença não é clara). Não repita só a classificação da evidência.
@@ -103,7 +104,8 @@ mostrou (inclusive quando a diferença não é clara). Não repita só a classif
 8. Escreva em português do Brasil, com acentuação correta e vírgula como separador decimal (16,9 pts; \
 CTR de 0,0133), de forma direta, para um time de marketing.
 
-Responda ESTRITAMENTE com um JSON válido, sem markdown, no formato:
+Primeiro investigue com as ferramentas; quando terminar, você será instruído a escrever a revisão \
+final. Ela deve ser um JSON válido, sem markdown, no formato:
 {"ordem_sugerida": ["key", ...], "mantem_ordem_da_engine": true|false, "justificativa_ordem": "...",
  "acoes": [{"key": "...", "evidencia": "...", "comentario": "...", "execucao_criativa": "..."}],
  "alertas": ["..."], "resumo_para_o_anunciante": "2 a 3 frases"}"""
@@ -133,6 +135,7 @@ def engine_payload(campaign) -> dict:
 # --------------------------------------------------------------------------- guardrails
 
 _NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
+_RATIO = re.compile(r"\b\d{1,2}:\d{1,2}\b")
 _CLAIM = re.compile(r"(aument|elev|melhor|sob[ea]|impulsion|dobr)\w*\s+(\w+\s+){0,3}(o\s+|a\s+)?"
                     r"(ctr|cliques?|engajamento|convers)", re.IGNORECASE)
 _NEGATION = re.compile(r"não (é|está) clar|sem evidência|não há evidência|precisa de teste|teste a/b", re.IGNORECASE)
@@ -179,19 +182,25 @@ def check_review(review: Review, payload: dict, context: list) -> list[str]:
     if review.mantem_ordem_da_engine != (review.ordem_sugerida == engine_keys):
         violations.append("mantem_ordem_da_engine não corresponde à ordem sugerida")
     for a in review.acoes:
-        if _NUMBER.search(a.execucao_criativa):
-            violations.append(f"acao {a.key}: execucao_criativa não pode conter números")
+        if re.search(r"%|R\$", a.execucao_criativa):
+            violations.append(f"acao {a.key}: execucao_criativa não pode conter porcentagens nem valores em R$")
         # Heurística para a regra 3: promessa de efeito em métrica sem evidência forte.
         if expected.get(a.key) != "forte" and _CLAIM.search(a.comentario) and not _NEGATION.search(a.comentario):
             violations.append(f"acao {a.key}: afirma efeito em métrica de negócio, mas a evidência é '{expected.get(a.key)}'")
 
     allowed = _numbers_in(context)
     texts = [review.justificativa_ordem, review.resumo_para_o_anunciante, *review.alertas,
-             *(a.comentario for a in review.acoes)]
+             *(a.comentario for a in review.acoes), *(a.execucao_criativa for a in review.acoes)]
+    # Proporções de tela ("16:9", "1:1") são vocabulário do formato, não dados: ficam fora da checagem.
+    texts = [_RATIO.sub("", t) for t in texts]
     untraceable = sorted({x for t in texts for x in _numbers_in(t) if not _is_traceable(x, allowed)})
     if untraceable:
         violations.append(f"números que não aparecem na engine nem nas ferramentas: {untraceable}")
     return violations
+
+
+def _tokens(response) -> int:
+    return (response.usage_metadata.total_token_count or 0) if response.usage_metadata else 0
 
 
 def _parse(text: str) -> Review:
@@ -263,11 +272,19 @@ def review(campaign, use_cache: bool = True, allow_live: bool = True) -> dict | 
     from google.genai import types
 
     client = _client()
+    # Fase de investigação: o modelo decide quais ferramentas chamar.
     config = types.GenerateContentConfig(
         system_instruction=SYSTEM_PROMPT,
         temperature=0,
         tools=list(TOOLS.values()),
         automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True),
+    )
+    # Fase de resposta: sem ferramentas e com o schema imposto pela API (JSON sempre completo).
+    answer_config = types.GenerateContentConfig(
+        system_instruction=SYSTEM_PROMPT,
+        temperature=0,
+        response_mime_type="application/json",
+        response_schema=Review,
     )
     user_msg = "Saída da engine para revisar:\n" + json.dumps(payload, ensure_ascii=False, indent=1)
     contents = [types.Content(role="user", parts=[types.Part(text=user_msg)])]
@@ -276,29 +293,33 @@ def review(campaign, use_cache: bool = True, allow_live: bool = True) -> dict | 
     tokens, start = 0, time.time()
     accepted = None
 
-    for _ in range(MAX_CORRECTIONS + 1):
-        text = ""
-        for _ in range(MAX_TOOL_ROUNDS):
-            response = _generate(client, model, contents, config)
-            tokens += (response.usage_metadata.total_token_count or 0) if response.usage_metadata else 0
-            candidate = response.candidates[0].content
-            contents.append(candidate)
-            calls = [p.function_call for p in candidate.parts or [] if p.function_call]
-            if not calls:
-                text = response.text or ""
-                break
-            parts = []
-            for fc in calls:
-                args = dict(fc.args or {})
-                try:
-                    result = TOOLS[fc.name](**args)
-                except Exception as e:   # nome ou argumentos inválidos
-                    result = {"erro": str(e)}
-                tool_calls.append({"ferramenta": fc.name, "args": args})
-                context.append(result)
-                parts.append(types.Part.from_function_response(name=fc.name, response={"resultado": result}))
-            contents.append(types.Content(role="user", parts=parts))
+    for _ in range(MAX_TOOL_ROUNDS):
+        response = _generate(client, model, contents, config)
+        tokens += _tokens(response)
+        candidate = response.candidates[0].content
+        calls = [p.function_call for p in candidate.parts or [] if p.function_call]
+        if not calls:
+            break   # terminou de investigar; o texto livre desta fase é descartado
+        contents.append(candidate)
+        parts = []
+        for fc in calls:
+            args = dict(fc.args or {})
+            try:
+                result = TOOLS[fc.name](**args)
+            except Exception as e:   # nome ou argumentos inválidos
+                result = {"erro": str(e)}
+            tool_calls.append({"ferramenta": fc.name, "args": args})
+            context.append(result)
+            parts.append(types.Part.from_function_response(name=fc.name, response={"resultado": result}))
+        contents.append(types.Content(role="user", parts=parts))
 
+    closing = "Investigação encerrada. Escreva agora a revisão final em JSON, seguindo todas as regras."
+    contents.append(types.Content(role="user", parts=[types.Part(text=closing)]))
+    for _ in range(MAX_CORRECTIONS + 1):
+        response = _generate(client, model, contents, answer_config)
+        tokens += _tokens(response)
+        text = response.text or ""
+        contents.append(response.candidates[0].content)
         try:
             parsed = _parse(text)
             violations = check_review(parsed, payload, context)

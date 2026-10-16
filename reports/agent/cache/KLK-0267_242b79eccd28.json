@@ -1,0 +1,180 @@
+{
+  "campaign_id": "KLK-0267",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0267",
+    "platform": "TikTok",
+    "category": "Branding",
+    "objective": "engagement",
+    "score_predicted": 58.0,
+    "score_actual": 65.5,
+    "real_menos_previsto": 7.5,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 75.0,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": 0.2262,
+          "ci_low": -0.0135,
+          "ci_high": 1.0052,
+          "n_treat": 82,
+          "n_ctrl": 84
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 66.1,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": 0.0954,
+          "ci_low": -0.2328,
+          "ci_high": 0.6724,
+          "n_treat": 105,
+          "n_ctrl": 61
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "voice",
+        "titulo": "Dar mais espaço à voz no áudio",
+        "score_gain": 1.2,
+        "score_after": 59.2,
+        "effort": "médio",
+        "priority": 0.59,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": -0.2101,
+          "ci_low": -0.4539,
+          "ci_high": 0.0203,
+          "n_treat": 107,
+          "n_ctrl": 24
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 16–30s",
+        "score_gain": -0.5,
+        "score_after": 57.6,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.751,
+          "ci_low": 0.1165,
+          "ci_high": 1.1791,
+          "n_treat": 46,
+          "n_ctrl": 115
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "cta",
+        "voice"
+      ],
+      "score_before": 58.0,
+      "score_after": 84.2,
+      "score_gain": 26.2
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "cta",
+      "voice",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "Mantemos a ordem da engine pois a prioridade prioriza o maior ganho no score com menor esforço e coloca a acao de hipotese obrigatoriamente no final.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "nao_clara",
+        "comentario": "Esta acao adiciona 16,9 pts ao score, ajudando a melhorar o watch_ratio que esta em 0,2 contra a mediana da plataforma de 0,4967.",
+        "execucao_criativa": "Nos primeiros 3 segundos, mostre [produto] em acao e pergunte: voce sabia que [beneficio]?"
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "Gera um ganho de 8,0 pts no score para fortalecer o engajamento nesta campanha do TikTok.",
+        "execucao_criativa": "Coloque um texto na tela dizendo: clique no botao abaixo para saber mais sobre [produto]."
+      },
+      {
+        "key": "voice",
+        "evidencia": "nao_clara",
+        "comentario": "Contribui com 1,2 pts adicionais ao score da campanha.",
+        "execucao_criativa": "Substitua a trilha sonora alta por uma locucao clara destacando [beneficio]."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Trata-se de uma hipotese para testar uma versao de 16 a 30 segundos, ajustando o score em -0,5 pts.",
+        "execucao_criativa": "Edite o video para durar de 16 a 30 segundos, mostrando mais detalhes de [produto]."
+      }
+    ],
+    "alertas": [
+      "O watch_ratio de 0,2 esta muito abaixo da mediana da plataforma de 0,4967.",
+      "A conversion_rate de 0,0025 esta abaixo da mediana da plataforma de 0,0308."
+    ],
+    "resumo_para_o_anunciante": "A campanha possui um klike_score real de 65,5, superando a previsao inicial, mas apresenta watch_ratio abaixo da mediana da plataforma. Aplicar um hook nos primeiros segundos e incluir um CTA explicativo ajudara a engajar melhor o publico e elevar o score total."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n  \"ordem_sugerida\": [\n    \"hook\",\n    \"cta\",\n    \"voice\",\n    \"duration\"\n  ],\n  \"mantem_ordem_da_engine\": true,\n  \"justificativa_ordem\": \"Mantemos a ordem da engine pois a prioridade prioriza o maior ganho no score com menor esforço e coloca a acao de hipotese obrigatoriamente no final.\",\n  \"acoes\": [\n    {\n      \"key\": \"hook\",\n      \"evidencia\": \"nao_clara\",\n      \"comentario\": \"Esta acao adiciona 16,9 pts ao score, ajudando a melhorar o watch_ratio que esta em 0,2 contra a mediana da plataforma de 0,4967.\",\n      \"execucao_criativa\": \"Nos primeiros 3 segundos, mostre [produto] em acao e pergunte: voce sabia que [beneficio]?\"\n    },\n    {\n      \"key\": \"cta\",\n      \"evidencia\": \"nao_clara\",\n      \"comentario\": \"Gera um ganho de 8,0 pts no score para fortalecer o engajamento nesta campanha do TikTok.\",\n      \"execucao_criativa\": \"Coloque um texto na tela dizendo: clique no botao abaixo para saber mais sobre [produto].\"\n    },\n    {\n      \"key\": \"voice\",\n      \"evidencia\": \"nao_clara\",\n      \"comentario\": \"Contribui com 1,2 pts adicionais ao score da campanha.\",\n      \"execucao_criativa\": \"Substitua a trilha sonora alta por uma locucao clara destacando [beneficio].\"\n    },\n    {\n      \"key\": \"duration\",\n      \"evidencia\": \"hipotese\",\n      \"comentario\": \"Trata-se de uma hipotese para testar uma versao de 16 a 30 segundos, ajustando o score em -0,5 pts.\",\n      \"execucao_criativa\": \"Edite o video para durar de 16 a 30 segundos, mostrando mais detalhes de [produto].\"\n    }\n  ],\n  \"alertas\": [\n    \"O watch_ratio de 0,2 esta muito abaixo da mediana da plataforma de 0,4967.\",\n    \"A conversion_rate de 0,0025 esta abaixo da mediana da plataforma de 0,0308.\"\n  ],\n  \"resumo_para_o_anunciante\": \"A campanha possui um klike_score real de 65,5, superando a previsao inicial, mas apresenta watch_ratio abaixo da mediana da plataforma. Aplicar um hook nos primeiros segundos e incluir um CTA explicativo ajudara a engajar melhor o publico e elevar o score total.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0267"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "atributo": "has_hook",
+        "metrica": "watch_ratio"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "watch_ratio",
+        "plataforma": "TikTok",
+        "atributo": "has_cta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_subtitle",
+        "metrica": "watch_ratio",
+        "plataforma": "TikTok"
+      }
+    }
+  ],
+  "tokens": 18810,
+  "latencia_s": 118.7
+}

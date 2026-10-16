@@ -1,0 +1,180 @@
+{
+  "campaign_id": "KLK-0226",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0226",
+    "platform": "Meta",
+    "category": "Lead Gen",
+    "objective": "conversions",
+    "score_predicted": 70.7,
+    "score_actual": 65.7,
+    "real_menos_previsto": -5.0,
+    "recomendacoes": [
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 78.7,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": -0.0453,
+          "ci_low": -0.1826,
+          "ci_high": 0.3983,
+          "n_treat": 174,
+          "n_ctrl": 67
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 7.4,
+        "score_after": 78.1,
+        "effort": "baixo",
+        "priority": 7.38,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0435,
+          "ci_low": -0.2031,
+          "ci_high": 0.2973,
+          "n_treat": 105,
+          "n_ctrl": 104
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_quadrado",
+        "titulo": "Exportar em formato quadrado",
+        "score_gain": 0.8,
+        "score_after": 71.5,
+        "effort": "médio",
+        "priority": 0.39,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.1515,
+          "ci_low": -0.2194,
+          "ci_high": 0.4601,
+          "n_treat": 68,
+          "n_ctrl": 106
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": 0.2,
+        "score_after": 70.9,
+        "effort": "médio",
+        "priority": 0.09,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "cta",
+        "text",
+        "format_quadrado"
+      ],
+      "score_before": 70.7,
+      "score_after": 86.9,
+      "score_gain": 16.2
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "text",
+      "cta",
+      "format_quadrado",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "Ajustamos a ordem para colocar o texto antes do CTA, pois o criativo tem densidade low e precisamos subir o engajamento textual primeiro, deixando a ação de duração por último por ser classificada como hipotese.",
+    "acoes": [
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "O ganho previsto é de 8,0 pts para ajudar na conversão, embora o lift na taxa de conversão não seja claro no Meta.",
+        "execucao_criativa": "Insira uma frase final dizendo Toque no botão abaixo para garantir sua vaga e desfrutar de [benefício]."
+      },
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Adicionar texto na tela traz 7,4 pts de ganho, ideal para corrigir a densidade low atual da campanha.",
+        "execucao_criativa": "Adicione legendas curtas destacando que o [produto] resolve o seu problema principal de forma simples."
+      },
+      {
+        "key": "format_quadrado",
+        "evidencia": "nao_clara",
+        "comentario": "A exportação em formato quadrado adiciona 0,8 pt ao score, testando um enquadramento diferente para lead gen.",
+        "execucao_criativa": "Reajuste o enquadramento do vídeo para o formato quadrado mantendo o [produto] centralizado durante toda a cena."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Por se tratar de uma hipótese com ganho menor de 0,2 pt, esta mudança deve ser testada apenas por último.",
+        "execucao_criativa": "Corte a introdução e encurte a duração total mantendo apenas o foco direto no [produto]."
+      }
+    ],
+    "alertas": [
+      "O CTR real está em 0,0247, muito abaixo da mediana da plataforma que é de 0,0646.",
+      "O score real de 65,7 ficou 5,0 pts abaixo do previsto de 70,7.",
+      "O watch_ratio está em 0,1261, bem distante da mediana da plataforma de 0,5222."
+    ],
+    "resumo_para_o_anunciante": "A campanha de Lead Gen no Meta apresenta um CTR e um watch_ratio muito abaixo das medianas da plataforma, puxando o score real para baixo. Priorize aumentar a densidade do texto e refinar o CTA para buscar conversões mais eficientes."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [
+        "acao format_quadrado: execucao_criativa não pode conter números",
+        "acao duration: execucao_criativa não pode conter números"
+      ],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"text\",\n  \"cta\",\n  \"format_quadrado\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"Ajustamos a ordem para colocar o texto antes do CTA, pois o criativo tem densidade low e precisamos subir o engajamento textual primeiro, deixando a ação de duração por último por ser classificada como hipotese.\",\n \"acoes\": [\n  {\n   \"key\": \"cta\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"O ganho previsto é de 8,0 pts para ajudar na conversão, embora o lift na taxa de conversão não seja claro no Meta.\",\n   \"execucao_criativa\": \"Insira uma frase final dizendo Toque em Saiba mais para garantir sua vaga e desfrutar de [benefício].\"\n  },\n  {\n   \"key\": \"text\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Adicionar texto na tela traz 7,4 pts de ganho, ideal para corrigir a densidade low atual da campanha.\",\n   \"execucao_criativa\": \"Adicione legendas curtas destacando que o [produto] resolve o seu problema principal em poucos passos.\"\n  },\n  {\n   \"key\": \"format_quadrado\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"A exportação em formato quadrado adiciona 0,8 pt ao score, testando um enquadramento diferente para lead gen.\",\n   \"execucao_criativa\": \"Reajuste o enquadramento do vídeo para 1:1 mantendo o [produto] centralizado durante toda a cena.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Por se tratar de uma hipótese com ganho menor de 0,2 pt, esta mudança deve ser testada apenas por último.\",\n   \"execucao_criativa\": \"Corte a introdução e reduza a duração total para o intervalo de 11 a 15s mantendo apenas o foco em [produto].\"\n  }\n ],\n \"alertas\": [\n  \"O CTR real está em 0,0247, muito abaixo da mediana da plataforma que é de 0,0646.\",\n  \"O score real de 65,7 ficou 5,0 pts abaixo do previsto de 70,7.\",\n  \"O watch_ratio está em 0,1261, bem distante da mediana da plataforma de 0,5222.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha de Lead Gen no Meta apresenta um CTR e um watch_ratio muito abaixo das medianas da plataforma, puxando o score real para baixo. Priorize aumentar a densidade do texto e refinar o CTA para buscar conversões mais eficientes.\"\n}"
+    },
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"text\",\n  \"cta\",\n  \"format_quadrado\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"Ajustamos a ordem para colocar o texto antes do CTA, pois o criativo tem densidade low e precisamos subir o engajamento textual primeiro, deixando a ação de duração por último por ser classificada como hipotese.\",\n \"acoes\": [\n  {\n   \"key\": \"cta\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"O ganho previsto é de 8,0 pts para ajudar na conversão, embora o lift na taxa de conversão não seja claro no Meta.\",\n   \"execucao_criativa\": \"Insira uma frase final dizendo Toque no botão abaixo para garantir sua vaga e desfrutar de [benefício].\"\n  },\n  {\n   \"key\": \"text\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Adicionar texto na tela traz 7,4 pts de ganho, ideal para corrigir a densidade low atual da campanha.\",\n   \"execucao_criativa\": \"Adicione legendas curtas destacando que o [produto] resolve o seu problema principal de forma simples.\"\n  },\n  {\n   \"key\": \"format_quadrado\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"A exportação em formato quadrado adiciona 0,8 pt ao score, testando um enquadramento diferente para lead gen.\",\n   \"execucao_criativa\": \"Reajuste o enquadramento do vídeo para o formato quadrado mantendo o [produto] centralizado durante toda a cena.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Por se tratar de uma hipótese com ganho menor de 0,2 pt, esta mudança deve ser testada apenas por último.\",\n   \"execucao_criativa\": \"Corte a introdução e encurte a duração total mantendo apenas o foco direto no [produto].\"\n  }\n ],\n \"alertas\": [\n  \"O CTR real está em 0,0247, muito abaixo da mediana da plataforma que é de 0,0646.\",\n  \"O score real de 65,7 ficou 5,0 pts abaixo do previsto de 70,7.\",\n  \"O watch_ratio está em 0,1261, bem distante da mediana da plataforma de 0,5222.\"\n ],\n \"resumo_para_o_anunciante\": \"A campanha de Lead Gen no Meta apresenta um CTR e um watch_ratio muito abaixo das medianas da plataforma, puxando o score real para baixo. Priorize aumentar a densidade do texto e refinar o CTA para buscar conversões mais eficientes.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0226"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "Meta",
+        "atributo": "has_cta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "atributo": "has_subtitle",
+        "plataforma": "Meta"
+      }
+    }
+  ],
+  "tokens": 10785,
+  "latencia_s": 49.8
+}

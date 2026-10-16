@@ -1,0 +1,172 @@
+{
+  "campaign_id": "KLK-0127",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0127",
+    "platform": "TikTok",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 53.6,
+    "score_actual": 41.3,
+    "real_menos_previsto": -12.3,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Reduzir o texto na tela (densidade média)",
+        "score_gain": 12.9,
+        "score_after": 66.5,
+        "effort": "baixo",
+        "priority": 12.87,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.3685,
+          "ci_low": -0.3118,
+          "ci_high": 0.8819,
+          "n_treat": 94,
+          "n_ctrl": 37
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 70.5,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.7931,
+          "ci_low": 0.3447,
+          "ci_high": 1.341,
+          "n_treat": 83,
+          "n_ctrl": 93
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 61.6,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.1465,
+          "ci_low": -0.1754,
+          "ci_high": 0.6934,
+          "n_treat": 112,
+          "n_ctrl": 64
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 16–30s",
+        "score_gain": -0.1,
+        "score_after": 53.5,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.751,
+          "ci_low": 0.1165,
+          "ci_high": 1.1791,
+          "n_treat": 46,
+          "n_ctrl": 115
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "hook",
+        "cta"
+      ],
+      "score_before": 53.6,
+      "score_after": 91.4,
+      "score_gain": 37.8
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "cta",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "A ordem foi reordenada para priorizar a ação de hook que possui evidência forte na plataforma, seguida pelas ações de evidência nao_clara, mantendo a hipótese no final.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Esta ação traz um ganho de 12,9 pts no score para ajudar a corrigir a densidade alta de texto na tela.",
+        "execucao_criativa": "Remover blocos longos e manter apenas o [benefício] principal em letras legíveis na tela."
+      },
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "O hook possui evidência forte para aumentar o CTR e garante o maior ganho de 16,9 pts no score.",
+        "execucao_criativa": "Pare de perder tempo com [produto] manual, veja como automatizar em segundos."
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "O CTA adiciona 8,0 pts no score e complementa a conversão da campanha.",
+        "execucao_criativa": "Clique no botão abaixo para testar o [produto] gratuitamente."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Esta ação de duração é uma hipótese que precisa de teste e não gera ganho imediato no score.",
+        "execucao_criativa": "Criar uma versão alternativa do vídeo com 16–30 segundos de duração."
+      }
+    ],
+    "alertas": [
+      "O klike_score real de 41,3 está muito abaixo da mediana da plataforma de 62 e do score previsto.",
+      "A taxa de conversão real está zerada e o CTR de 0,0133 está muito abaixo da mediana da plataforma de 0,0562."
+    ],
+    "resumo_para_o_anunciante": "A campanha apresenta score real e métricas de performance muito abaixo da mediana do TikTok. A aplicação das melhorias priorizando o hook forte e a redução do texto na tela ajudará a destravar os resultados de conversão."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"text\", \"cta\", \"duration\"], \"mantem_ordem_da_engine\": false, \"justificativa_ordem\": \"A ordem foi reordenada para priorizar a ação de hook que possui evidência forte na plataforma, seguida pelas ações de evidência nao_clara, mantendo a hipótese no final.\", \"acoes\": [{\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Esta ação traz um ganho de 12,9 pts no score para ajudar a corrigir a densidade alta de texto na tela.\", \"execucao_criativa\": \"Remover blocos longos e manter apenas o [benefício] principal em letras legíveis na tela.\"}, {\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"O hook possui evidência forte para aumentar o CTR e garante o maior ganho de 16,9 pts no score.\", \"execucao_criativa\": \"Pare de perder tempo com [produto] manual, veja como automatizar em segundos.\"}, {\"key\": \"cta\", \"evidencia\": \"nao_clara\", \"comentario\": \"O CTA adiciona 8,0 pts no score e complementa a conversão da campanha.\", \"execucao_criativa\": \"Clique no botão abaixo para testar o [produto] gratuitamente.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Esta ação de duração é uma hipótese que precisa de teste e não gera ganho imediato no score.\", \"execucao_criativa\": \"Criar uma versão alternativa do vídeo com 16–30 segundos de duração.\"}], \"alertas\": [\"O klike_score real de 41,3 está muito abaixo da mediana da plataforma de 62 e do score previsto.\", \"A taxa de conversão real está zerada e o CTR de 0,0133 está muito abaixo da mediana da plataforma de 0,0562.\"], \"resumo_para_o_anunciante\": \"A campanha apresenta score real e métricas de performance muito abaixo da mediana do TikTok. A aplicação das melhorias priorizando o hook forte e a redução do texto na tela ajudará a destravar os resultados de conversão.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0127"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_hook",
+        "plataforma": "TikTok",
+        "metrica": "conversion_rate"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "atributo": "has_cta",
+        "plataforma": "TikTok"
+      }
+    }
+  ],
+  "tokens": 9666,
+  "latencia_s": 48.9
+}

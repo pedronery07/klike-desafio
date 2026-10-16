@@ -1,0 +1,149 @@
+{
+  "campaign_id": "KLK-0365",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0365",
+    "platform": "LinkedIn",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 46.4,
+    "score_actual": 44.1,
+    "real_menos_previsto": -2.3,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 19.4,
+        "score_after": 65.7,
+        "effort": "médio",
+        "priority": 9.68,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 1.1893,
+          "ci_low": 0.2851,
+          "ci_high": 2.3868,
+          "n_treat": 45,
+          "n_ctrl": 38
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 4.4,
+        "score_after": 50.7,
+        "effort": "baixo",
+        "priority": 4.35,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.0119,
+          "ci_low": -0.4418,
+          "ci_high": 0.3919,
+          "n_treat": 45,
+          "n_ctrl": 29
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.6,
+        "score_after": 57.9,
+        "effort": "alto",
+        "priority": 3.85,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": 0.6167,
+          "ci_low": -0.0219,
+          "ci_high": 1.3246,
+          "n_treat": 48,
+          "n_ctrl": 35
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_horizontal",
+        "titulo": "Exportar em formato horizontal",
+        "score_gain": 4.5,
+        "score_after": 50.8,
+        "effort": "médio",
+        "priority": 2.24,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no LinkedIn",
+          "lift": -0.0337,
+          "ci_low": -0.3163,
+          "ci_high": 0.6677,
+          "n_treat": 44,
+          "n_ctrl": 28
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "subtitle",
+        "face",
+        "format_horizontal"
+      ],
+      "score_before": 46.4,
+      "score_after": 86.1,
+      "score_gain": 39.8
+    }
+  },
+  "revisao": null,
+  "aprovado": false,
+  "tentativas": [
+    {
+      "violacoes": [
+        "números que não aparecem na engine nem nas ferramentas: [16.0]"
+      ],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"subtitle\", \"face\", \"format_horizontal\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantivemos a ordem da engine porque o hook apresenta evidência forte no CTR e o maior ganho previsto, sendo prioritário para corrigir o desempenho geral da campanha.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Adicionar um hook nos 3 primeiros segundos traz o maior ganho, elevando o klike_score em 19,4 pts para melhorar a atração no LinkedIn.\", \"execucao_criativa\": \"Cansado de perder tempo gerindo [produto] manualmente na sua empresa?\"}, {\"key\": \"subtitle\", \"evidencia\": \"nao_clara\", \"comentario\": \"A inclusão de legendas oferece um ganho de 4,4 pts no score com esforço baixo, embora a diferença na conversão não seja clara.\", \"execucao_criativa\": \"Legenda automática destacando o ganho de eficiência operacional com o [benefício].\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano adiciona 11,6 pts ao score com esforço alto, ajudando a humanizar a comunicação B2B.\", \"execucao_criativa\": \"Colocar um especialista da equipe apresentando a ferramenta para o público-alvo.\"}, {\"key\": \"format_horizontal\", \"evidencia\": \"nao_clara\", \"comentario\": \"Exportar em formato horizontal garante um ganho de 4,5 pts no score com esforço médio, adequando o criativo aos padrões da plataforma.\", \"execucao_criativa\": \"Ajustar o vídeo para proporção 16:9 focando nas telas de demonstração do SaaS.\"}], \"alertas\": [\"O klike_score real da campanha está em 44,1 pts, abaixo da mediana da plataforma que é de 57,2 pts.\", \"A taxa de conversão real de 0,0135 está muito distante da mediana da plataforma de 0,032.\"], \"resumo_para_o_anunciante\": \"A campanha atual apresenta métricas abaixo da mediana da plataforma LinkedIn e precisa de ajustes urgentes na abordagem inicial. A implementação das melhorias propostas pode elevar significativamente o klike_score e aproximar os resultados do esperado para o objetivo de conversões.\"}"
+    },
+    {
+      "violacoes": [
+        "números que não aparecem na engine nem nas ferramentas: [16.0]"
+      ],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"subtitle\", \"face\", \"format_horizontal\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"Mantivemos a ordem da engine porque o hook apresenta evidência forte no CTR e o maior ganho previsto, sendo prioritário para corrigir o desempenho geral da campanha.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Adicionar um hook nos 3 primeiros segundos traz o maior ganho, elevando o klike_score em 19,4 pts para melhorar a atração no LinkedIn.\", \"execucao_criativa\": \"Cansado de perder tempo gerindo [produto] manualmente na sua empresa?\"}, {\"key\": \"subtitle\", \"evidencia\": \"nao_clara\", \"comentario\": \"A inclusão de legendas oferece um ganho de 4,4 pts no score com esforço baixo, embora a diferença na conversão não seja clara.\", \"execucao_criativa\": \"Legenda automática destacando o ganho de eficiência operacional com o [benefício].\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano adiciona 11,6 pts ao score com esforço alto, ajudando a humanizar a comunicação B2B.\", \"execucao_criativa\": \"Colocar um especialista da equipe apresentando a ferramenta para o público-alvo.\"}, {\"key\": \"format_horizontal\", \"evidencia\": \"nao_clara\", \"comentario\": \"Exportar em formato horizontal garante um ganho de 4,5 pts no score com esforço médio, adequando o criativo aos padrões da plataforma.\", \"execucao_criativa\": \"Ajustar o vídeo para proporção 16:9 focando nas telas de demonstração do SaaS.\"}], \"alertas\": [\"O klike_score real da campanha está em 44,1 pts, abaixo da mediana da plataforma que é de 57,2 pts.\", \"A taxa de conversão real de 0,0135 está muito distante da mediana da plataforma de 0,032.\"], \"resumo_para_o_anunciante\": \"A campanha atual apresenta métricas abaixo da mediana da plataforma LinkedIn e precisa de ajustes urgentes na abordagem inicial. A implementação das melhorias propostas pode elevar significativamente o klike_score e aproximar os resultados do esperado para o objetivo de conversões.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0365"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "LinkedIn",
+        "atributo": "has_hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "LinkedIn",
+        "metrica": "conversion_rate",
+        "atributo": "has_subtitle"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "LinkedIn",
+        "atributo": "has_face"
+      }
+    }
+  ],
+  "tokens": 13783,
+  "latencia_s": 43.1
+}

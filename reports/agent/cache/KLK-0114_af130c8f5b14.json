@@ -1,0 +1,141 @@
+{
+  "campaign_id": "KLK-0114",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0114",
+    "platform": "TikTok",
+    "category": "E-commerce",
+    "objective": "traffic",
+    "score_predicted": 67.4,
+    "score_actual": 72.0,
+    "real_menos_previsto": 4.6,
+    "recomendacoes": [
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 75.4,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.1465,
+          "ci_low": -0.1754,
+          "ci_high": 0.6934,
+          "n_treat": 112,
+          "n_ctrl": 64
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 5.2,
+        "score_after": 72.6,
+        "effort": "baixo",
+        "priority": 5.2,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": -0.052,
+          "ci_low": -0.3158,
+          "ci_high": 0.3838,
+          "n_treat": 94,
+          "n_ctrl": 45
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 12.4,
+        "score_after": 79.8,
+        "effort": "alto",
+        "priority": 4.13,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.7453,
+          "ci_low": 0.3881,
+          "ci_high": 1.1277,
+          "n_treat": 98,
+          "n_ctrl": 78
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 16–30s",
+        "score_gain": -0.4,
+        "score_after": 67.0,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.751,
+          "ci_low": 0.1165,
+          "ci_high": 1.1791,
+          "n_treat": 46,
+          "n_ctrl": 115
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "cta",
+        "text",
+        "face"
+      ],
+      "score_before": 67.4,
+      "score_after": 93.0,
+      "score_gain": 25.6
+    }
+  },
+  "revisao": null,
+  "aprovado": false,
+  "tentativas": [
+    {
+      "violacoes": [
+        "JSON inválido ou fora do schema: Expecting value: line 1 column 1 (char 0)"
+      ],
+      "texto_bruto": ""
+    },
+    {
+      "violacoes": [
+        "acao text: afirma efeito em métrica de negócio, mas a evidência é 'nao_clara'",
+        "acao duration: execucao_criativa não pode conter números"
+      ],
+      "texto_bruto": "{\"ordem_sugerida\": [\"face\", \"cta\", \"text\", \"duration\"], \"mantem_ordem_da_engine\": false, \"justificativa_ordem\": \"A ação de rosto humano foi colocada em primeiro lugar por apresentar evidência forte no CTR e o maior ganho de pontos, além de ser o principal ponto fraco da campanha atual. As ações de CTA e texto possuem evidência não clara, mas a inclusão de CTA oferece um ganho expressivo de pontos e lift positivo na conversão. A duração foi mantida por último por ser classificada como hipótese.\", \"acoes\": [{\"key\": \"cta\", \"evidencia\": \"nao_clara\", \"comentario\": \"Adicionar um CTA explícito garante um ganho de 8,0 pts no score e lift positivo na conversão, embora a diferença no CTR não seja clara no TikTok.\", \"execucao_criativa\": \"Insira um texto ao final do vídeo convidando o público a acessar o site do [produto] com o comando [compre agora].\"}, {\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"O aumento na densidade de texto traz um ganho de 5,2 pts no score, ideal para elevar o engajamento deste criativo em E-commerce.\", \"execucao_criativa\": \"Adicione legendas curtas destacando os principais benefícios do [produto] durante os primeiros segundos.\"}, {\"key\": \"face\", \"evidencia\": \"forte\", \"comentario\": \"Mostrar um rosto humano entrega o maior ganho da campanha, com 12,4 pts no score e forte evidência de impacto no CTR no TikTok.\", \"execucao_criativa\": \"Grave um criador segurando e demonstrando o uso de [produto] logo na abertura do vídeo.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"A extensão da duração traz um ganho no score de -0,4 pts e requer teste controlado para validar o impacto no tráfego.\", \"execucao_criativa\": \"Teste uma versão do vídeo com duração de 16 a 30s mostrando mais detalhes do [produto] e depoimentos.\"}], \"alertas\": [\"O klike_score real de 72,0 superou a mediana da plataforma de 62, mas a campanha ainda carece de elementos visuais essenciais como rostos humanos.\", \"O engajamento atual de 0,0274 está abaixo da mediana da plataforma de 0,0342, indicando margem para melhoria no conteúdo.\"], \"resumo_para_o_anunciante\": \"A campanha no TikTok apresenta um bom desempenho geral, mas pode ser otimizada com a inclusão de um rosto humano e um CTA claro para destravar todo o seu potencial de tráfego. As recomendações priorizam os elementos de maior impacto no score e na conversão para maximizar o retorno.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0114"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "plataforma": "TikTok",
+        "atributo": "has_face"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_cta",
+        "metrica": "conversion_rate",
+        "plataforma": "TikTok"
+      }
+    }
+  ],
+  "tokens": 8776,
+  "latencia_s": 32.0
+}

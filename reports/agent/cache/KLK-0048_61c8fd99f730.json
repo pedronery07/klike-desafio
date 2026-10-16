@@ -1,0 +1,198 @@
+{
+  "campaign_id": "KLK-0048",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0048",
+    "platform": "TikTok",
+    "category": "Branding",
+    "objective": "awareness",
+    "score_predicted": 49.2,
+    "score_actual": 39.7,
+    "real_menos_previsto": -9.5,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Reduzir o texto na tela (densidade média)",
+        "score_gain": 12.9,
+        "score_after": 62.0,
+        "effort": "baixo",
+        "priority": 12.87,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": -0.1096,
+          "ci_low": -0.336,
+          "ci_high": 0.8926,
+          "n_treat": 88,
+          "n_ctrl": 35
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 66.1,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": 0.2262,
+          "ci_low": -0.0135,
+          "ci_high": 1.0052,
+          "n_treat": 82,
+          "n_ctrl": 84
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_vertical",
+        "titulo": "Exportar em formato vertical",
+        "score_gain": 3.2,
+        "score_after": 52.3,
+        "effort": "médio",
+        "priority": 1.58,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": 0.2259,
+          "ci_low": -0.171,
+          "ci_high": 1.3615,
+          "n_treat": 142,
+          "n_ctrl": 24
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "voice",
+        "titulo": "Dar mais espaço à voz no áudio",
+        "score_gain": 1.4,
+        "score_after": 50.5,
+        "effort": "médio",
+        "priority": 0.68,
+        "evidence": {
+          "metric": "engagement_rate",
+          "context": "no TikTok",
+          "lift": -0.2101,
+          "ci_low": -0.4539,
+          "ci_high": 0.0203,
+          "n_treat": 107,
+          "n_ctrl": 24
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 16–30s",
+        "score_gain": -0.0,
+        "score_after": 49.1,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.751,
+          "ci_low": 0.1165,
+          "ci_high": 1.1791,
+          "n_treat": 46,
+          "n_ctrl": 115
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "hook",
+        "format_vertical",
+        "voice"
+      ],
+      "score_before": 49.2,
+      "score_after": 83.5,
+      "score_gain": 34.3
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "format_vertical",
+      "voice",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "Reordenamos a ação de hook para o primeiro lugar por causa do ganho potencial de 16,9 pts e porque o objetivo de awareness no TikTok se beneficia diretamente de um watch ratio maior, confirmado pela ferramenta de lift. Reduzir o texto vem em seguida com 12,9 pts para desafogar a tela e melhorar a retenção. A ação de duração foi mantida no final por ser classificada como hipotese.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Esta ação traz um ganho de 12,9 pts no score e ajuda a desafogar a densidade alta de texto na tela para o público do TikTok.",
+        "execucao_criativa": "Deixe apenas uma frase curta na tela com o principal benefício do [produto]."
+      },
+      {
+        "key": "hook",
+        "evidencia": "nao_clara",
+        "comentario": "O ganho previsto é de 16,9 pts. A análise de lift para watch_ratio no TikTok mostrou que o uso de hook aumenta a retenção com lift de 0,3393.",
+        "execucao_criativa": "Nos primeiros 3 segundos, mostre o [produto] em uso e faça uma pergunta direta ao público."
+      },
+      {
+        "key": "format_vertical",
+        "evidencia": "nao_clara",
+        "comentario": "Gera um acréscimo de 3,2 pts no score, essencial para adequar o formato quadrado atual ao padrão do TikTok.",
+        "execucao_criativa": "Recorte o vídeo para o formato 9:16 preenchendo toda a tela vertical do celular."
+      },
+      {
+        "key": "voice",
+        "evidencia": "nao_clara",
+        "comentario": "Adiciona 1,4 pts ao score e ajuda a equilibrar a trilha sonora com a locução para prender a atenção.",
+        "execucao_criativa": "Aumente o volume da voz do locutor em relação à música de fundo."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Trata-se de uma hipótese com ganho de -0,0 pts no score, devendo ser testada apenas após as melhorias principais.",
+        "execucao_criativa": "Edite o vídeo para ter entre 16 a 30 segundos de duração total."
+      }
+    ],
+    "alertas": [
+      "O klike_score real da campanha está em 39,7, bem abaixo da mediana da plataforma que é 62 e também abaixo do previsto de 49,2.",
+      "O watch_ratio está em 0,38, abaixo da mediana da plataforma de 0,4967."
+    ],
+    "resumo_para_o_anunciante": "A campanha atual apresenta performance abaixo da mediana da plataforma em métricas importantes como o watch_ratio. Aplicar as recomendações priorizando o hook e a redução de texto ajudará a recuperar o score e engajar melhor o público no TikTok."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"text\", \"format_vertical\", \"voice\", \"duration\"], \"mantem_ordem_da_engine\": false, \"justificativa_ordem\": \"Reordenamos a ação de hook para o primeiro lugar por causa do ganho potencial de 16,9 pts e porque o objetivo de awareness no TikTok se beneficia diretamente de um watch ratio maior, confirmado pela ferramenta de lift. Reduzir o texto vem em seguida com 12,9 pts para desafogar a tela e melhorar a retenção. A ação de duração foi mantida no final por ser classificada como hipotese.\", \"acoes\": [{\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Esta ação traz um ganho de 12,9 pts no score e ajuda a desafogar a densidade alta de texto na tela para o público do TikTok.\", \"execucao_criativa\": \"Deixe apenas uma frase curta na tela com o principal benefício do [produto].\"}, {\"key\": \"hook\", \"evidencia\": \"nao_clara\", \"comentario\": \"O ganho previsto é de 16,9 pts. A análise de lift para watch_ratio no TikTok mostrou que o uso de hook aumenta a retenção com lift de 0,3393.\", \"execucao_criativa\": \"Nos primeiros 3 segundos, mostre o [produto] em uso e faça uma pergunta direta ao público.\"}, {\"key\": \"format_vertical\", \"evidencia\": \"nao_clara\", \"comentario\": \"Gera um acréscimo de 3,2 pts no score, essencial para adequar o formato quadrado atual ao padrão do TikTok.\", \"execucao_criativa\": \"Recorte o vídeo para o formato 9:16 preenchendo toda a tela vertical do celular.\"}, {\"key\": \"voice\", \"evidencia\": \"nao_clara\", \"comentario\": \"Adiciona 1,4 pts ao score e ajuda a equilibrar a trilha sonora com a locução para prender a atenção.\", \"execucao_criativa\": \"Aumente o volume da voz do locutor em relação à música de fundo.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Trata-se de uma hipótese com ganho de -0,0 pts no score, devendo ser testada apenas após as melhorias principais.\", \"execucao_criativa\": \"Edite o vídeo para ter entre 16 a 30 segundos de duração total.\"}], \"alertas\": [\"O klike_score real da campanha está em 39,7, bem abaixo da mediana da plataforma que é 62 e também abaixo do previsto de 49,2.\", \"O watch_ratio está em 0,38, abaixo da mediana da plataforma de 0,4967.\"], \"resumo_para_o_anunciante\": \"A campanha atual apresenta performance abaixo da mediana da plataforma em métricas importantes como o watch_ratio. Aplicar as recomendações priorizando o hook e a redução de texto ajudará a recuperar o score e engajar melhor o público no TikTok.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0048"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "metrica": "watch_ratio",
+        "atributo": "has_hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "watch_ratio",
+        "plataforma": "TikTok",
+        "atributo": "has_subtitle"
+      }
+    }
+  ],
+  "tokens": 10454,
+  "latencia_s": 22.9
+}

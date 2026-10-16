@@ -1,0 +1,186 @@
+{
+  "campaign_id": "KLK-0389",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0389",
+    "platform": "TikTok",
+    "category": "E-commerce",
+    "objective": "traffic",
+    "score_predicted": 53.7,
+    "score_actual": 51.5,
+    "real_menos_previsto": -2.2,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.9,
+        "score_after": 70.6,
+        "effort": "médio",
+        "priority": 8.47,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.7931,
+          "ci_low": 0.3447,
+          "ci_high": 1.341,
+          "n_treat": 83,
+          "n_ctrl": 93
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "cta",
+        "titulo": "Incluir um CTA explícito",
+        "score_gain": 8.0,
+        "score_after": 61.7,
+        "effort": "baixo",
+        "priority": 8.03,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.1465,
+          "ci_low": -0.1754,
+          "ci_high": 0.6934,
+          "n_treat": 112,
+          "n_ctrl": 64
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 12.4,
+        "score_after": 66.1,
+        "effort": "alto",
+        "priority": 4.13,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.7453,
+          "ci_low": 0.3881,
+          "ci_high": 1.1277,
+          "n_treat": 98,
+          "n_ctrl": 78
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 16–30s",
+        "score_gain": -0.0,
+        "score_after": 53.7,
+        "effort": "médio",
+        "priority": 0.0,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no TikTok",
+          "lift": 0.751,
+          "ci_low": 0.1165,
+          "ci_high": 1.1791,
+          "n_treat": 46,
+          "n_ctrl": 115
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "cta",
+        "face"
+      ],
+      "score_before": 53.7,
+      "score_after": 91.0,
+      "score_gain": 37.4
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "face",
+      "cta",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": false,
+    "justificativa_ordem": "Ajustamos a ordem priorizando o impacto no score e o esforço para uma campanha de tráfego no TikTok. O hook e o rosto humano possuem evidências fortes, mas o hook traz o maior ganho com esforço médio. O rosto humano exige alto esforço, ficando em segundo entre as ações principais. O CTA e a duração (hipótese) mantêm-se no final da fila devido à evidência não clara e ao ganho nulo.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Adicionar um hook traz um ganho expressivo de 16,9 pts para recuperar o CTR que está abaixo da mediana da plataforma. A análise de watch_ratio confirmou que o hook aumenta a retenção com lift de 0,3393.",
+        "execucao_criativa": "Você não vai acreditar no que acontece quando usa [produto] pela primeira vez."
+      },
+      {
+        "key": "face",
+        "evidencia": "forte",
+        "comentario": "Mostrar um rosto humano garante 12,4 pts de ganho e fortalece a conexão com o público de e-commerce no TikTok. O teste de watch_ratio indicou que o efeito na retenção não é claro (lift de -0,0365), mas o ganho no score é consistente.",
+        "execucao_criativa": "Criador de conteúdo segurando o [produto] e mostrando o resultado de perto para a câmera."
+      },
+      {
+        "key": "cta",
+        "evidencia": "nao_clara",
+        "comentario": "Incluir um CTA explícito oferece um ganho de 8,0 pts com baixo esforço de implementação. A métrica de watch_ratio mostrou que a diferença não é clara (lift de -0,0077), exigindo validação via teste.",
+        "execucao_criativa": "Clique no botão abaixo para garantir o seu [benefício] hoje mesmo."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Testar uma versão mais longa é uma hipótese sem ganho direto no score (0,0 pts), mantida apenas para experimentação futura. Como trata-se de hipótese, deve ser testada por último.",
+        "execucao_criativa": "Versão estendida do vídeo demonstrando múltiplos usos do [produto] ao longo de todo o tempo de exibição."
+      }
+    ],
+    "alertas": [
+      "O CTR atual de 0,0323 está consideravelmente abaixo da mediana da plataforma de 0,0562, exigindo atenção urgente no hook.",
+      "O klike_score real de 51,5 está abaixo do previsto de 53,7 e muito distante da mediana da plataforma de 62."
+    ],
+    "resumo_para_o_anunciante": "Esta campanha de tráfego no TikTok apresenta um klike_score real de 51,5 e um CTR de 0,0323, ambos abaixo das medianas da plataforma. A aplicação prioritária de um hook forte e de um rosto humano é essencial para recuperar a performance e elevar o score. Ajustes complementares de CTA e duração completam o plano para destravar o potencial do criativo."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [
+        "acao duration: execucao_criativa não pode conter números"
+      ],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"face\",\n  \"cta\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"Ajustamos a ordem priorizando o impacto no score e o esforço para uma campanha de tráfego no TikTok. O hook e o rosto humano possuem evidências fortes, mas o hook traz o maior ganho com esforço médio. O rosto humano exige alto esforço, ficando em segundo entre as ações principais. O CTA e a duração (hipótese) mantêm-se no final da fila devido à evidência não clara e ao ganho nulo.\",\n \"acoes\": [\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Adicionar um hook traz um ganho expressivo de 16,9 pts para recuperar o CTR que está abaixo da mediana da plataforma. A análise de watch_ratio confirmou que o hook aumenta a retenção com lift de 0,3393.\",\n   \"execucao_criativa\": \"Você não vai acreditar no que acontece quando usa [produto] pela primeira vez.\"\n  },\n  {\n   \"key\": \"face\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Mostrar um rosto humano garante 12,4 pts de ganho e fortalece a conexão com o público de e-commerce no TikTok. O teste de watch_ratio indicou que o efeito na retenção não é claro (lift de -0,0365), mas o ganho no score é consistente.\",\n   \"execucao_criativa\": \"Criador de conteúdo segurando o [produto] e mostrando o resultado de perto para a câmera.\"\n  },\n  {\n   \"key\": \"cta\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Incluir um CTA explícito oferece um ganho de 8,0 pts com baixo esforço de implementação. A métrica de watch_ratio mostrou que a diferença não é clara (lift de -0,0077), exigindo validação via teste.\",\n   \"execucao_criativa\": \"Clique no botão abaixo para garantir o seu [benefício] hoje mesmo.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Testar uma versão mais longa é uma hipótese sem ganho direto no score (0,0 pts), mantida apenas para experimentação futura. Como trata-se de hipótese, deve ser testada por último.\",\n   \"execucao_criativa\": \"Versão estendida do vídeo demonstrando múltiplos usos do [produto] ao longo de 25 segundos.\"\n  }\n ],\n \"alertas\": [\n  \"O CTR atual de 0,0323 está consideravelmente abaixo da mediana da plataforma de 0,0562, exigindo atenção urgente no hook.\",\n  \"O klike_score real de 51,5 está abaixo do previsto de 53,7 e muito distante da mediana da plataforma de 62.\"\n ],\n \"resumo_para_o_anunciante\": \"Esta campanha de tráfego no TikTok apresenta um klike_score real de 51,5 e um CTR de 0,0323, ambos abaixo das medianas da plataforma. A aplicação prioritária de um hook forte e de um rosto humano é essencial para recuperar a performance e elevar o score. Ajustes complementares de CTA e duração completam o plano para destravar o potencial do criativo.\"\n}"
+    },
+    {
+      "violacoes": [],
+      "texto_bruto": "{\n \"ordem_sugerida\": [\n  \"hook\",\n  \"face\",\n  \"cta\",\n  \"duration\"\n ],\n \"mantem_ordem_da_engine\": false,\n \"justificativa_ordem\": \"Ajustamos a ordem priorizando o impacto no score e o esforço para uma campanha de tráfego no TikTok. O hook e o rosto humano possuem evidências fortes, mas o hook traz o maior ganho com esforço médio. O rosto humano exige alto esforço, ficando em segundo entre as ações principais. O CTA e a duração (hipótese) mantêm-se no final da fila devido à evidência não clara e ao ganho nulo.\",\n \"acoes\": [\n  {\n   \"key\": \"hook\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Adicionar um hook traz um ganho expressivo de 16,9 pts para recuperar o CTR que está abaixo da mediana da plataforma. A análise de watch_ratio confirmou que o hook aumenta a retenção com lift de 0,3393.\",\n   \"execucao_criativa\": \"Você não vai acreditar no que acontece quando usa [produto] pela primeira vez.\"\n  },\n  {\n   \"key\": \"face\",\n   \"evidencia\": \"forte\",\n   \"comentario\": \"Mostrar um rosto humano garante 12,4 pts de ganho e fortalece a conexão com o público de e-commerce no TikTok. O teste de watch_ratio indicou que o efeito na retenção não é claro (lift de -0,0365), mas o ganho no score é consistente.\",\n   \"execucao_criativa\": \"Criador de conteúdo segurando o [produto] e mostrando o resultado de perto para a câmera.\"\n  },\n  {\n   \"key\": \"cta\",\n   \"evidencia\": \"nao_clara\",\n   \"comentario\": \"Incluir um CTA explícito oferece um ganho de 8,0 pts com baixo esforço de implementação. A métrica de watch_ratio mostrou que a diferença não é clara (lift de -0,0077), exigindo validação via teste.\",\n   \"execucao_criativa\": \"Clique no botão abaixo para garantir o seu [benefício] hoje mesmo.\"\n  },\n  {\n   \"key\": \"duration\",\n   \"evidencia\": \"hipotese\",\n   \"comentario\": \"Testar uma versão mais longa é uma hipótese sem ganho direto no score (0,0 pts), mantida apenas para experimentação futura. Como trata-se de hipótese, deve ser testada por último.\",\n   \"execucao_criativa\": \"Versão estendida do vídeo demonstrando múltiplos usos do [produto] ao longo de todo o tempo de exibição.\"\n  }\n ],\n \"alertas\": [\n  \"O CTR atual de 0,0323 está consideravelmente abaixo da mediana da plataforma de 0,0562, exigindo atenção urgente no hook.\",\n  \"O klike_score real de 51,5 está abaixo do previsto de 53,7 e muito distante da mediana da plataforma de 62.\"\n ],\n \"resumo_para_o_anunciante\": \"Esta campanha de tráfego no TikTok apresenta um klike_score real de 51,5 e um CTR de 0,0323, ambos abaixo das medianas da plataforma. A aplicação prioritária de um hook forte e de um rosto humano é essencial para recuperar a performance e elevar o score. Ajustes complementares de CTA e duração completam o plano para destravar o potencial do criativo.\"\n}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0389"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "metrica": "watch_ratio",
+        "atributo": "has_hook"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "metrica": "watch_ratio",
+        "atributo": "has_face"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "TikTok",
+        "metrica": "watch_ratio",
+        "atributo": "has_cta"
+      }
+    }
+  ],
+  "tokens": 11400,
+  "latencia_s": 13.9
+}

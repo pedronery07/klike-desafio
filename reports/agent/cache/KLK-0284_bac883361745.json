@@ -1,0 +1,198 @@
+{
+  "campaign_id": "KLK-0284",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v5",
+  "engine": {
+    "campaign_id": "KLK-0284",
+    "platform": "Meta",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 50.8,
+    "score_actual": 45.5,
+    "real_menos_previsto": -5.3,
+    "recomendacoes": [
+      {
+        "key": "hook",
+        "titulo": "Adicionar um hook nos 3 primeiros segundos",
+        "score_gain": 16.1,
+        "score_after": 66.9,
+        "effort": "médio",
+        "priority": 8.04,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.5747,
+          "ci_low": 0.2224,
+          "ci_high": 0.795,
+          "n_treat": 128,
+          "n_ctrl": 113
+        },
+        "evidencia": "forte"
+      },
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 7.4,
+        "score_after": 58.2,
+        "effort": "baixo",
+        "priority": 7.38,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0435,
+          "ci_low": -0.2031,
+          "ci_high": 0.2973,
+          "n_treat": 105,
+          "n_ctrl": 104
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 7.3,
+        "score_after": 58.2,
+        "effort": "baixo",
+        "priority": 7.34,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.1345,
+          "ci_low": -0.0883,
+          "ci_high": 0.4747,
+          "n_treat": 128,
+          "n_ctrl": 92
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.2,
+        "score_after": 62.0,
+        "effort": "alto",
+        "priority": 3.72,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0576,
+          "ci_low": -0.1594,
+          "ci_high": 0.3897,
+          "n_treat": 123,
+          "n_ctrl": 118
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "duration",
+        "titulo": "Testar uma versão de 11–15s",
+        "score_gain": 0.3,
+        "score_after": 51.1,
+        "effort": "médio",
+        "priority": 0.14,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.324,
+          "ci_low": 0.0353,
+          "ci_high": 0.721,
+          "n_treat": 57,
+          "n_ctrl": 167
+        },
+        "evidencia": "hipotese"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "hook",
+        "text",
+        "subtitle",
+        "face"
+      ],
+      "score_before": 50.8,
+      "score_after": 92.8,
+      "score_gain": 42.0
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "hook",
+      "text",
+      "subtitle",
+      "face",
+      "duration"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "A ordem da engine foi mantida pois prioriza a ação com evidência forte logo no início e posiciona a hipótese no fim conforme a regra.",
+    "acoes": [
+      {
+        "key": "hook",
+        "evidencia": "forte",
+        "comentario": "Esta ação garante o maior ganho de 16,1 pts no klike_score e corrige a ausência de hook na campanha, embora na conversão a diferença não seja clara.",
+        "execucao_criativa": "Corte para os três primeiros segundos mostrando o problema central que o [produto] resolve para o público de SaaS."
+      },
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Adiciona 7,4 pts no klike_score elevando a densidade de texto para o nível médio.",
+        "execucao_criativa": "Insira legendas curtas na tela destacando a principal vantagem do [benefício] durante o vídeo."
+      },
+      {
+        "key": "subtitle",
+        "evidencia": "nao_clara",
+        "comentario": "Oferece um ganho de 7,3 pts no klike_score, ajudando a reter a atenção mesmo com o áudio desativado.",
+        "execucao_criativa": "Adicione legendas automáticas em destaque na parte central do vídeo."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Gera um ganho de 11,2 pts no klike_score, embora exija esforço alto de gravação.",
+        "execucao_criativa": "Inclua uma pessoa real apresentando a interface do [produto] e explicando a funcionalidade."
+      },
+      {
+        "key": "duration",
+        "evidencia": "hipotese",
+        "comentario": "Como possui evidência do tipo hipotese, deve ser tratada como teste e traz um ganho menor de 0,3 pts no klike_score.",
+        "execucao_criativa": "Edite o vídeo para testar uma versão com duração de 11 a 15 segundos mantendo o ritmo acelerado."
+      }
+    ],
+    "alertas": [
+      "O klike_score real de 45,5 está abaixo da mediana da plataforma de 60,5 e 5,3 pts abaixo do previsto.",
+      "O CTR atual está em 0,0472, abaixo da mediana da plataforma de 0,0646."
+    ],
+    "resumo_para_o_anunciante": "A campanha atual apresenta um score real abaixo da mediana da plataforma e precisa de ajustes urgentes na abertura do vídeo. A adoção de um hook forte nos primeiros segundos e o aumento da densidade de texto trarão o principal impacto no klike_score. Testes futuros com duração menor e rostos humanos complementarão a estratégia."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"hook\", \"text\", \"subtitle\", \"face\", \"duration\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"A ordem da engine foi mantida pois prioriza a ação com evidência forte logo no início e posiciona a hipótese no fim conforme a regra.\", \"acoes\": [{\"key\": \"hook\", \"evidencia\": \"forte\", \"comentario\": \"Esta ação garante o maior ganho de 16,1 pts no klike_score e corrige a ausência de hook na campanha, embora na conversão a diferença não seja clara.\", \"execucao_criativa\": \"Corte para os três primeiros segundos mostrando o problema central que o [produto] resolve para o público de SaaS.\"}, {\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Adiciona 7,4 pts no klike_score elevando a densidade de texto para o nível médio.\", \"execucao_criativa\": \"Insira legendas curtas na tela destacando a principal vantagem do [benefício] durante o vídeo.\"}, {\"key\": \"subtitle\", \"evidencia\": \"nao_clara\", \"comentario\": \"Oferece um ganho de 7,3 pts no klike_score, ajudando a reter a atenção mesmo com o áudio desativado.\", \"execucao_criativa\": \"Adicione legendas automáticas em destaque na parte central do vídeo.\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Gera um ganho de 11,2 pts no klike_score, embora exija esforço alto de gravação.\", \"execucao_criativa\": \"Inclua uma pessoa real apresentando a interface do [produto] e explicando a funcionalidade.\"}, {\"key\": \"duration\", \"evidencia\": \"hipotese\", \"comentario\": \"Como possui evidência do tipo hipotese, deve ser tratada como teste e traz um ganho menor de 0,3 pts no klike_score.\", \"execucao_criativa\": \"Edite o vídeo para testar uma versão com duração de 11 a 15 segundos mantendo o ritmo acelerado.\"}], \"alertas\": [\"O klike_score real de 45,5 está abaixo da mediana da plataforma de 60,5 e 5,3 pts abaixo do previsto.\", \"O CTR atual está em 0,0472, abaixo da mediana da plataforma de 0,0646.\"], \"resumo_para_o_anunciante\": \"A campanha atual apresenta um score real abaixo da mediana da plataforma e precisa de ajustes urgentes na abertura do vídeo. A adoção de um hook forte nos primeiros segundos e o aumento da densidade de texto trarão o principal impacto no klike_score. Testes futuros com duração menor e rostos humanos complementarão a estratégia.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0284"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "atributo": "has_hook",
+        "plataforma": "Meta"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "atributo": "has_subtitle",
+        "plataforma": "Meta",
+        "metrica": "conversion_rate"
+      }
+    }
+  ],
+  "tokens": 10390,
+  "latencia_s": 20.2
+}

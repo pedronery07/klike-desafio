@@ -1,0 +1,173 @@
+{
+  "campaign_id": "KLK-0096",
+  "modelo": "gemini-3.5-flash-lite",
+  "prompt_version": "v4",
+  "engine": {
+    "campaign_id": "KLK-0096",
+    "platform": "Meta",
+    "category": "SaaS",
+    "objective": "conversions",
+    "score_predicted": 62.1,
+    "score_actual": 75.3,
+    "real_menos_previsto": 13.2,
+    "recomendacoes": [
+      {
+        "key": "text",
+        "titulo": "Aumentar um pouco o texto na tela (densidade média)",
+        "score_gain": 7.4,
+        "score_after": 69.5,
+        "effort": "baixo",
+        "priority": 7.38,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0435,
+          "ci_low": -0.2031,
+          "ci_high": 0.2973,
+          "n_treat": 105,
+          "n_ctrl": 104
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "subtitle",
+        "titulo": "Adicionar legendas",
+        "score_gain": 4.6,
+        "score_after": 66.7,
+        "effort": "baixo",
+        "priority": 4.63,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.1345,
+          "ci_low": -0.0883,
+          "ci_high": 0.4747,
+          "n_treat": 128,
+          "n_ctrl": 92
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "face",
+        "titulo": "Mostrar um rosto humano",
+        "score_gain": 11.2,
+        "score_after": 73.3,
+        "effort": "alto",
+        "priority": 3.72,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": 0.0576,
+          "ci_low": -0.1594,
+          "ci_high": 0.3897,
+          "n_treat": 123,
+          "n_ctrl": 118
+        },
+        "evidencia": "nao_clara"
+      },
+      {
+        "key": "format_quadrado",
+        "titulo": "Exportar em formato quadrado",
+        "score_gain": 4.9,
+        "score_after": 67.0,
+        "effort": "médio",
+        "priority": 2.44,
+        "evidence": {
+          "metric": "ctr",
+          "context": "no Meta",
+          "lift": -0.003,
+          "ci_low": -0.2868,
+          "ci_high": 0.2631,
+          "n_treat": 68,
+          "n_ctrl": 67
+        },
+        "evidencia": "nao_clara"
+      }
+    ],
+    "plano_combinado": {
+      "actions": [
+        "text",
+        "subtitle",
+        "face",
+        "format_quadrado"
+      ],
+      "score_before": 62.1,
+      "score_after": 90.2,
+      "score_gain": 28.1
+    }
+  },
+  "revisao": {
+    "ordem_sugerida": [
+      "text",
+      "subtitle",
+      "face",
+      "format_quadrado"
+    ],
+    "mantem_ordem_da_engine": true,
+    "justificativa_ordem": "A ordem da engine foi mantida porque prioriza o menor esforço e maiores ganhos em pontos de score para uma campanha de SaaS no Meta.",
+    "acoes": [
+      {
+        "key": "text",
+        "evidencia": "nao_clara",
+        "comentario": "Como esta campanha de SaaS possui densidade de texto baixa, ajustar a densidade traz um ganho de 7,4 pts, embora o lift na conversão não seja claro.",
+        "execucao_criativa": "Insira uma frase curta na tela destacando a principal dor do [produto] e o [benefício] principal."
+      },
+      {
+        "key": "subtitle",
+        "evidencia": "nao_clara",
+        "comentario": "Adicionar legendas adiciona 4,6 pts ao score, ajudando a reter a atenção mesmo com o áudio desligado no Meta.",
+        "execucao_criativa": "Legende a fala principal de forma dinâmica, destacando palavras-chave sobre o [benefício] do [produto]."
+      },
+      {
+        "key": "face",
+        "evidencia": "nao_clara",
+        "comentario": "Mostrar um rosto humano traz o maior ganho de 11,2 pts no score, apesar do esforço alto e da diferença não clara na conversão.",
+        "execucao_criativa": "Grave um especialista ou usuário real explicando como o [produto] resolve o problema do público."
+      },
+      {
+        "key": "format_quadrado",
+        "evidencia": "nao_clara",
+        "comentario": "Exportar em formato quadrado garante 4,9 pts no score e adapta melhor o criativo aos posicionamentos do Meta.",
+        "execucao_criativa": "Reenquadre o vídeo original para a proporção de um a um, mantendo o [produto] e o texto centralizados."
+      }
+    ],
+    "alertas": [
+      "O klike_score real de 75,3 está acima da mediana da plataforma que é de 60,5 pts.",
+      "A taxa de conversão real de 0,0247 está abaixo da mediana da plataforma de 0,0293."
+    ],
+    "resumo_para_o_anunciante": "O criativo atual já apresenta um klike_score real de 75,3 pts, superando a mediana da plataforma de 60,5 pts. No entanto, a taxa de conversão de 0,0247 está ligeiramente abaixo da mediana de 0,0293, o que justifica testar os ajustes sugeridos para otimizar os resultados."
+  },
+  "aprovado": true,
+  "tentativas": [
+    {
+      "violacoes": [],
+      "texto_bruto": "{\"ordem_sugerida\": [\"text\", \"subtitle\", \"face\", \"format_quadrado\"], \"mantem_ordem_da_engine\": true, \"justificativa_ordem\": \"A ordem da engine foi mantida porque prioriza o menor esforço e maiores ganhos em pontos de score para uma campanha de SaaS no Meta.\", \"acoes\": [{\"key\": \"text\", \"evidencia\": \"nao_clara\", \"comentario\": \"Como esta campanha de SaaS possui densidade de texto baixa, ajustar a densidade traz um ganho de 7,4 pts, embora o lift na conversão não seja claro.\", \"execucao_criativa\": \"Insira uma frase curta na tela destacando a principal dor do [produto] e o [benefício] principal.\"}, {\"key\": \"subtitle\", \"evidencia\": \"nao_clara\", \"comentario\": \"Adicionar legendas adiciona 4,6 pts ao score, ajudando a reter a atenção mesmo com o áudio desligado no Meta.\", \"execucao_criativa\": \"Legende a fala principal de forma dinâmica, destacando palavras-chave sobre o [benefício] do [produto].\"}, {\"key\": \"face\", \"evidencia\": \"nao_clara\", \"comentario\": \"Mostrar um rosto humano traz o maior ganho de 11,2 pts no score, apesar do esforço alto e da diferença não clara na conversão.\", \"execucao_criativa\": \"Grave um especialista ou usuário real explicando como o [produto] resolve o problema do público.\"}, {\"key\": \"format_quadrado\", \"evidencia\": \"nao_clara\", \"comentario\": \"Exportar em formato quadrado garante 4,9 pts no score e adapta melhor o criativo aos posicionamentos do Meta.\", \"execucao_criativa\": \"Reenquadre o vídeo original para a proporção de um a um, mantendo o [produto] e o texto centralizados.\"}], \"alertas\": [\"O klike_score real de 75,3 está acima da mediana da plataforma que é de 60,5 pts.\", \"A taxa de conversão real de 0,0247 está abaixo da mediana da plataforma de 0,0293.\"], \"resumo_para_o_anunciante\": \"O criativo atual já apresenta um klike_score real de 75,3 pts, superando a mediana da plataforma de 60,5 pts. No entanto, a taxa de conversão de 0,0247 está ligeiramente abaixo da mediana de 0,0293, o que justifica testar os ajustes sugeridos para otimizar os resultados.\"}"
+    }
+  ],
+  "ferramentas_chamadas": [
+    {
+      "ferramenta": "perfil_campanha",
+      "args": {
+        "campaign_id": "KLK-0096"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "plataforma": "Meta",
+        "metrica": "conversion_rate",
+        "atributo": "has_subtitle"
+      }
+    },
+    {
+      "ferramenta": "lift_metrica",
+      "args": {
+        "metrica": "conversion_rate",
+        "atributo": "has_face",
+        "plataforma": "Meta"
+      }
+    }
+  ],
+  "tokens": 6201,
+  "latencia_s": 44.9
+}
