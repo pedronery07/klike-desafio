@@ -1,8 +1,6 @@
 # Klike Data Science Challenge
 
-Análise de 500 campanhas de vídeo (Meta, TikTok, LinkedIn), um modelo que prevê o `klike_score` antes do lançamento e uma engine que recomenda o que mudar no criativo.
-
-> 🚧 Em revisão final.
+Análise de 500 campanhas de vídeo (Meta, TikTok, LinkedIn), um modelo que prevê o `klike_score` antes do lançamento e uma engine que recomenda o que mudar no criativo. Por cima da engine, duas camadas opcionais: um simulador interativo (Streamlit) e um agente revisor (LLM) com guardrails.
 
 ## Resumo de descobertas
 
@@ -11,6 +9,7 @@ Análise de 500 campanhas de vídeo (Meta, TikTok, LinkedIn), um modelo que prev
 - **O score parece um checklist de boas práticas + performance + ruído.** Uma regressão linear explica 71% dele só com atributos do criativo e contexto, e venceu o gradient boosting. Por ser linear, cada coeficiente é "quantos pontos o atributo vale".
 - **Cuidado com conclusões brutas:** campanhas com hook têm ROAS 21% menor, mas a diferença some (−2%) ao controlar pela plataforma. Por isso a engine compara campanhas dentro da mesma plataforma.
 - **A engine** devolve ações quantificadas (pontos de score + efeito em CTR/engajamento com intervalo de confiança), priorizadas por ganho ÷ esforço, e um plano combinado.
+- **Um agente LLM revisando a engine** foi aprovado nos guardrails em 17 de 18 campanhas, concordou com ela sempre que a evidência era forte e apontou um ponto fraco dela, que pode virar regra sem LLM (notebook 04).
 
 ![Pontos por atributo](reports/figures/modelagem/04_pontos_por_atributo.png)
 
@@ -41,15 +40,19 @@ pip install -e .                                  # instala o pacote local `klik
 python cli.py --campaign-id KLK-0127              # recomendações (--top N, --json)
 pytest                                            # testes da engine
 
+streamlit run app.py                              # simulador de criativos (engine + agente)
+
 python -m ipykernel install --user --name klike --display-name "Python (klike)"
 jupyter lab notebooks/                            # use o kernel "Python (klike)"
 ```
 
 Os notebooks estão salvos com os resultados: dá para lê-los no GitHub sem executar nada.
 
+**Agente (opcional).** Tudo acima funciona sem chave de API: as revisões do confronto estão salvas em `reports/agent/cache/` e aparecem na UI e no notebook 04. Para revisões ao vivo, copie `.env.example` para `.env` e preencha `LLM_API_KEY` (Gemini, camada gratuita); `python scripts/run_agent_comparison.py` refaz o confronto.
+
 ## Como pensei
 
-Cada decisão está em [`docs/decisions.md`](docs/decisions.md) no formato "o que vi → o que decidi → por quê → o que descartei" (D1–D18). Os conceitos estatísticos estão explicados em [`docs/conceitos.md`](docs/conceitos.md).
+Cada decisão está em [`docs/decisions.md`](docs/decisions.md) no formato "o que vi → o que decidi → por quê → o que descartei" (D1–D22). Os conceitos estatísticos estão explicados em [`docs/conceitos.md`](docs/conceitos.md).
 
 **Limpeza** · `src/klike/data.py`
 - 10 campanhas tinham impressões, spend ou CPC incoerentes com as outras colunas. Corrigi o campo que contradizia os demais, confirmando com o ROAS quando possível, e marquei na coluna `data_issue`. Nenhuma linha foi descartada (D1–D2).
@@ -70,12 +73,23 @@ Cada decisão está em [`docs/decisions.md`](docs/decisions.md) no formato "o qu
 - Prioriza por ganho ÷ esforço: um CTA (esforço baixo) vem antes de regravar com uma pessoa (alto), mesmo valendo menos pontos (D17).
 - Não recomenda o que a campanha já tem nem horizontal no TikTok; duração aparece como teste A/B; um criativo que já cumpre as boas práticas recebe menos recomendações, com aviso, em vez de sugestões inventadas (D18).
 
+**Extra · Agente revisor e simulador** · `src/klike/agent.py`, `app.py`, [`notebooks/04_agent_comparison.ipynb`](notebooks/04_agent_comparison.ipynb)
+- A engine continua sendo o núcleo. O LLM entra como **revisor com papel limitado**: lê a saída da engine, consulta os dados com 3 ferramentas só de leitura e pode reordenar, comentar, sugerir a execução criativa ("qual hook gravar") e dar alertas. Não pode criar nem remover ações, mudar a evidência ou calcular números (D19).
+- **Os guardrails são código, não prompt:** schema, ações idênticas às da engine, evidência copiada, hipóteses no fim e todo número rastreável até a engine ou uma ferramenta. Se falhar, ele tem uma chance de corrigir; senão, a revisão é descartada (D20).
+- **Medi em vez de supor.** No confronto com 18 campanhas, a 1ª versão teve 5 rejeições, por falsos positivos meus e problemas de formato; com uma iteração, foi para 1 (D21). O agente concordou com a engine em 7 de 7 casos em que a 1ª ação tinha evidência forte e trocou em 6 de 10 em que não tinha. Também mostrou que, em awareness, a engine olha a métrica errada: o hook não muda o engajamento, mas aumenta a retenção em +34%.
+- O simulador recalcula score e recomendações a cada mudança, porque o modelo linear custa microssegundos; o agente aparece do cache ou ao vivo, com limite por sessão (D22).
+
+| Simulador: score, contribuição de cada atributo e recomendações da engine | Revisão do agente para a mesma campanha: põe primeiro a única ação com evidência forte |
+|:---:|:---:|
+| <img src="reports/figures/app/simulador_engine.png" alt="Simulador com as recomendações da engine para KLK-0127" width="460"> | <img src="reports/figures/app/simulador_agente.png" alt="Revisão do agente para KLK-0127" width="330"> |
+
 ## Limitações
 
 - **Associação, não causa.** São 500 campanhas observadas, não experimentos; cada recomendação deveria ser validada com um teste A/B.
 - **Erro de ~6,6 pts** no score previsto: ganhos de 1–2 pts estão dentro do ruído.
 - **Amostras pequenas em alguns cortes** (ex.: 11 campanhas verticais no LinkedIn); a engine mostra o n e evita conclusões nesses casos.
 - **O plano combinado soma os efeitos**; na prática deve haver retorno decrescente.
+- **O agente foi avaliado em 18 campanhas** e a qualidade da execução criativa não foi medida (exigiria avaliação humana ou A/B); a checagem de "promessa sem evidência" é uma heurística.
 
 ## Parte 4 · Visão de produto
 
@@ -129,10 +143,14 @@ flowchart LR
 ```
 data/                  dataset original
 docs/                  decisions.md (log de decisões) · conceitos.md (glossário estatístico)
-notebooks/             01 EDA · 02 modelagem · 03 demo da engine
+notebooks/             01 EDA · 02 modelagem · 03 demo da engine · 04 confronto engine × agente
 src/klike/             data.py (limpeza) · analysis.py (lift + IC) · features.py · model.py · recommender.py
+                       agent.py (agente + guardrails) · agent_tools.py · agent_eval.py (métricas do confronto)
 cli.py                 interface de linha de comando da engine
+app.py                 simulador de criativos (Streamlit)
+scripts/               run_agent_comparison.py (gera as revisões do confronto; precisa de chave)
 reports/figures/       figuras da EDA (eda/) e da modelagem (modelagem/)
+reports/agent/cache/   revisões salvas do agente (leitura sem chave de API)
 tests/                 testes da engine
 models/                modelo treinado (gerado na primeira execução, fora do git)
 ```

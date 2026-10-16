@@ -96,3 +96,25 @@ Alimenta a seção "Processo de pensamento" do README.
 - Duração é sempre "hipótese a testar" e vai para o fim da lista (D10).
 - Um criativo que já cumpre as boas práticas recebe menos de 3 recomendações, com aviso explícito, em vez de sugestões inventadas para completar a cota.
 - O plano combinado soma os efeitos (modelo linear); na prática pode haver retorno decrescente, o que a base não permite estimar.
+
+## Agente revisor e simulador (`src/klike/agent.py`, `app.py`, `notebooks/04_agent_comparison.ipynb`)
+
+### D19. O LLM revisa a engine, não a substitui
+- **Decidi:** o agente recebe a saída da engine e pode consultar 3 ferramentas só de leitura (perfil da campanha contra a mediana da plataforma, pontos por atributo, lift em qualquer métrica). Ele pode reordenar, comentar, sugerir a execução criativa e dar alertas. Não pode criar nem remover ações, mudar a classificação da evidência ou calcular.
+- **Por quê:** a engine tem o que um LLM não garante (números corretos, determinismo, auditoria); o LLM tem o que a engine não tem (julgamento contextual e linguagem criativa). Duas fontes de verdade competindo deixariam o resultado confuso.
+- **Descartei:** um agente que analisa os dados livremente e um "veredito por ação" (recomendo / não recomendo). Mais liberdade aumentaria o risco de alucinação sem um ganho claro.
+
+### D20. Guardrails em código, com uma chance de correção
+- **Decidi:** validar a resposta em código (schema, mesmas ações, evidência copiada, hipóteses no fim, números rastreáveis até a engine ou as ferramentas, sem % nem R$ na execução criativa, heurística contra promessa de efeito sem evidência forte). Se falhar, o agente recebe as violações e tenta mais uma vez; se falhar de novo, a revisão é descartada e vale só a engine.
+- **Por quê:** "não invente números" no prompt é um pedido; no código é uma verificação, que pode ser medida (taxa de rejeição).
+- **Limite:** a checagem de promessas é por regex e não pega frases indiretas.
+
+### D21. Uma iteração no confronto, e parar
+- **Vi:** na v4, 5 de 18 revisões foram rejeitadas: falsos positivos da minha regra ("1:1", "11 a 15 segundos" na execução) e problemas de formato (resposta vazia, JSON cortado, campo com nome errado).
+- **Decidi:** separar investigação (com ferramentas) de resposta (sem ferramentas, com o schema imposto pela API) e trocar a regra da execução por "sem % ou R$, números rastreáveis". A v5 teve 1 rejeição, outro falso positivo ("16:9"), corrigido no código sem rodar de novo.
+- **Por quê:** continuar ajustando regras em cima das mesmas 18 campanhas seria sobreajuste; uma rodada nova deveria usar outra amostra.
+
+### D22. Simulador em Streamlit; agente do cache por padrão
+- **Decidi:** uma página que recalcula score, decomposição e recomendações a cada mudança, a partir de uma campanha da base ou de um criativo em branco. O agente aparece do cache quando a revisão existe; ao vivo, só com chave e no máximo 5 chamadas por sessão.
+- **Por quê:** o avaliador pode testar "e se…" sem instalar nada além do requirements e sem chave; a cota gratuita da API não suportaria uso aberto.
+- **Descartei:** reproduzir na UI os gráficos da EDA e da modelagem (já estão nos notebooks).
