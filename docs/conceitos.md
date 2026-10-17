@@ -1,6 +1,6 @@
 # Conceitos estatísticos usados na análise
 
-Glossário de apoio ao notebook de EDA e ao `docs/decisions.md`. Cada conceito tem: **o que é**, **onde aparece no projeto** e um **resumo** em linguagem simples.
+Glossário para consulta própria, escrito enquanto eu estudava os métodos; não é necessário para avaliar o projeto e pode ser ignorado. Cada conceito tem: **o que é**, **onde aparece no projeto** e um **resumo** em linguagem simples.
 
 ---
 
@@ -162,9 +162,7 @@ Quanto mais se quebram os dados (plataforma × categoria × idade), menor fica c
 
 # Próximas partes (modelagem)
 
-## 12. Treino, teste e validação cruzada
-
-**O problema.** Avaliar o modelo nos mesmos dados em que ele treinou mede memorização, não aprendizado.
+## 12. Validação cruzada
 
 **Validação cruzada (k-fold).** Divide os dados em k partes (ex.: 5). Treina em 4, testa na 5ª e roda 5 vezes, para que cada parte seja teste uma vez. A média dos 5 resultados estima o desempenho em dados novos, e o desvio entre as rodadas mostra a estabilidade.
 
@@ -188,10 +186,9 @@ Usar no modelo uma informação que **não estaria disponível** no momento da p
 
 Um conjunto de muitas árvores de decisão pequenas, em que cada nova árvore corrige os erros das anteriores. Captura interações (ex.: "rosto ajuda mais no TikTok") e relações não lineares sem precisar especificá-las. O `HistGradientBoostingRegressor` do scikit-learn aceita NaN nativamente.
 
-## 16. Importância de features e SHAP
+## 16. Importância de features
 
 - **Permutation importance:** embaralha uma coluna e mede o quanto o erro do modelo piora. Quanto mais piora, mais importante a coluna.
-- **SHAP:** decompõe cada previsão em contribuições por feature. Ex.: "este vídeo tem score previsto de 72 = 60 (média) + 9 (hook) + 5 (rosto) − 2 (texto high)…". Serve para explicar previsões individuais, o que é útil para justificar as recomendações.
 
 **Cuidado.** Importância mede o quanto o **modelo usa** a feature, não causalidade.
 

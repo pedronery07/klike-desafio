@@ -10,7 +10,7 @@ Para uma campanha (uma linha do dataset ou um dict com os mesmos campos), a engi
 4. prioriza por impacto ÷ esforço e monta um plano combinado com as melhores ações.
 
 Os efeitos são associações observadas em 500 campanhas, não causalidade: são boas
-apostas para testar, não garantias (ver README, limitações).
+apostas para testar, não garantias (ver notebook 03, limitações).
 """
 from __future__ import annotations
 
@@ -35,7 +35,7 @@ OBJECTIVE_METRIC = {
 
 EFFORT_LABEL = {1: "baixo", 2: "médio", 3: "alto"}
 
-# Faixas de duração com melhor CTR na EDA. São hipóteses (D10): viram "teste sugerido".
+# Faixas de duração com melhor CTR na EDA. São hipóteses (D5): viram "teste sugerido".
 DURATION_WINDOWS = {"Meta": (11, 15), "TikTok": (16, 30)}
 
 # Proporção música/voz acima da qual sugerimos mais voz (o modelo penaliza música dominante).

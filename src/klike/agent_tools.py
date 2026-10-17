@@ -92,7 +92,7 @@ def lift_metrica(atributo: str, plataforma: str, metrica: str) -> dict:
     _, df = _reference()
     d = df if plataforma == "todas" else df[df["platform"] == plataforma]
     if metrica == "roas":
-        d = d[d["has_revenue_objective"]]   # ROAS só faz sentido em objetivos com receita (D5)
+        d = d[d["has_revenue_objective"]]   # ROAS só faz sentido em objetivos com receita (D2)
     col = d[atributo]
     st = median_lift(d, col.eq(True).fillna(False), col.eq(False).fillna(False), metrica)
     out = {"atributo": atributo, "plataforma": plataforma, "metrica": metrica,
