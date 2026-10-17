@@ -89,9 +89,6 @@ O dataset reduz o criativo a sim/não ("tem hook?", "tem rosto?"). O ganho mais 
 | `has_face` | % do tempo com rosto, tamanho na tela, olhar para a câmera, expressão | detector facial por frame |
 | `text_density` | % da área com texto, contraste e legibilidade, texto fora das zonas seguras de cada plataforma | OCR |
 | `has_cta` | momento em que o CTA aparece (só no fim? falado e escrito?) | OCR + transcrição |
-| `music_voice_ratio` | separação real música × voz, volume, silêncio no início | separação de fontes de áudio |
-| — | ritmo (cortes por segundo), aparição da marca/logo, cor e brilho, velocidade da fala, palavras-chave | ASR, detecção de logo |
-| — | embedding do vídeo inteiro, para buscar "criativos parecidos que funcionaram" | modelo multimodal (ex.: CLIP por frame) |
 
 ### Como colocar em produção
 
